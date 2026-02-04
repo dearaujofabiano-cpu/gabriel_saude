@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cancelamento</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-8087-8e72-cf9884e101ee" class="page sans"><header><h1 class="page-title" dir="auto">Cancelamento</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c606824-621d-8007-8fab-d46802620883" class="">O <strong>cancelamento</strong> é o ato de <strong>encerrar o contrato do plano de saúde</strong>, seja por iniciativa do cliente, da operadora ou da empresa (no caso de planos coletivos). É um tema crítico, pois envolve <strong>direitos, prazos, consequências financeiras e cobertura de atendimento</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8082-a2b9-d4889531523b" class="">Explicar de forma clara evita conflitos, reclamações e garante segurança para o cliente e para o corretor.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8031-8555-e3cc7cf0d793"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f9-a897-daeab375a426" class="">✅ <strong>1. Tipos de Cancelamento</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8092-8bf1-fb2162a07e29" class="">Existem diferentes tipos de cancelamento:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-802c-92bc-f3900aefd28c" class=""><strong>1.1 Cancelamento pelo beneficiário (cliente)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803a-bdad-f2c9a35c9596" class="bulleted-list"><li style="list-style-type:disc">O cliente pode solicitar o cancelamento a qualquer momento, desde que respeite regras do contrato.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807e-aeed-ebdff36de248" class="bulleted-list"><li style="list-style-type:disc">Em planos <strong>coletivos por adesão ou empresariais</strong>, pode haver exigência de <strong>aviso prévio</strong> de 30 dias.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ed-be52-fbcca89ae1a4" class="bulleted-list"><li style="list-style-type:disc">Em planos <strong>individuais</strong>, o cancelamento é imediato após solicitação, desde que não haja dívidas pendentes.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-801f-8245-de9b9a11990b" class=""><strong>1.2 Cancelamento pela operadora</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8069-928c-d9ca8a465709" class="">A operadora pode encerrar o contrato em situações previstas na lei ou no contrato, tais como:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802b-9f73-f4fbd3a7e221" class="bulleted-list"><li style="list-style-type:disc">inadimplência superior a 60 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8023-8719-e5f9e2e229b8" class="bulleted-list"><li style="list-style-type:disc">fraude ou uso irregular do plano</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804a-a1f9-fc47f3b42b3c" class="bulleted-list"><li style="list-style-type:disc">fornecimento de informações falsas ou omissões graves</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d2-88eb-ce110b25565d" class="bulleted-list"><li style="list-style-type:disc">extinção do produto pela operadora</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80d5-a44a-c789851cba51" class="">Importante: a operadora não pode cancelar sem aviso prévio (exceto fraude grave).<div style="display:contents" dir="auto"><p id="2c606824-621d-8009-8917-e005d42cfabc" class="">O cliente deve ser notificado com antecedência mínima de 30 dias.</p></div></blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8024-a440-e296a46ef3f4" class=""><strong>1.3 Cancelamento coletivo</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f5-8184-edcf45f3aa9b" class="">Ocorre quando:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802e-9acc-f17f4f6f5702" class="bulleted-list"><li style="list-style-type:disc">a empresa encerra o plano empresarial</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802b-a014-e78deb8872c7" class="bulleted-list"><li style="list-style-type:disc">o grupo do plano coletivo é extinto</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8022-889e-f6d537f79370" class="bulleted-list"><li style="list-style-type:disc">a administradora encerra o convênio por decisão legal</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805b-a3ec-cad81f30e1c7" class="">Nesse caso, todos os beneficiários do grupo perdem a cobertura e a operadora deve oferecer alternativas de portabilidade ou reaproveitamento de carência.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8037-8f4e-fc4555d2e1df"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8031-95b0-f049bb5df60c" class="">✅ <strong>2. Documentos e procedimentos para cancelar</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80aa-8cd0-eef78bc2f28b" class="">Para o cliente solicitar o cancelamento, geralmente é necessário:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8087-90bc-c3a0bbede7d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Carta ou e-mail formal</strong> de solicitação</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808d-b1c5-c9d058567749" class="bulleted-list"><li style="list-style-type:disc"><strong>Carteirinha do plano</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ef-82da-e89b34ebdf70" class="bulleted-list"><li style="list-style-type:disc"><strong>Documentos pessoais</strong> (CPF, RG)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fa-afaa-f6a72f099014" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprovante de pagamento de mensalidade</strong> (para encerrar pendências)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8044-8f70-cd28a86ee837" class="bulleted-list"><li style="list-style-type:disc"><strong>Protocolo ou registro oficial</strong> do pedido (importante para evitar cobrança futura)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805a-81bb-c8babd7b547c" class="">O cancelamento deve ser <strong>registrado no sistema da operadora</strong>, e a <strong>data oficial de cancelamento</strong> deve ser comunicada ao cliente.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8032-9ffb-dcc4b0eeba6a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80d1-b364-d5a731d678f9" class="">✅ <strong>3. Consequências do Cancelamento</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8007-a763-f111ddab6783" class=""><strong>3.1 Perda de cobertura</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bd-8cf6-e007f0258da8" class="bulleted-list"><li style="list-style-type:disc">O cliente <strong>perde imediatamente o direito a consultas, exames e internações</strong> a partir da data de cancelamento.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806d-b579-cb4f927020d5" class="bulleted-list"><li style="list-style-type:disc">Se houver pendências de pagamento, o cancelamento <strong>pode ser processado como inadimplência</strong>, com restrições legais para regularização.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80c1-a23b-d07c67cb1ed1" class=""><strong>3.2 Impacto em Portabilidade</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804a-b56e-e55c1e44fa94" class="bulleted-list"><li style="list-style-type:disc">O cliente tem até <strong>60 dias após o cancelamento</strong> para usar a portabilidade, caso queira migrar para outro plano <strong>sem cumprir novas carências</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a6-8f1f-cf8557452035" class="bulleted-list"><li style="list-style-type:disc">Após esse prazo, <strong>perde-se o direito automático à portabilidade</strong>.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ba-8e45-f5ae1f2c5473" class=""><strong>3.3 Direitos financeiros</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ce-8f22-d73eed17b79c" class="bulleted-list"><li style="list-style-type:disc">Planos individuais: o cliente deve quitar todas as mensalidades até a data de cancelamento oficial</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c6-beb8-efc2d79bbe3f" class="bulleted-list"><li style="list-style-type:disc">Planos coletivos: a empresa ou o cliente (dependendo de quem paga) deve regularizar pagamentos até a rescisão</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e8-944e-e9c923167259"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-800f-b80d-fc93c4b86f48" class="">✅ <strong>4. Cancelamento e carência</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8034-b7cb-f35d7e4bc806" class="bulleted-list"><li style="list-style-type:disc">Se o plano foi cancelado <strong>antes do fim da carência</strong>, o cliente perde o benefício de ter iniciado a cobertura.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809b-b328-e2ca39732241" class="bulleted-list"><li style="list-style-type:disc">Para evitar prejuízo, o corretor deve <strong>avaliar sempre a melhor data de cancelamento</strong>, considerando carências cumpridas e aproveitamento de carência em novo plano.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-802b-9546-e6b316689e67"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8077-82c6-cc7c3cf39862" class="">✅ <strong>5. Cancelamento por inadimplência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8012-a314-e05b76235235" class="">Se o cliente <strong>não paga as mensalidades</strong>:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8087-be42-cb843309fe1c" class="bulleted-list"><li style="list-style-type:disc">Geralmente há um prazo de <strong>30 a 60 dias</strong> de tolerância antes do cancelamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b6-9c18-f33b84bb1aee" class="bulleted-list"><li style="list-style-type:disc">A operadora envia notificações</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8077-9937-f274efe9d13a" class="bulleted-list"><li style="list-style-type:disc">Após o prazo, o plano é <strong>suspenso e depois cancelado</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8096-a9c2-eab89d818806" class="bulleted-list"><li style="list-style-type:disc">A suspensão não libera atendimento: serviços podem ficar bloqueados</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c9-b422-ecb44f9182c9" class="bulleted-list"><li style="list-style-type:disc">Dívidas podem ser encaminhadas para cobrança judicial ou órgãos de proteção ao crédito</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8072-8ee4-c111891da2bf" class="">Dica: sempre orientar o cliente sobre evitar inadimplência, pois afeta direitos futuros e portabilidade.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80f3-b706-d53948a3e278"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8038-b4ad-f10495b7c619" class="">✅ <strong>6. Cancelamento coletivo</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ae-b072-ce9c52ee4959" class="">Situação comum em planos empresariais ou por adesão:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e7-a2e6-cbd87ac8d8f8" class="bulleted-list"><li style="list-style-type:disc">O <strong>grupo de beneficiários perde cobertura</strong> simultaneamente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ff-b5e5-eaf059afe0ff" class="bulleted-list"><li style="list-style-type:disc">A operadora deve <strong>informar todos com antecedência mínima de 30 dias</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806c-bf48-f7d228603a72" class="bulleted-list"><li style="list-style-type:disc">Deve oferecer <strong>alternativas de portabilidade ou migração</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803d-8c45-fb62cef91f8e" class="bulleted-list"><li style="list-style-type:disc">Pode haver regras contratuais específicas sobre <strong>reembolso proporcional</strong> (em caso de pagamento adiantado)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c6-a861-faf35fe9beff"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80e6-b12b-e5dd914af129" class="">✅ <strong>7. Cancelamento e reembolso</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ad-81b1-d177e64561e0" class="bulleted-list"><li style="list-style-type:disc">Se o cliente <strong>pagou mensalidade adiantada</strong>, a operadora deve <strong>devolver proporcionalmente os dias não usados</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800c-acdb-ceda63bca586" class="bulleted-list"><li style="list-style-type:disc">Para planos com carência não cumprida, normalmente <strong>não há reembolso de serviços não utilizados</strong>, pois o contrato ainda está vigente</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b9-968c-dbb1cb5b6e60"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a4-b44a-e69e99a5a56c" class="">✅ <strong>8. Como explicar o cancelamento para o cliente</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ab-a2bd-d9d813a8e7ee" class="">Explicação simples:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80f8-8b59-cf376ee4c791" class="">“Você pode cancelar o plano a qualquer momento, mas precisamos respeitar regras do contrato e regularizar pagamentos.<div style="display:contents" dir="auto"><p id="2c606824-621d-806d-a6dc-d6fbfb8b72a6" class="">Após o cancelamento, você perde a cobertura, mas ainda tem direito à portabilidade se solicitar em até 60 dias.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807d-a6cf-ea90e37d1629" class="">Em planos coletivos, caso a empresa encerre o contrato, a operadora deve avisar com antecedência e oferecer alternativas.”</p></div></blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8014-b641-cdfbf1659af3" class="">Explicação resumida:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-802c-8e03-cabfedc90e2a" class="">“Cancelamento = fim do contrato.<div style="display:contents" dir="auto"><p id="2c606824-621d-801b-97c6-c0bbde5e4040" class="">Perde cobertura, mas pode usar portabilidade por até 60 dias se quiser migrar sem cumprir carências novamente.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d4-a21b-d6238df3f855"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8092-881e-dd8b7771268e" class="">✅ <strong>9. Cenários práticos</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a0-89c8-f64fdc99b9f2" class=""><strong>Caso A — Cliente individual com plano pago até dia 15</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a5-b65c-c5ab3040f282" class="bulleted-list"><li style="list-style-type:disc">Solicita cancelamento no dia 10</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8001-ac1c-fc43e43281fe" class="bulleted-list"><li style="list-style-type:disc">Cobertura vai até o dia 15</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f0-91b9-c08004a05420" class="bulleted-list"><li style="list-style-type:disc">Se já pagou o próximo mês, pode receber reembolso proporcional</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80d5-bf2a-d667631933c6" class=""><strong>Caso B — PME 10 vidas</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8036-b80a-e37379140ca0" class="bulleted-list"><li style="list-style-type:disc">Empresa encerra contrato</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c5-a3a1-decf2eb96ae3" class="bulleted-list"><li style="list-style-type:disc">Todos os beneficiários perdem cobertura em 30 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ed-ba49-c5542f0f852f" class="bulleted-list"><li style="list-style-type:disc">Operadora oferece portabilidade para cada colaborador</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80e9-8f1f-c802a92a6c3c" class=""><strong>Caso C — Cliente inadimplente</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b5-aa15-ed926e9a5a81" class="bulleted-list"><li style="list-style-type:disc">Plano suspenso após 30 dias de atraso</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c9-9bb7-e525450e6dc3" class="bulleted-list"><li style="list-style-type:disc">Cancelamento oficial após 60 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8052-bae7-f1aa9c79b653" class="bulleted-list"><li style="list-style-type:disc">Sem portabilidade automática se não regularizar pagamento</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-803d-86d0-d3d29434470b" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8059-bb3b-d0aae4d40ab1" class=""><strong>MULTA POR CANCELAMENTO DE PLANOS DE SAÚDE</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8039-8163-c42f59615d73" class="">A multa por cancelamento não é automática para todos os planos. Ela existe <strong>apenas em situações específicas</strong> e segue regras de <strong>contrato, tipo de plano e legislação da ANS</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80eb-8b09-f2a019846a08"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-801b-bba8-da46631777a3" class="">✅ <strong>1. Planos Individuais/Familiares</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805f-80dd-e25b8377c999" class="bulleted-list"><li style="list-style-type:disc"><strong>Não há multa prevista por lei</strong> para cancelamento feito pelo cliente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c9-892a-e62698df4ea3" class="bulleted-list"><li style="list-style-type:disc">O cliente pode encerrar o contrato a qualquer momento, <strong>desde que regularize mensalidades em aberto</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e3-a12b-e32a68849a81" class="bulleted-list"><li style="list-style-type:disc">Se houver pagamento antecipado, a operadora <strong>deve reembolsar proporcionalmente</strong> os dias não utilizados.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809c-920c-ce18feb9c898" class="bulleted-list"><li style="list-style-type:disc">Multa só é aplicada <strong>se houver descumprimento de cláusulas contratuais específicas</strong>, o que é raro.</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807a-bfd7-f79e21178768" class=""><strong>Resumo:</strong> cancelamento sem multa, desde que não haja dívidas pendentes.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8007-9bbc-e2d1e349c5dd"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80e5-951b-d13b1462225f" class="">✅ <strong>2. Planos Coletivos Empresariais (PME)</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8070-b244-cf92648d7981" class="bulleted-list"><li style="list-style-type:disc">Planos com <strong>menos de 30 vidas</strong>: podem prever multa contratual para cancelamento antecipado da empresa, <strong>dependendo do contrato</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8044-bbf4-e1224cfff089" class="bulleted-list"><li style="list-style-type:disc">Planos com <strong>mais de 30 vidas</strong>: geralmente <strong>não há multa</strong>, pois a lei entende que o grupo tem maior negociação e estabilidade.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800e-9d84-f3144a297850" class="bulleted-list"><li style="list-style-type:disc">Multa, se existir, costuma ser: <strong>percentual sobre o valor das mensalidades restantes do contrato vigente</strong>, ou <strong>valor fixo definido em contrato</strong>.</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8014-9028-ec26d1a2c6a0" class="">Exemplo: contrato de 12 meses, empresa encerra no 6º mês → multa proporcional aos 6 meses restantes.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8088-b4bf-ce171c9a92e2"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8017-844c-dc1e196dbe6d" class="">✅ <strong>3. Planos Coletivos por Adesão</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fb-87c6-d920d3ce68d2" class="bulleted-list"><li style="list-style-type:disc">Normalmente <strong>não há multa para o beneficiário individual</strong> que cancela sua adesão, mas é necessário verificar o regulamento da administradora.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b7-8290-d38eccd9ba6e" class="bulleted-list"><li style="list-style-type:disc">Multa pode existir <strong>se houver adesão anual mínima obrigatória ou campanha promocional</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8071-90ba-c151d5e871f9" class="bulleted-list"><li style="list-style-type:disc">Em promoções (ex.: sem carência ou com desconto), <strong>muitas vezes há cláusula de permanência mínima</strong>; cancelar antes dessa data pode gerar multa proporcional.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8036-89b3-eec79660e811"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80c8-bba6-d6fc3d5d7f96" class="">✅ <strong>4. Multa x Regras de Carência e Aproveitamento</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8044-988a-e421bc0e1da5" class="bulleted-list"><li style="list-style-type:disc">A multa <strong>não substitui carências</strong>. Ou seja, se o cliente cancelar antes de completar carência e depois voltar, <strong>as carências normalmente serão reiniciadas</strong>, independentemente de multa.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a1-a052-d53c501bddb1" class="bulleted-list"><li style="list-style-type:disc">Aproveitamento de carência só funciona se o cliente não tiver cancelado e reentrado no plano em prazo longo.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8085-93cf-f027c0ed8824"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8045-8a27-e31265a3999d" class="">✅ <strong>5. Como explicar para o cliente</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8090-ae61-ca12681dc547" class=""><strong>Exemplo simples (plano individual/familiar)</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80ad-b5c1-c1d71b2a76c0" class="">“Você pode cancelar seu plano a qualquer momento sem pagar multa, desde que todas as mensalidades estejam quitadas. Se houver pagamento adiantado, a operadora devolve proporcionalmente os dias não usados.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8071-812d-df94b6e03df3" class=""><strong>Exemplo simples (plano empresarial ou adesão)</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80f7-9a57-de5484a94094" class="">“Em alguns planos coletivos, a empresa ou administradora pode cobrar multa proporcional caso o contrato seja encerrado antes do prazo definido. Isso é mais comum em contratos empresariais ou promoções com desconto. Sempre vamos verificar o contrato antes de solicitar o cancelamento.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-805d-8609-d674bc187d29"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8086-95dc-fe28c1aa50d0" class="">✅ <strong>6. Dicas importantes para corretores</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8002-80c1-f93dc2411e6b" class="numbered-list" start="1"><li><strong>Verificar sempre o contrato antes de informar sobre multa</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8012-b3b5-e8fc032e5df9" class="numbered-list" start="2"><li><strong>Orientar o cliente sobre quitação de mensalidades</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8053-a3cd-d08934cd5582" class="numbered-list" start="3"><li><strong>Informar sobre prazos de aviso prévio</strong> (30 dias é padrão)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8010-b234-c2b9e578c5d4" class="numbered-list" start="4"><li><strong>Avisar que reembolso proporcional pode ser aplicado</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8050-a7e2-f5a12e9d9ecb" class="numbered-list" start="5"><li><strong>Deixar registrado protocolo de cancelamento</strong> para evitar cobrança futura</li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

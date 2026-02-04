@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>MENTALIDADE E BASE DO CORRETOR DE PLANOS DE SAÚDE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cd06824-621d-803b-b95e-c3a48819a113" class="page sans"><header><h1 class="page-title" dir="auto">MENTALIDADE E BASE DO CORRETOR DE PLANOS DE SAÚDE</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-803f-b3bc-fde244f2c6ec" class=""><strong>1. O papel do corretor de saúde: CONSULTOR, NÃO EMPURRADOR</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808a-adc1-d2e1d0ad0670" class=""><strong>O que isso significa na prática</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-807c-98d6-ddcdfd141ea0" class="">O corretor de planos de saúde <strong>não vende um produto comum</strong>.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8055-887d-ed6605c2b1a5" class="">Ele atua como um <strong>consultor de proteção e acesso à saúde</strong>.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-805b-bc02-d7a07cb7a68a" class="">O cliente:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80af-85c0-dd3bf739ad3d" class="bulleted-list"><li style="list-style-type:disc">não domina regras técnicas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cb-9c67-f017cbebefa2" class="bulleted-list"><li style="list-style-type:disc">não entende carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8077-8e68-cc092c590ccb" class="bulleted-list"><li style="list-style-type:disc">não conhece redes</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b2-b0cb-e5d5dcd1f32b" class="bulleted-list"><li style="list-style-type:disc">não sabe avaliar riscos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f9-938c-d542c736663d" class="bulleted-list"><li style="list-style-type:disc">não sabe prever necessidades futuras</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8043-b182-c482c6d7759c" class="">👉 <strong>O corretor entra exatamente nesse espaço.</strong></p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e1-8a29-c8f1cd8d95a5" class="">Seu papel é:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8030-a8a7-c6dccb52b71e" class="bulleted-list"><li style="list-style-type:disc"><strong>traduzir</strong> o mercado para o cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d9-bf6f-f1ee336a26e9" class="bulleted-list"><li style="list-style-type:disc"><strong>avaliar riscos reais</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a6-a2e0-d13424b5e0f2" class="bulleted-list"><li style="list-style-type:disc"><strong>orientar a decisão</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80fd-a812-eb1d1947656c" class="bulleted-list"><li style="list-style-type:disc"><strong>proteger o cliente de escolhas erradas</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f8-bb8f-e985f1672bce" class="bulleted-list"><li style="list-style-type:disc"><strong>proteger a si mesmo com transparência</strong></li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808a-b52b-fed231853e45" class=""><strong>Diferença prática entre empurrador e consultor</strong></h3></div><div style="display:contents" dir="ltr"><table id="2cd06824-621d-80c8-8727-c3bbfab08872" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-8055-982b-c2d9e6937738"><th id="DBZ\" class="simple-table-header-color simple-table-header">Empurrador</th><th id=":LAf" class="simple-table-header-color simple-table-header">Consultor</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-8085-a572-df72e5c883e1"><td id="DBZ\" class="">Fala muito</td><td id=":LAf" class="">Escuta mais</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-80d8-8fa8-cc1029e07350"><td id="DBZ\" class="">Começa pelo preço</td><td id=":LAf" class="">Começa pelo diagnóstico</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-803d-8869-e5a77efde3d2"><td id="DBZ\" class="">Mostra um plano</td><td id=":LAf" class="">Mostra opções e consequências</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-80b0-85f2-ff3733bab9aa"><td id="DBZ\" class="">Esconde limitações</td><td id=":LAf" class="">Explica limites claramente</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-8014-82db-e2fa5ed7887c"><td id="DBZ\" class="">Foca no fechamento</td><td id=":LAf" class="">Foca na decisão correta</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-804e-9dec-f49c481f93df"><td id="DBZ\" class="">Some após a venda</td><td id=":LAf" class="">Acompanha o cliente</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8007-86ee-e944e465c677" class="">“Meu trabalho não é fechar agora. É garantir que essa decisão não vire um problema depois.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b0-9174-d05dd9b1e67b" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8069-9cf4-cff9f0bc6ae6" class=""><strong>2. Diferença entre venda comum e venda consultiva (no contexto da saúde)</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8090-94f7-d686a7cbe079" class=""><strong>Venda comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8035-878d-fe3b9e6d4090" class="">Funciona bem para:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f5-acea-c1f35dde1be8" class="bulleted-list"><li style="list-style-type:disc">produtos baratos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cd-8242-d200eaf480d4" class="bulleted-list"><li style="list-style-type:disc">compras por impulso</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b5-96bc-d9bbe29e4c8c" class="bulleted-list"><li style="list-style-type:disc">itens substituíveis</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80fd-a8e5-ef90f62ed204" class="">Características:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8035-bd9f-cd6b1078fa26" class="bulleted-list"><li style="list-style-type:disc">preço é o principal fator</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f5-a3fc-eea627bc32cf" class="bulleted-list"><li style="list-style-type:disc">decisão rápida</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8089-9a4c-e0d61ee6d829" class="bulleted-list"><li style="list-style-type:disc">baixo envolvimento emocional</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8024-87fa-d8a88f14fa29" class="bulleted-list"><li style="list-style-type:disc">erro é facilmente corrigido</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80c7-9437-e78cf4e1fbf8" class=""><strong>Venda consultiva (plano de saúde)</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-802c-9f6b-c3b1b8aa41db" class="">Plano de saúde envolve:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ea-ac55-d50a72f9017c" class="bulleted-list"><li style="list-style-type:disc">saúde</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8005-8a97-f709e573e40a" class="bulleted-list"><li style="list-style-type:disc">família</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c1-a9f4-d78090205295" class="bulleted-list"><li style="list-style-type:disc">risco financeiro</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b0-b31c-e392bf71d337" class="bulleted-list"><li style="list-style-type:disc">longo prazo</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803d-945f-ce3c38516646" class="bulleted-list"><li style="list-style-type:disc">regras legais</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80cb-bbe0-f11c883d111d" class="">Características:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c8-a4e9-e3f83eb02103" class="bulleted-list"><li style="list-style-type:disc">decisão <strong>emocional + racional</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a8-9669-fa661a358dd9" class="bulleted-list"><li style="list-style-type:disc">envolve medo, proteção e segurança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80dc-a7a6-edf745f793ea" class="bulleted-list"><li style="list-style-type:disc">erro custa caro</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806e-9ff6-f86bc560c69b" class="bulleted-list"><li style="list-style-type:disc">troca não é simples</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80b8-b119-fa8abdd0f37d" class=""><strong>Na venda consultiva, você NÃO faz isso:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809f-999d-c329c14d72eb" class="bulleted-list"><li style="list-style-type:disc">não acelera sem diagnóstico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80fc-b316-fefbf616c7c9" class="bulleted-list"><li style="list-style-type:disc">não promete cobertura inexistente</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8027-851e-e3ac15838a8b" class="bulleted-list"><li style="list-style-type:disc">não esconde carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ed-85e5-e5bdc0cd1288" class="bulleted-list"><li style="list-style-type:disc">não empurra plano mais caro sem necessidade</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80cd-9742-f13f2dbeb6c3" class=""><strong>Na venda consultiva, você FAZ isso:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8078-bf7d-e92d941e6049" class="bulleted-list"><li style="list-style-type:disc">faz perguntas antes de apresentar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8028-8674-c886aed46cb9" class="bulleted-list"><li style="list-style-type:disc">explica impactos futuros</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8045-a454-f9050172a895" class="bulleted-list"><li style="list-style-type:disc">adapta o plano à vida do cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8095-9dc8-d0320d92c0bb" class="bulleted-list"><li style="list-style-type:disc">valida se o cliente entendeu</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8097-a053-e0344c8424fa" class="bulleted-list"><li style="list-style-type:disc">documenta o que foi explicado</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80cc-b30f-f9032289083d" class="">“Se o cliente não entender, a venda não está pronta.”</blockquote></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80e0-8cd9-e5ab3c95a8a3" class=""><strong>3. Por que plano de saúde NÃO se vende “no impulso”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80c3-9c67-da65ea0693de" class=""><strong>Porque o impulso gera arrependimento</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e5-9a9d-c6b0bf26748c" class="">Diferente de uma compra simples, o plano:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ad-b8e1-e51b1eb66529" class="bulleted-list"><li style="list-style-type:disc">tem contrato</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f2-9d05-c396c40adfcc" class="bulleted-list"><li style="list-style-type:disc">tem regras</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-802f-95b4-fc6f173e5c99" class="bulleted-list"><li style="list-style-type:disc">tem prazos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8045-af17-deafe1fdbf75" class="bulleted-list"><li style="list-style-type:disc">tem carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f5-bdf8-d3503d22e786" class="bulleted-list"><li style="list-style-type:disc">tem reajustes</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80af-9761-c2f1410d7ed6" class="">Cliente que compra no impulso:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8027-92c5-f5e9c61867b4" class="bulleted-list"><li style="list-style-type:disc">ignora detalhes</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8005-ab7a-c1251e5d5971" class="bulleted-list"><li style="list-style-type:disc">não entende carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8031-81ce-c22d6742be2c" class="bulleted-list"><li style="list-style-type:disc">reclama depois</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8022-b11d-fefb8e1afa20" class="bulleted-list"><li style="list-style-type:disc">cancela</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8001-ae67-c6c47d8664a5" class="bulleted-list"><li style="list-style-type:disc">fala mal do corretor</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80b4-92a2-f56b1eaed1bd" class=""><strong>O que acontece quando o corretor força impulso</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b7-8d29-f2aef028ad16" class="bulleted-list"><li style="list-style-type:disc">alta taxa de cancelamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809d-add9-e5f95620a2b9" class="bulleted-list"><li style="list-style-type:disc">conflitos futuros</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bf-ad28-f162d30efe25" class="bulleted-list"><li style="list-style-type:disc">reclamações</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a1-b8ee-e082a1451078" class="bulleted-list"><li style="list-style-type:disc">perda de indicações</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a6-8caf-ebd8a8333a59" class="bulleted-list"><li style="list-style-type:disc">desgaste emocional</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80d5-a3b9-fce67c518acd" class=""><strong>Venda correta respeita o tempo do cliente</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-809a-b09a-cad12480773a" class="">Isso não significa:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809b-a1fe-dac80eb13328" class="bulleted-list"><li style="list-style-type:disc">enrolar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8063-ab2c-debf765f66e6" class="bulleted-list"><li style="list-style-type:disc">perder controle</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8059-ac37-c490b6452536" class="bulleted-list"><li style="list-style-type:disc">deixar o cliente confuso</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-808a-af84-e2e26d4a68b8" class="">Significa:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808a-9a77-f809edb4c962" class="bulleted-list"><li style="list-style-type:disc">conduzir</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8088-a5d4-c93b6c19be05" class="bulleted-list"><li style="list-style-type:disc">orientar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80df-b3d4-fd42ca681a5d" class="bulleted-list"><li style="list-style-type:disc">dar segurança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807f-98e3-ff3d82b6bc59" class="bulleted-list"><li style="list-style-type:disc">fechar quando faz sentido</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804d-beb9-ccd8305adaa9" class=""><strong>Frase interna do corretor:</strong></p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-800b-a755-e98a15138939" class="">“Se ele decidir hoje ou amanhã não importa. O importante é decidir corretamente.”</p></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-804a-ae29-f43c22831625" class=""><strong>4. Como lidar com medo, insegurança e ansiedade do cliente</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-800d-8cc1-cc834194b627" class=""><strong>Medo é NORMAL</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f9-9eea-c64b45906a73" class="">Todo cliente de plano de saúde tem algum medo:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8028-b70c-e49403f0d411" class="bulleted-list"><li style="list-style-type:disc">“E se eu precisar e não cobrir?”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8096-9be5-fcf63d74eb4c" class="bulleted-list"><li style="list-style-type:disc">“E se eu pagar caro e não usar?”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806a-8815-c753cfe715ca" class="bulleted-list"><li style="list-style-type:disc">“E se o hospital não atender?”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8034-93a9-fd73f074c815" class="bulleted-list"><li style="list-style-type:disc">“E se aumentar demais?”</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ff-8a80-c1404f535df9" class="">O erro do iniciante é:</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80df-99e4-d96a78b68597" class="">❌ tentar eliminar o medo</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8000-802c-c9df9a585de9" class="">✔️ o correto é <strong>organizar o medo</strong></p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8071-b19e-ff644bec3c0d" class=""><strong>Como o corretor deve agir</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-8052-927a-e039ef6e52e7" class="numbered-list" start="1"><li><strong>Reconhecer o medo</strong><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f2-adbc-fa320b5b5e5b" class="">“Entendo sua preocupação. É normal.”</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-8076-b0c2-c97fdf1b8e36" class="numbered-list" start="2"><li><strong>Traduzir o risco</strong><div style="display:contents" dir="auto"><p id="2cd06824-621d-8068-b446-f722e7130205" class="">“Vamos separar o que é risco real do que é mito.”</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-80c1-bdaa-cfc962246c48" class="numbered-list" start="3"><li><strong>Mostrar limites com clareza</strong><div style="display:contents" dir="auto"><p id="2cd06824-621d-8097-801c-c4326f313627" class="">Isso gera mais confiança do que prometer tudo.</p></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-80f8-8e3f-e59b998322a0" class="numbered-list" start="4"><li><strong>Trazer previsibilidade</strong><div style="display:contents" dir="auto"><p id="2cd06824-621d-8055-b1e7-ea6875643ea7" class="">Explicar:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8090-bd02-dea0c06391b7" class="bulleted-list"><li style="list-style-type:disc">carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8053-be18-c7de5688b69b" class="bulleted-list"><li style="list-style-type:disc">uso</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8081-90b8-d00c557dc695" class="bulleted-list"><li style="list-style-type:disc">rede</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807a-9f80-ca481fd73bf1" class="bulleted-list"><li style="list-style-type:disc">custos</li></ul></div></li></ol></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8061-b5f1-c29ef4ba8948" class=""><strong>O corretor é um regulador emocional</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ad-8591-f5bc2b226dc0" class="">Seu tom de voz, ritmo e postura:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d5-9172-d994544c02b0" class="bulleted-list"><li style="list-style-type:disc">acalmam</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f9-834e-c0346c2d5bc3" class="bulleted-list"><li style="list-style-type:disc">organizam</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8044-86b7-e1c1f74c77cb" class="bulleted-list"><li style="list-style-type:disc">dão segurança</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f4-8b05-d9230260d2e8" class="">Cliente ansioso precisa de:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8037-a3fb-dbcf0c3057c4" class="bulleted-list"><li style="list-style-type:disc">clareza</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b2-9e69-c0990b7de358" class="bulleted-list"><li style="list-style-type:disc">calma</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8022-8bba-e823bab3b910" class="bulleted-list"><li style="list-style-type:disc">condução</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80d3-9db1-f4a9f9547543"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80d0-98b1-de1b25702f6f" class=""><strong>5. Posicionamento profissional: como falar, ouvir e se portar</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a8-b731-e4527161c87e" class=""><strong>Como FALAR</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ce-9137-c518235172c0" class="bulleted-list"><li style="list-style-type:disc">Linguagem simples</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8002-8ae9-e4747c9d586e" class="bulleted-list"><li style="list-style-type:disc">Frases curtas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808e-bfe8-c5f49aef1f6a" class="bulleted-list"><li style="list-style-type:disc">Evitar jargões técnicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8010-b16f-ff2a0b60da3c" class="bulleted-list"><li style="list-style-type:disc">Evitar promessas vagas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809d-954a-d75418b4823b" class="bulleted-list"><li style="list-style-type:disc">Evitar exageros</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8003-8a0e-d5b7769c6bc2" class="">❌ “Esse plano cobre tudo”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ff-96db-daeec392f248" class="">✔️ “Esse plano cobre isso, isso e isso. Isso não cobre.”</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e5-b63f-ccd9b59bda5f" class=""><strong>Como OUVIR</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8017-b339-d9b998a1435b" class="bulleted-list"><li style="list-style-type:disc">Não interromper</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d8-b1e4-fb818c8fa400" class="bulleted-list"><li style="list-style-type:disc">Confirmar entendimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8053-8f67-d05e76a257ca" class="bulleted-list"><li style="list-style-type:disc">Repetir com suas palavras</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bf-9c5e-c15d66bf0eb3" class="bulleted-list"><li style="list-style-type:disc">Fazer perguntas de aprofundamento</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e1-8706-efe484d91ea3" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-805c-bd92-d477f0b2cd3d" class="">“Então, se eu entendi bem, sua maior preocupação hoje é emergência, certo?”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8061-9e8c-c516cf8d9574" class=""><strong>Como SE PORTAR</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809c-b189-ee7159c5089c" class="bulleted-list"><li style="list-style-type:disc">Postura calma</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804f-8fd9-cabbce6cc2e0" class="bulleted-list"><li style="list-style-type:disc">Segurança sem arrogância</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-801a-8dda-ef86af3aa0ed" class="bulleted-list"><li style="list-style-type:disc">Organização</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e9-a59d-d67bc24e1446" class="bulleted-list"><li style="list-style-type:disc">Pontualidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8093-a04d-f784fc2a7a55" class="bulleted-list"><li style="list-style-type:disc">Clareza nos próximos passos</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8081-a962-dd7ca6107dc3" class=""><strong>O que gera autoridade real</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8003-af0c-efd1600043db" class="bulleted-list"><li style="list-style-type:disc">Conhecimento técnico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8093-bdd9-e8f07cf2c113" class="bulleted-list"><li style="list-style-type:disc">Transparência</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e0-b3db-fb12e716f38d" class="bulleted-list"><li style="list-style-type:disc">Organização</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f8-af51-d92025cf7e71" class="bulleted-list"><li style="list-style-type:disc">Postura ética</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a2-985b-feca0a949eeb" class="bulleted-list"><li style="list-style-type:disc">Consistência</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8083-8ba3-fa57257b6db4" class="">Autoridade NÃO vem de:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807a-9a6e-fbc5748ccb1a" class="bulleted-list"><li style="list-style-type:disc">falar difícil</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805c-90bc-ca61538f7e97" class="bulleted-list"><li style="list-style-type:disc">pressionar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808a-9757-f32de6a7fd97" class="bulleted-list"><li style="list-style-type:disc">prometer demais</li></ul></div><div style="display:contents" dir="auto"><p id="2d706824-621d-8004-91fa-e100eaa5a91a" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

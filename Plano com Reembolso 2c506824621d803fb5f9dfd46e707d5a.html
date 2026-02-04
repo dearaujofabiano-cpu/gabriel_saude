@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plano com Reembolso</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-803f-b5f9-dfd46e707d5a" class="page sans"><header><h1 class="page-title" dir="auto">Plano com Reembolso</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c606824-621d-8027-b651-cd2921a6603b" class="">O <strong>Reembolso</strong> é um dos diferenciais mais valorizados em planos de saúde de categoria superior. É um benefício que permite ao beneficiário <strong>escolher médicos, clínicas, laboratórios ou hospitais fora da rede credenciada</strong> e receber de volta uma parte (ou, raramente, 100%) dos valores pagos.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8030-97db-f010097c6455" class="">Entender reembolso é fundamental para vender corretamente planos premium e evitar frustrações do cliente.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-800b-85e4-ef45ed3e65d7"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8056-b271-f2fc3a45b341" class="">1. <strong>O que é Reembolso</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d2-998f-c33afe820ba7" class="">Reembolso é o <strong>retorno financeiro</strong> que a operadora paga ao beneficiário quando ele utiliza um profissional <strong>não credenciado</strong>, desde que respeitando os limites definidos no contrato.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8015-8b7f-d229f315d659" class="">Exemplo simples:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fd-b068-d511c7c13d45" class="bulleted-list"><li style="list-style-type:disc">A consulta particular custa R$ 600</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-8304-e7ceefbb7bb4" class="bulleted-list"><li style="list-style-type:disc">O plano oferece reembolso de até R$ 250 para consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c2-8e46-d16b7f5f96a1" class="bulleted-list"><li style="list-style-type:disc">O cliente paga R$ 600</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807d-93e6-f992e9b26038" class="bulleted-list"><li style="list-style-type:disc">A operadora devolve <strong>R$ 250</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ae-8ad3-cfb3b5d60375" class="bulleted-list"><li style="list-style-type:disc">Os outros R$ 350 são por conta do cliente</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8059-bdab-e6f1ae59d5bc" class="">O reembolso <strong>nunca é garantido no valor total da consulta</strong>, salvo casos muito raros em planos de altíssimo padrão.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b7-9e72-e7062d25e5bf"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-802f-ab6c-dcd70ad183d6" class="">2. <strong>Quem pode usar Reembolso</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800c-8df1-fb279cf6bd12" class="">O reembolso é permitido em:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8096-ad99-f1e9144f77e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Consultas</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8066-ad79-ea6399b5fdc7" class="bulleted-list"><li style="list-style-type:disc"><strong>Exames simples e complexos</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a4-8742-f8d69145fe7f" class="bulleted-list"><li style="list-style-type:disc"><strong>Procedimentos ambulatoriais</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800a-bff3-c4379e17d02a" class="bulleted-list"><li style="list-style-type:disc"><strong>Cirurgias e internações</strong> (em planos superiores, com regras específicas)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808f-ad7b-db327ff03166" class="bulleted-list"><li style="list-style-type:disc"><strong>Fisioterapia, psicologia, fono, nutricionista</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f2-bfcc-e3c6a67d2390" class="bulleted-list"><li style="list-style-type:disc"><strong>Parto (raríssimo; depende do contrato)</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ef-a8ba-dda9d630da15" class="">Mas <em>cada plano define</em> o que entra ou não. Sempre deve ser verificado na tabela de reembolso.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8083-ac4d-d9e829e00100"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80c4-b9d5-c0018c8070bc" class="">3. <strong>Como funciona o processo de Reembolso</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ba-ac63-e54406a9712e" class=""><strong>3.1. Etapas básicas</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-807b-82d7-d87ea39557d5" class="numbered-list" start="1"><li>O cliente faz atendimento <strong>particular</strong> pagando no ato.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8084-b11b-d9b6a63c1a0a" class="numbered-list" start="2"><li>Pega a <strong>nota fiscal</strong> e o <strong>relatório/guia descrevendo o procedimento</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80ac-a382-e273c76bc20c" class="numbered-list" start="3"><li>Envia pelo <strong>aplicativo</strong> da operadora ou via corretora (dependendo da empresa).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-805b-9309-cd001995a143" class="numbered-list" start="4"><li>A operadora analisa o pedido.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8059-b9ce-f52e6e080eaa" class="numbered-list" start="5"><li>O valor é depositado na conta do beneficiário — geralmente em até 30 dias.</li></ol></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8010-98ae-f50aaf7dba50" class=""><strong>3.2. Documentos geralmente exigidos</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d5-8191-f53eda086efc" class="bulleted-list"><li style="list-style-type:disc">Nota fiscal completa</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8097-9ac5-d262ebe82f22" class="bulleted-list"><li style="list-style-type:disc">Dados bancários do titular</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a6-8cd9-e6cdd6d7133f" class="bulleted-list"><li style="list-style-type:disc">Relatório médico explicando o procedimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8043-9f40-f452d4b7d305" class="bulleted-list"><li style="list-style-type:disc">Solicitação médica (para exames e terapias)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d6-b41e-cd583236b045"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a4-89ab-e5a16e36fdcc" class="">4. <strong>Tipos de Reembolso</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e1-87fd-dccc4baa02fb" class="">Duas modalidades:</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8022-982d-e5c5441be160" class="">⭐ <strong>4.1. Reembolso por tabela fixa (valor fixo)</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805d-b166-fa6243bbfbf2" class="">É o mais comum.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a3-ae54-e86f54c2263a" class="">A operadora define valores como:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807b-92bb-ca4976ad588c" class="bulleted-list"><li style="list-style-type:disc">R$ 150 para consulta</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cb-b3ec-ed127fbad79c" class="bulleted-list"><li style="list-style-type:disc">R$ 80 para exame simples</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8067-a3b0-cdcdf6fb22d8" class="bulleted-list"><li style="list-style-type:disc">R$ 120 para exame específico</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802d-b12c-d42316a05e5c" class="bulleted-list"><li style="list-style-type:disc">R$ 400 para exame de alta complexidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802b-b4e0-fbc910fdecc6" class="bulleted-list"><li style="list-style-type:disc">R$ 2.000 para pequena cirurgia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a1-901b-e5e276f7570b" class="bulleted-list"><li style="list-style-type:disc">R$ 10.000 para internação</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b4-bf40-d7fecbf327be" class="">Esse valor é sempre o mesmo, independentemente do preço real cobrado pelo profissional particular.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8083-833d-e2b75509e95b"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8071-a0e0-dbc7d82a1069" class="">⭐ <strong>4.2. Reembolso por percentual (mais raro)</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c6-8998-e5b1bff8a949" class="">Ex.:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807a-ab6c-f881f32ccdf8" class="bulleted-list"><li style="list-style-type:disc">70% da consulta</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80db-ab50-dd955a6aa4db" class="bulleted-list"><li style="list-style-type:disc">50% da cirurgia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8000-9cc5-c7b818eb2323" class="bulleted-list"><li style="list-style-type:disc">30% do valor do exame</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c7-9dcd-e0f075e97c11" class="">Ótimo para quem busca liberdade total de escolha de médico.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a8-b6ad-da0d7f50062d" class="">Operadoras premium usam mais esse formato.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b3-95bc-ec7b048abf94"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8046-9657-cbe75dd520d5" class="">5. <strong>Quanto os planos costumam reembolsar</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8090-87a7-cf419c0c47de" class="">Valores comuns no mercado (média geral):</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8097-b9d2-c1df52cafbf9" class=""><strong>Consultas</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a1-aea0-f0b0766f43db" class="bulleted-list"><li style="list-style-type:disc">R$ 80 a R$ 350 (varia muito conforme categoria do plano)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-806a-a534-e0d29f30ee13" class=""><strong>Exames</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806c-84b2-c2eeefaf3289" class="bulleted-list"><li style="list-style-type:disc">Simples: R$ 20 a R$ 90</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b0-a061-cab653993638" class="bulleted-list"><li style="list-style-type:disc">Complexos: R$ 150 a R$ 800</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8095-bd47-cf4c3fc37e99" class=""><strong>Cirurgias</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-b428-f30df7f13850" class="bulleted-list"><li style="list-style-type:disc">Pequeno porte: R$ 1.000 a R$ 4.000</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8043-a5eb-c6c0d252da27" class="bulleted-list"><li style="list-style-type:disc">Médio porte: R$ 3.000 a R$ 12.000</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806c-a925-eb22ed70e01a" class="bulleted-list"><li style="list-style-type:disc">Grande porte: pode passar de R$ 20.000</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f3-b667-fcd421ab5957" class=""><strong>Internações</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8032-b5eb-df7d77530a73" class="bulleted-list"><li style="list-style-type:disc">De R$ 2.500 a R$ 25.000 por diária (em planos top)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-800c-b0e3-edf9ff99b8b2" class="">Observação importante:</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804d-9427-c7dba2ef6051" class="">Reembolso <strong>alto</strong> geralmente só existe em planos <strong>empresariais com CNPJ</strong> e <strong>planos premium</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d1-af13-d92de26f508e"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-804c-9586-fc5b12ed8bc5" class="">6. <strong>Vantagens do Plano com Reembolso</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-805d-82a4-d8e4225cd220" class="">⭐ <strong>6.1. Liberdade de escolha</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f8-a17a-fc1f6b7470f7" class="">O cliente não fica preso à rede credenciada e pode:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8049-ad44-cd918fea2af3" class="bulleted-list"><li style="list-style-type:disc">escolher especialista de confiança</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-8a30-fb079f1d882a" class="bulleted-list"><li style="list-style-type:disc">consultar médicos mais renomados</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8018-a995-c6e2609bcd12" class="bulleted-list"><li style="list-style-type:disc">fazer exames em clínicas premium</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803f-bfdd-c7ab54c32486" class="bulleted-list"><li style="list-style-type:disc">buscar atendimento em outras cidades</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809f-8122-c901a74a8859" class="">⭐ <strong>6.2. Flexibilidade em situações de urgência</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808b-857c-fa64e268dfda" class="">Se não houver hospital credenciado perto, o cliente usa particular e depois pede reembolso.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8002-8f16-da0fb250365e" class="">⭐ <strong>6.3. Ideal para clientes exigentes</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8019-9a58-f1d08eda73b6" class="">Perfis como:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ad-bc99-ea34c546e0f3" class="bulleted-list"><li style="list-style-type:disc">profissionais liberais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8045-ab81-f5483f85c0ab" class="bulleted-list"><li style="list-style-type:disc">empresários</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8081-987f-f24c7fb23080" class="bulleted-list"><li style="list-style-type:disc">executivos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8056-8b80-ff83695d9c5f" class="bulleted-list"><li style="list-style-type:disc">pessoas com médicos de preferência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8047-bb81-df08a7dbbc23" class="bulleted-list"><li style="list-style-type:disc">pacientes de tratamentos complexos</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ac-8fc0-e3feccd441d0" class="">⭐ <strong>6.4. Solução quando a rede credenciada não atende bem</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801d-9cf1-f94efbd492b4" class="">Usar médico particular + reembolso costuma entregar qualidade superior.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-805c-bf32-fc6bf40cba55"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8092-b057-f0dbf280ded1" class="">7. <strong>Desvantagens e Pontos de Atenção</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80eb-b431-e0d854b87e66" class="">É essencial que explique isso com clareza.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80b5-a835-e4e8a673b252" class=""><strong>7.1. O cliente sempre paga primeiro</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8017-be18-e4a58244a15f" class="">O reembolso chega <strong>depois</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806d-94c0-d22444aeedc9" class="">Se a consulta for R$ 600, ele precisa ter esse dinheiro na hora.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-802e-8119-c5c52975d7e2" class=""><strong>7.2. O valor reembolsado é quase sempre menor que o pago</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80fb-976e-ec1b11b2fb87" class="">O cliente recebe apenas parte do valor.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8003-8e10-c9d71003e700" class=""><strong>7.3. O reembolso tem limites mensais e anuais</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8004-aceb-f9e5c8879d08" class="">Alguns planos limitam:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cc-9aeb-e85f1237a170" class="bulleted-list"><li style="list-style-type:disc">valor máximo por atendimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8092-ba6c-de32b838017e" class="bulleted-list"><li style="list-style-type:disc">número de atendimentos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8010-916d-caad68d51f08" class="bulleted-list"><li style="list-style-type:disc">tipos de procedimentos elegíveis</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8007-be11-c64d41b59d28" class=""><strong>7.4. Cirurgias particulares têm regras muito específicas</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808f-9315-f09150843596" class="">É um ponto que gera frustração.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ca-ab01-c383b57f4301" class="">Nem sempre o reembolso cobre cirurgias completas fora da rede.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a0-a8d0-fda93c6e51c4" class=""><strong>7.5. O cliente pode acreditar que é “plano VIP”</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8047-8120-f49187dbf9ff" class="">Mas isso <strong>não significa</strong> atendimento ilimitado com médicos famosos.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8033-8f79-d8b6e2544729"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8081-882d-d6bfac62db1e" class="">8. <strong>Perfil dos Clientes Indicados para Plano com Reembolso</strong></h1></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80ed-b7f6-ed0a35980674" class="">⭐ Ideal para:</h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807e-bd62-cd500c9ce644" class="bulleted-list"><li style="list-style-type:disc">Clientes que já usam médicos particulares</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8004-979a-d6b6257155e1" class="bulleted-list"><li style="list-style-type:disc">Quem faz acompanhamento com médicos não credenciados</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b8-819f-dda7811d88cc" class="bulleted-list"><li style="list-style-type:disc">Pessoas que viajam muito</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800d-aa99-d834e94f60fd" class="bulleted-list"><li style="list-style-type:disc">Clientes com alto padrão de vida</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80af-8d23-c7b83683c16e" class="bulleted-list"><li style="list-style-type:disc">Famílias que desejam liberdade total</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d4-8620-c79519dbac7f" class="bulleted-list"><li style="list-style-type:disc">Profissionais que fazem exames e terapias com frequência</li></ul></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-801f-9823-edf791b1cccd" class="">⭐ Pode não ser ideal para:</h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c9-9122-cbed03885949" class="bulleted-list"><li style="list-style-type:disc">Clientes de baixa renda</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8090-9f78-fa3d24e4fb47" class="bulleted-list"><li style="list-style-type:disc">Pessoas que não têm dinheiro para antecipar pagamentos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bd-b219-f42be25d5a61" class="bulleted-list"><li style="list-style-type:disc">Usos esporádicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d5-a0ee-c8214c341e1a" class="bulleted-list"><li style="list-style-type:disc">Clientes que nunca usaram médico particular</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8057-a420-cbf5098f2e5f"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f5-ab0b-c52276f50349" class="">9. <strong>Como Explicar Reembolso para o Cliente (maneira clara e honesta)</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80c5-9654-c982e93dd40d" class="">⭐ Explicação simples e direta:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80c8-ad27-f05f55770598" class="">&quot;Com reembolso, você pode consultar qualquer médico particular do Brasil.<div style="display:contents" dir="auto"><p id="2c606824-621d-80b3-be55-e9118cedb7ab" class="">Você paga a consulta e o plano devolve parte desse valor, de acordo com a tabela.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8064-a8dc-e123845bcf71" class="">Quanto mais premium o plano, maior o reembolso.&quot;</p></div></blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8062-8d26-d8e531409931" class="">⭐ Explicação completa para clientes exigentes:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80ce-b690-e1d89caa4e26" class="">“O plano te dá liberdade total de médicos, inclusive profissionais renomados.<div style="display:contents" dir="auto"><p id="2c606824-621d-80fe-86f9-fc2e4d0f8723" class="">Você paga, envia a nota fiscal e recebe parte do valor de volta.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8083-938a-e9520401b28b" class="">Cada procedimento tem um limite definido em contrato.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8089-9246-cea4fe5af072" class="">Eu te mostro a tabela para sabermos exatamente quanto você recupera.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8035-83aa-d48aea305cbe"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a3-b50b-d1cc3bf6024b" class="">10. <strong>Como Explicar Reembolso (roteiro)</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8009-ab19-cd5458e44903" class="numbered-list" start="1"><li>Pergunte:<div style="display:contents" dir="auto"><blockquote id="2c606824-621d-803a-ab32-d08707486006" class="">“Você costuma consultar médicos particulares? Qual especialidade?”</blockquote></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80eb-99b7-defd7c4f6613" class="numbered-list" start="2"><li>Explique o conceito de reembolso.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8023-bb45-e9f424b25793" class="numbered-list" start="3"><li>Mostre a tabela da operadora (é obrigatório!).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80a0-a21a-ecd2bc39e906" class="numbered-list" start="4"><li>Diga o que é e o que não é coberto.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8021-a123-d18cd588cb91" class="numbered-list" start="5"><li>Simule um exemplo real:<div style="display:contents" dir="auto"><ul id="2c606824-621d-809a-ac38-dcb5e0fa33ee" class="bulleted-list"><li style="list-style-type:disc">“Consulta custa R$ 600<div style="display:contents" dir="auto"><p id="2c606824-621d-80c7-a3f2-ed08f213c40c" class="">Plano devolve: R$ 250</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8088-ba88-d2520d1a6310" class="">Diferença: R$ 350 por sua conta.”</p></div></li></ul></div></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80d8-a72f-db40c6976608" class="numbered-list" start="6"><li>Pergunte:<div style="display:contents" dir="auto"><blockquote id="2c606824-621d-808e-b5ba-dbfbad521c3f" class="">“Faz sentido para você esse modelo?”</blockquote></div></li></ol></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80bf-baab-c13fe747d184"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8083-b263-f92c796476fe" class="">11. <strong>Erros comuns de corretores iniciantes ao vender Reembolso</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e1-9617-f0ec33b5d945" class="bulleted-list"><li style="list-style-type:disc">Dizer que o plano “paga tudo” — nunca prometa isso.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80de-b274-cec6607c9d7c" class="bulleted-list"><li style="list-style-type:disc">Não mostrar a tabela antes da venda.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8021-b9e3-f6aded29ed1c" class="bulleted-list"><li style="list-style-type:disc">Não explicar limites de reembolso para cirurgia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806a-bf05-ffbc70434d2d" class="bulleted-list"><li style="list-style-type:disc">Não explicar que o cliente precisa pagar primeiro.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8041-bd48-c2ce2472530f" class="bulleted-list"><li style="list-style-type:disc">Oferecer reembolso para clientes de baixo poder financeiro (gera estresse).</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ac-abfe-e0d03a9ff8ae" class="bulleted-list"><li style="list-style-type:disc">Não explicar prazo de pagamento do reembolso.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c9-8de7-d4ddfa352db7"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f3-8638-cab7df738927" class="">12. <strong>Frases de advertência</strong></h1></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8008-8550-f44f530a849b" class="">“Quero ser 100% transparente: o reembolso não devolve o valor integral, exceto em produtos raros.”</blockquote></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-802f-91fa-c1eefa5ad4c2" class="">“O reembolso é um benefício adicional, não substitui a rede credenciada.”</blockquote></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8032-8c8f-f8d437af7938" class="">“Para cirurgia fora da rede, o reembolso costuma cobrir apenas parte do valor total.”</blockquote></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80f2-8ce4-f6cb7219ccab" class="">“O plano devolve conforme a tabela, independente do preço cobrado pelo médico.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8012-8c16-dad3f4f8db96" class="">Essas frases evitam reclamações futuras.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

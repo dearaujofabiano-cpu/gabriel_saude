@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plano Empresarial (PME)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-8059-8358-e45f4d030e5f" class="page sans"><header><h1 class="page-title" dir="auto">Plano Empresarial (PME)</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c506824-621d-8014-9b4f-ed0b876eb941" class="">O <strong>Plano Empresarial</strong>, também chamado de <strong>Plano Coletivo Empresarial</strong> ou simplesmente <strong>PME</strong>, é um tipo de plano de saúde contratado por empresas para oferecer cobertura médica a seus funcionários (e, em muitos casos, seus dependentes). Ele se diferencia dos planos individuais/familiares principalmente por suas regras de contratação, preços, reajustes e carências, sendo um dos produtos mais importantes e competitivos do mercado de saúde suplementar no Brasil.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-800b-abf6-ccf070fae0ec" class="">A seguir, um guia extremamente completo sobre o tema.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8054-a596-e8d2d56ed46b"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8004-9fac-c4876d90ebb5" class=""><strong>1. O que é um Plano Empresarial (PME)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-809b-b99c-c596645258f1" class="">É um plano de saúde contratado por uma pessoa jurídica (empresa, MEI, negócio formalizado) para seus colaboradores. A empresa se torna a <strong>contratante</strong> e os funcionários/gestores se tornam os <strong>beneficiários</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80c3-b165-efdfefe202de" class="">Sua principal vantagem é que é geralmente <strong>mais barato e com regras mais flexíveis</strong>, devido ao agrupamento de vidas.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80bf-a428-cd6c2f6b4553"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80e9-80a5-d344075a7fe6" class=""><strong>2. Quem pode contratar</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8002-ba6f-d223bcee1232" class="">Existem três categorias que permitem contratar um PME:</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8028-b765-f055760f6973" class=""><strong>2.1. Empresas com CNPJ ativo</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8039-bc70-e7bde95305ad" class="">Podem contratar um plano para seus funcionários, sócios e dependentes.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8002-a0ac-d4a8c221d544" class=""><strong>2.2. MEI (Microempreendedor Individual)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8015-9d64-e7802e00376c" class="">Pode contratar, mas <strong>somente se tiver 1 funcionário registrado</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-808b-9345-e9c243d0134e" class="">Algumas operadoras permitem MEI com 1 vida (apenas o titular), mas isso depende da política da operadora.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80fb-9c71-f83dbf1e32b3" class=""><strong>2.3. Empresas de qualquer porte</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-801d-929a-f77bfca07b28" class="">De 1 a milhares de vidas.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-804f-a85c-ea42ae1ac99d"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8092-ae83-de725d572698" class=""><strong>3. Regras de Quantidade de Vidas</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-803a-90c3-db56c0cf2164" class="">As operadoras organizam suas faixas comerciais conforme o tamanho do grupo:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8053-a220-f3141ac2016f" class="bulleted-list"><li style="list-style-type:disc"><strong>1–3 vidas</strong> → Plano empresarial de pequeno porte (algumas operadoras aceitam 1 vida apenas se for sócio, outras exigem 2 vidas).</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8057-a766-c048885ac145" class="bulleted-list"><li style="list-style-type:disc"><strong>4–29 vidas</strong> → Micro e pequenas empresas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8055-a775-c942010c4ce9" class="bulleted-list"><li style="list-style-type:disc"><strong>30+ vidas</strong> → Grupos maiores, com preços mais agressivos.</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-809b-b188-f21ad3c9ecff" class="">Quanto <strong>mais vidas</strong>, melhor tende a ser a <strong>negociação, reajuste e condições comerciais</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-808a-ac8c-c3a026e05193"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80f5-a5a1-cb63ee538a2c" class=""><strong>4. Quem pode ser beneficiário</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-809f-a460-ec72f308c7e1" class=""><strong>Titulares possíveis:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8011-8d72-fea0cb9c00c9" class="bulleted-list"><li style="list-style-type:disc">Funcionários CLT</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805a-87d2-c0a8ee78ab8a" class="bulleted-list"><li style="list-style-type:disc">Sócios</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d0-96ff-d3f8fdb75b05" class="bulleted-list"><li style="list-style-type:disc">Administradores</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8000-b40b-db67bf0e5b66" class="bulleted-list"><li style="list-style-type:disc">Estagiários (depende da operadora)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80c2-bf46-fe86a21d4a2c" class=""><strong>Dependentes permitidos:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-804f-b338-cda219f82b74" class="bulleted-list"><li style="list-style-type:disc">Cônjuge</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a9-9025-dfa38a1044d9" class="bulleted-list"><li style="list-style-type:disc">Companheiro(a)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e7-a016-fd9424e83ffb" class="bulleted-list"><li style="list-style-type:disc">Filhos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-801d-9d8a-e0567edfe0ca" class="bulleted-list"><li style="list-style-type:disc">Enteados</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80bd-910a-dbd51f518d87" class="bulleted-list"><li style="list-style-type:disc">Pais e sogros (em alguns planos, com custo mais alto)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8045-ba35-c529c1d80cf2" class="bulleted-list"><li style="list-style-type:disc">Agregados (varia por operadora)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8086-9b88-f3c9f484bf24"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8060-9690-c15b3e36a77d" class=""><strong>5. Documentos para contratação</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8065-af31-f32ab344c76c" class=""><strong>Da empresa</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8032-998a-da3a144c1853" class="bulleted-list"><li style="list-style-type:disc">Contrato social ou MEI</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e5-836e-ee995f762e4a" class="bulleted-list"><li style="list-style-type:disc">Cartão CNPJ</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f3-9ba7-d274e1094073" class="bulleted-list"><li style="list-style-type:disc">Comprovante de endereço</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-808a-aea7-ef71d04db66a" class="bulleted-list"><li style="list-style-type:disc">Fatura de água/luz/teléfone</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806f-b94b-c009fcaf3e65" class="bulleted-list"><li style="list-style-type:disc">Relação de funcionários (ex: GFIP, eSocial)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-807b-93a4-ceaa400353d1" class=""><strong>Do funcionário</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a7-932c-e1e36441aadc" class="bulleted-list"><li style="list-style-type:disc">RG e CPF</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80de-ac89-c89ff8145b75" class="bulleted-list"><li style="list-style-type:disc">Comprovante de endereço</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8064-8198-cb21d5972d48" class="bulleted-list"><li style="list-style-type:disc">Certidão de nascimento ou casamento (dependentes)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ea-8e7f-ddc49e6ec89c" class="bulleted-list"><li style="list-style-type:disc">Documentos que comprovem vínculo</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80e0-93d5-e01c6ed831d3"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80d4-bb49-ddffc660cc36" class=""><strong>6. Carências: quando existem e quando não</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-806c-9ca5-fbbc4290ca9c" class=""><strong>6.1. Contratação com carências</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8041-b60e-e2f476b13038" class="">Empresas com <strong>até 29 vidas</strong> normalmente têm carência, dependendo:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-808e-b0b9-d5a2833b4764" class="bulleted-list"><li style="list-style-type:disc">Se o funcionário não tem plano anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80c8-a89c-ca114ad99f72" class="bulleted-list"><li style="list-style-type:disc">Se entrou depois da contratação inicial</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80be-9041-ffa90fe7433e" class=""><strong>6.2. Contratação sem carências (isenta)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80f9-abfe-feaeca0e401b" class="">Geralmente ocorre quando:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80fd-9ac2-e61b3225b445" class="bulleted-list"><li style="list-style-type:disc">A empresa tem <strong>30 vidas ou mais</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8004-9447-f77723f83e6d" class="bulleted-list"><li style="list-style-type:disc">A operadora possui promoção momentânea</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80af-9415-fbfef1dd9063" class="bulleted-list"><li style="list-style-type:disc">O funcionário entra no prazo de <strong>30 dias da assinatura do contrato</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8072-89ac-f81a05173fd4" class="bulleted-list"><li style="list-style-type:disc">O beneficiário apresenta <strong>portabilidade</strong> (plano anterior com tempo mínimo e cobertura compatível)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80fa-9c90-dc4eb8f7298c"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-800c-af68-d07897c8a9e9" class=""><strong>7. Reajustes</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-807a-a82b-ec1d4c059c6d" class="">Essa é uma das características diferenciais.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80b8-98d6-fc8f9f93b306" class=""><strong>Como funciona:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d0-b8fb-cc36eecbf687" class="bulleted-list"><li style="list-style-type:disc">O reajuste é calculado com base no <strong>sinistro</strong> do grupo, ou seja:<div style="display:contents" dir="auto"><p id="2c506824-621d-808f-a386-e2e750b84628" class=""><strong>Quanto o grupo usa x quanto ele paga.</strong></p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8080-8e4f-c66184d93eda" class="bulleted-list"><li style="list-style-type:disc">Não segue a regra da ANS (como os planos individuais).</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e4-9673-efadc6701d2d" class="bulleted-list"><li style="list-style-type:disc">Pode ser <strong>menor ou maior</strong>, dependendo da proporção de uso.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80de-bd80-e4360bfbb7f7" class=""><strong>Tipos de reajuste:</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-802a-9545-df04cfa0678a" class="numbered-list" start="1"><li><strong>Reajuste anual</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80b9-ad30-eaf0f05e9c1d" class="numbered-list" start="2"><li><strong>Reajuste por faixa etária</strong><div style="display:contents" dir="auto"><p id="2c506824-621d-806e-a390-c768f0cde28e" class="">(seguindo regras da ANS, mas opera igual aos planos individuais)</p></div></li></ol></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80a9-ac23-d3e4ec37e16a"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8086-a89a-dbd63fc22828" class=""><strong>8. Coberturas</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-805b-9675-e640dfd008dc" class="">Um plano empresarial oferece tudo que um plano comum oferece, mas pode incluir:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ca-a14a-f8638a6109aa" class="bulleted-list"><li style="list-style-type:disc">Consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-803c-a283-fdee2f3ba62f" class="bulleted-list"><li style="list-style-type:disc">Exames</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8080-b29c-dfe7f579659d" class="bulleted-list"><li style="list-style-type:disc">Internações</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8020-bcd5-de3d3fc2eadd" class="bulleted-list"><li style="list-style-type:disc">Cirurgias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-800f-bbc0-f2757cdd38df" class="bulleted-list"><li style="list-style-type:disc">Parto</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809d-b8fd-d4df1cb0beb5" class="bulleted-list"><li style="list-style-type:disc">Urgência e emergência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-803a-b7fe-f6d5f02cc05a" class="bulleted-list"><li style="list-style-type:disc">Rede credenciada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80fb-8e96-e3f5a0465adf" class="bulleted-list"><li style="list-style-type:disc">Possibilidade de plano com hospital top (premium)</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8021-89ea-cb8ba50b6228" class="">E pode ser contratado com:</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8008-a14f-d8564fad4726" class=""><strong>Tipos de acomodação</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b3-8552-fcecf8059dfd" class="bulleted-list"><li style="list-style-type:disc"><strong>Enfermaria</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8058-95d4-d34bee4177dc" class="bulleted-list"><li style="list-style-type:disc"><strong>Apartamento</strong></li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-804c-85b1-d27487af5d9c" class=""><strong>Modelos de comercialização</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e5-b237-d18ce2fa6cce" class="bulleted-list"><li style="list-style-type:disc"><strong>Ambulatorial</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b3-a77b-dfc84bcf716e" class="bulleted-list"><li style="list-style-type:disc"><strong>Hospitalar sem obstetrícia</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ab-9fbc-cc880dffb04b" class="bulleted-list"><li style="list-style-type:disc"><strong>Hospitalar com obstetrícia</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8077-927c-cad6bc6b6624" class="bulleted-list"><li style="list-style-type:disc"><strong>Referência</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8086-9f83-f01553c71ddd" class="bulleted-list"><li style="list-style-type:disc"><strong>Odontológico</strong></li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8062-9137-e8fe565c2e64"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8007-b2d4-cae3105613a5" class=""><strong>9. Coparticipação</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d9-8b89-d9b201030001" class="">Muito comum nos PMEs, pois reduz custo.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8075-87f8-d0300e92fcf7" class=""><strong>O que é:</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e6-8ec2-d455b4196799" class="">O beneficiário paga uma parte do procedimento, como:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b2-b827-c259f120033e" class="bulleted-list"><li style="list-style-type:disc">R$ 20 por consulta</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8050-b0e1-f5e759d3bb4a" class="bulleted-list"><li style="list-style-type:disc">30% sobre exames</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e4-b15b-c1ab53d24fe5" class="bulleted-list"><li style="list-style-type:disc">Teto máximo mensal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8044-a322-c331b8056df9" class="bulleted-list"><li style="list-style-type:disc">Procedimentos isentos</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80ed-b33f-e5a35537f190" class="">Isso diminui uso indevido e reduz valor da mensalidade.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80e5-ad6d-d9ed1d5a6baf"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80fa-ab7c-dc3fdd83a298" class=""><strong>10. Vantagens do Plano Empresarial</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80d5-b671-fd928427d834" class="numbered-list" start="1"><li><strong>Preço mais baixo</strong> que individual/familiar</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8049-90c0-e83923cce246" class="numbered-list" start="2"><li><strong>Reajustes mais negociáveis</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-808d-a945-cc39aea980a8" class="numbered-list" start="3"><li><strong>Isenção de carências em muitos casos</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-801b-adf8-ea583a050bba" class="numbered-list" start="4"><li><strong>Atende empresas pequenas</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8029-85c9-c17617b702d6" class="numbered-list" start="5"><li><strong>Permite dependentes</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8069-a2c3-ec86b5a57417" class="numbered-list" start="6"><li><strong>Rede mais ampla</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-808e-a18e-fb48dfa98a17" class="numbered-list" start="7"><li><strong>Mais facilidade na contratação</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80f5-ae1c-e92e86523efc" class="numbered-list" start="8"><li><strong>Planos premium acessíveis</strong></li></ol></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-800e-8e2e-f8a5ac2aab32"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-806f-8f4f-ce34a6b1c594" class=""><strong>11. Desvantagens</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8081-a62d-eccb05573297" class="numbered-list" start="1"><li><strong>Reajuste pode ser alto</strong> se o grupo usar muito</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-801d-8a05-f338cb89bc3d" class="numbered-list" start="2"><li>Funcionários podem <strong>entrar e sair</strong> → instabilidade</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-808c-a1a1-f1bb086e8d85" class="numbered-list" start="3"><li>Empresa pode ser responsabilizada por inadimplência</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8070-9a0b-ec46fbb02a68" class="numbered-list" start="4"><li>Alguns beneficiários podem perder o plano ao ser demitidos</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8014-a3aa-e0dc60da42bb" class="numbered-list" start="5"><li>Depende da saúde financeira da empresa</li></ol></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8018-b9e2-e646f216c82b"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80c1-945d-e02493b39143" class=""><strong>12. Ponto crítico: elegibilidade</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80fe-b726-d1a88dc91090" class="">Esse é um dos erros mais comuns para quem está começando.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-803f-8ada-cae9a6956f61" class="">Cada operadora tem regras específicas de:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806b-9926-c77990f63c1f" class="bulleted-list"><li style="list-style-type:disc">quem pode ser titular</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d5-923c-c64ad3bc2f0f" class="bulleted-list"><li style="list-style-type:disc">quem pode ser dependente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-802d-a86c-fdc46724e7df" class="bulleted-list"><li style="list-style-type:disc">o que comprova vínculo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8057-9124-c8fc2702dfe5" class="bulleted-list"><li style="list-style-type:disc">quantas vidas mínimo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b5-b2c0-f37b30a1c6af" class="bulleted-list"><li style="list-style-type:disc">documentos obrigatórios</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ee-ac9a-f421fea958aa" class="bulleted-list"><li style="list-style-type:disc">tolerância para inclusão tardia</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-804b-9a6a-cf6748dac9b6" class="">Saber essas regras evita glosas, reprovações de contrato e retrabalho.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8058-88c6-fbb5ac7cea64"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80c4-8ded-c4f9bbed4121" class=""><strong>13. Como vender PMEs na prática</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-805f-8990-c4d013a60a7e" class=""><strong>Passo 1 — Qualificação da empresa</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8062-b919-cd8a95f0addf" class="bulleted-list"><li style="list-style-type:disc">Quantas vidas?</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8057-b67b-fd394ab0e4e2" class="bulleted-list"><li style="list-style-type:disc">Há plano atual?</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8073-9fa6-de04e1819516" class="bulleted-list"><li style="list-style-type:disc">Qual a rede desejada?</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8018-a9ec-fce0ac305a16" class="bulleted-list"><li style="list-style-type:disc">Quanto querem pagar?</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8095-b181-e5605fe4c9ef" class=""><strong>Passo 2 — Diagnóstico e comparação</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80fd-b752-e75811878991" class="bulleted-list"><li style="list-style-type:disc">Mostrar rede</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b5-b959-d0855d25856c" class="bulleted-list"><li style="list-style-type:disc">Comparar operadoras</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8000-920e-cff29aa66b11" class="bulleted-list"><li style="list-style-type:disc">Apresentar vantagens/desvantagens</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ee-998e-fcbcb69c154e" class="bulleted-list"><li style="list-style-type:disc">Simular com e sem coparticipação</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8049-9dab-c123d0069618" class=""><strong>Passo 3 — Apresentação comercial</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8095-8a2d-d6ee0017b69d" class="bulleted-list"><li style="list-style-type:disc">Apresentar propostas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80fb-a5a8-d004f01b87c2" class="bulleted-list"><li style="list-style-type:disc">Mostrar reajustes históricos (se houver)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-807c-91af-c6c39dfedf2e" class=""><strong>Passo 4 — Fechamento</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806f-b51a-c01519319c21" class="bulleted-list"><li style="list-style-type:disc">Recolher documentos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8061-80e8-fb77256aef1f" class="bulleted-list"><li style="list-style-type:disc">Assinatura digital</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b5-ad14-f23fe69289e2" class="bulleted-list"><li style="list-style-type:disc">Inclusão no sistema da operadora</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8061-824f-f5651acd6769" class=""><strong>Passo 5 — Pós-venda</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ee-a5e7-de29a8066cb0" class="bulleted-list"><li style="list-style-type:disc">Orientar sobre carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8086-8aad-ca8038f16684" class="bulleted-list"><li style="list-style-type:disc">Como usar a carteirinha</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80eb-b39c-cd66f78ba858" class="bulleted-list"><li style="list-style-type:disc">Como incluir dependentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-804b-bd4a-df7ccce9549c" class="bulleted-list"><li style="list-style-type:disc">Renovação</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8097-9532-e578ec47869b"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80b1-9091-c30928f57371" class=""><strong>14. Operadoras que oferecem PME</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e7-bf5a-efc9faa0804d" class="">As principais no Brasil:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8025-bb17-d25154a3ceb2" class="bulleted-list"><li style="list-style-type:disc">Amil</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80c9-9b49-db6b4334fabc" class="bulleted-list"><li style="list-style-type:disc">SulAmérica</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8015-9a27-e7010c0876d4" class="bulleted-list"><li style="list-style-type:disc">Bradesco</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805e-b50b-f1abf34ae329" class="bulleted-list"><li style="list-style-type:disc">Unimed (federadas e regionais)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f9-b08e-fc74105cc044" class="bulleted-list"><li style="list-style-type:disc">Hapvida + NotreDame Intermédica</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8072-b21a-f5d262bec722" class="bulleted-list"><li style="list-style-type:disc">Porto Saúde</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f7-8085-ee9afc21e397" class="bulleted-list"><li style="list-style-type:disc">Promed</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-803b-8b52-dab2077862e8" class="bulleted-list"><li style="list-style-type:disc">São Cristóvão</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805c-8a68-da92520091c0" class="bulleted-list"><li style="list-style-type:disc">Prevent Senior (restrições específicas)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8064-9390-cfc322b3a32b" class="bulleted-list"><li style="list-style-type:disc">Assim Saúde</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809a-bf64-d74ce1a16461" class="bulleted-list"><li style="list-style-type:disc">Golden Cross (dependendo da região)</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80f2-8f88-e61883873cb4" class="">Cada uma tem políticas comerciais diferentes — a corretora precisa dominar as regras locais.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-809f-afd0-c3201e52665e"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8098-a2a7-ead4c02b5d22" class=""><strong>15. Erros mais comuns de novos corretores</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d4-b95a-dfe0efb7df04" class="bulleted-list"><li style="list-style-type:disc">Não checar elegibilidade dos dependentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ff-889a-db2680a718d0" class="bulleted-list"><li style="list-style-type:disc">Prometer isenção de carências sem base</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8076-b3c9-ea8a98e2ee77" class="bulleted-list"><li style="list-style-type:disc">Não explicar reajuste por sinistralidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ee-92d8-f85fc45e2cd6" class="bulleted-list"><li style="list-style-type:disc">Não orientar sobre regras de inclusão mensal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ca-93a1-e88b7f43b346" class="bulleted-list"><li style="list-style-type:disc">Não analisar rede credenciada com o cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8009-958a-d7a5c4cc0281" class="bulleted-list"><li style="list-style-type:disc">Não informar que MEI sem funcionário pode não ser aceito</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8050-bbf8-f47fe506e28b" class="bulleted-list"><li style="list-style-type:disc">Enviar documentação incompleta → reprova</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-804d-9d71-e0f812feda22"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80bf-8a37-fd87337539e6" class=""><strong>16. Boas práticas para ter sucesso</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-802f-b3f8-c153d4df2d83" class="numbered-list" start="1"><li><strong>Estudar redes hospitalares da região</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80a7-b3b0-df7ac968d65b" class="numbered-list" start="2"><li><strong>Criar um comparativo pronto de cada operadora</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80f4-8b52-f5bc69356245" class="numbered-list" start="3"><li><strong>Explicar carência sem medo — transparência gera confiança</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80a2-b67d-cf0a4d862ba4" class="numbered-list" start="4"><li><strong>Acompanhar o uso do grupo para antecipar reajustes</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8038-8185-cd80c521e576" class="numbered-list" start="5"><li><strong>Fazer onboarding do cliente após a ativação</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80f3-b78b-d61cf10ef35b" class="numbered-list" start="6"><li><strong>Manter contato com o RH/gestor da empresa</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8025-9ef8-ce3cd64695c2" class="numbered-list" start="7"><li><strong>Atualizar-se com mudanças da ANS</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80d8-91f3-cdc2581791d9" class="numbered-list" start="8"><li><strong>Participar de treinamentos das operadoras</strong></li></ol></div><div style="display:contents" dir="ltr"><figure id="2c506824-621d-8055-b6f3-f3d382cc73f4" class="link-to-page"><a href="O%20que%20%C3%A9%20um%20grupo%202c506824621d8055b6f3f3d382cc73f4.html">O que é um grupo</a></figure></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

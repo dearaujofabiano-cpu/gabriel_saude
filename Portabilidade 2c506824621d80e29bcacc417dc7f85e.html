@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Portabilidade</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-80e2-9bca-cc417dc7f85e" class="page sans"><header><h1 class="page-title" dir="auto">Portabilidade</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c606824-621d-8008-8471-f567212625a9" class="">A <strong>portabilidade de carências</strong> é um direito do consumidor regulado pela ANS que permite <strong>trocar de plano de saúde sem precisar cumprir novas carências</strong>, desde que sejam atendidos critérios específicos. É um dos temas mais importantes e, ao mesmo tempo, mais mal explicados no mercado de saúde suplementar.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80df-9bd7-ec5954644e7a" class="">Abaixo está tudo o que você precisa saber — desde o conceito até as regras, exceções, prazos e situações especiais.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c8-a993-dbe4dd27f225"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80d3-ba9d-d2d082143c69" class="">✅ <strong>1. O que é portabilidade de carências?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c4-8951-d5d603254f12" class="">É o processo que permite o beneficiário <strong>mudar de plano de saúde</strong> (para outro plano da mesma operadora ou para outra operadora totalmente diferente) <strong>sem ser obrigado a cumprir novamente os períodos de carência</strong>, <strong>desde que</strong> tenha permanecido tempo suficiente no plano anterior e escolha um plano compatível.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8083-96ff-e4c7d62e44c9" class=""><strong>Resumo simples:</strong> você leva seu “histórico” de carências junto com você.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-804c-848d-f3ae547ebf27"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80bb-aa64-e220e841b553" class="">🟦 <strong>2. O que muda com a portabilidade?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80de-b9aa-d129b06bb713" class="">Quando a portabilidade é aceita:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8004-a71a-c97e3246881a" class="">Você <strong>não precisa cumprir novamente</strong>:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80da-aa34-c103d42f5bc8" class="bulleted-list"><li style="list-style-type:disc">Carência para consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fa-8022-d37b3ce1924a" class="bulleted-list"><li style="list-style-type:disc">Carência para exames</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807c-a189-d73af4a58457" class="bulleted-list"><li style="list-style-type:disc">Carência para internações</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800e-bee7-d828db3c9eba" class="bulleted-list"><li style="list-style-type:disc">Carência para cirurgias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ba-b208-c24391319e45" class="bulleted-list"><li style="list-style-type:disc">Carência para parto</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8049-8a59-f26cbb577d89" class="bulleted-list"><li style="list-style-type:disc">Carência para atendimento de urgência e emergência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8060-9e2f-d51a58b66db3" class="bulleted-list"><li style="list-style-type:disc">Carência para terapias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8014-8706-d6a7239bce82" class="bulleted-list"><li style="list-style-type:disc">Carência para procedimentos de alta complexidade (PAC)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806e-a658-dfcbf4436efc" class="bulleted-list"><li style="list-style-type:disc">Cobertura Parcial Temporária (CPT)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8054-946d-dcc5e0d16088" class="">Ou seja: <strong>você entra no novo plano e continua de onde parou</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b9-b843-e9047c8bebbf"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80e8-92af-c027af7f1bc8" class="">🟦 <strong>3. Quem tem direito à portabilidade?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8082-9dcf-d970383d3273" class="">Para realizar portabilidade, o beneficiário precisa cumprir <strong>TODAS</strong> as condições abaixo.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-805b-b886-c9180f356bec" class="">✔ 3.1 Tempo mínimo no plano atual</h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f4-922a-e182f2b0df68" class="bulleted-list"><li style="list-style-type:disc"><strong>2 anos</strong> de permanência no plano<div style="display:contents" dir="auto"><p id="2c606824-621d-8011-9b60-d82e8d0b88f4" class="">ou</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8055-8b18-cb0267bb070e" class="bulleted-list"><li style="list-style-type:disc"><strong>3 anos</strong> se houver <strong>Cobertura Parcial Temporária (CPT)</strong> aplicada por doença preexistente.</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8091-a5de-e39b232e5087" class="">Se já realizou uma portabilidade antes, o tempo conta novamente <strong>a partir da última troca de plano</strong>.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8098-9d2f-cadab24d1a95" class="">✔ 3.2 Estar com o contrato ativo</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8033-b9ed-eed5be3decbb" class="">O plano não pode estar cancelado ou rescindido.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8062-83f7-d55b754bdab4" class="">A ANS exige que o beneficiário esteja com o plano vigente no momento da solicitação.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-803f-a375-e968a522d946" class="">✔ 3.3 Ausência de inadimplências graves</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8061-b4c2-dc34416f607a" class="">É permitido ter tido atrasos, <strong>mas não pode ter mais de 60 dias de atraso somados (contínuos ou não) nos últimos 12 meses</strong>.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8001-ac8e-eeebf670b9c4" class="">✔ 3.4 Plano escolhido deve ser “compatível”</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8013-a0a9-deb63f74b37a" class="">Isso é fundamental.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-802b-8088-ec1671cbb902" class="">A ANS classifica os planos em faixas de preço e cobertura.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8097-9669-d14d22d56cfe" class="">O novo plano deve estar:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806b-b236-e2bdd3750a8c" class="bulleted-list"><li style="list-style-type:disc">Na <strong>mesma faixa de preço</strong><div style="display:contents" dir="auto"><p id="2c606824-621d-80c9-95c5-c76f207000a5" class="">ou</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801c-92e4-c95e113bb1b0" class="bulleted-list"><li style="list-style-type:disc">Em uma <strong>faixa inferior</strong><div style="display:contents" dir="auto"><p id="2c606824-621d-80c4-bc29-c2a834f17d94" class="">ou</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8087-91a2-c1416bae20cb" class="bulleted-list"><li style="list-style-type:disc">Em uma faixa imediatamente superior, dependendo da atualização da compatibilidade.</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8005-9421-f2751e212a27" class="">A comparação é feita pelo sistema oficial da ANS.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8057-b318-d810496ff36c"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80bc-b1eb-c42740d8b246" class="">🟦 <strong>4. O que é compatibilidade de plano?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805f-a2fa-cf7ef3487f63" class="">Os planos são classificados por:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806b-9e94-f8dd0dabe446" class="bulleted-list"><li style="list-style-type:disc">Segmentação (Ambulatorial, Hospitalar com obstetrícia, Hospitalar sem obstetrícia)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8048-923a-dd1d9f264523" class="bulleted-list"><li style="list-style-type:disc">Acomodação (Coletiva ou Individual)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805f-9808-deb7e38c0060" class="bulleted-list"><li style="list-style-type:disc">Preço</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8023-a0c3-dfe34d85e154" class="bulleted-list"><li style="list-style-type:disc">Abrangência (municipal, estadual, nacional)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807b-8ae9-e98a2fd6201e" class="bulleted-list"><li style="list-style-type:disc">Tipo (Individual, Coletivo por adesão, Empresarial)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b0-bb61-c1a8846e7789" class="">A portabilidade só se aplica quando o novo plano oferece cobertura <strong>igual ou maior</strong>, respeitando a compatibilidade definida pela ANS.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8033-8c9d-d7ecc9867895" class=""><strong>Exemplo real:</strong></p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8018-b519-c936d10ce916" class="bulleted-list"><li style="list-style-type:disc">Plano atual: Ambulatorial + Hospitalar com obstetrícia, enfermaria, abrangência estadual.<div style="display:contents" dir="auto"><p id="2c606824-621d-8067-84b7-db05b3879eb5" class="">Pode migrar para:</p></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e8-a915-c642642f558f" class="bulleted-list"><li style="list-style-type:disc">um plano hospitalar e ambulatorial com a mesma abrangência;</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b9-8f46-c2e0d28136be" class="bulleted-list"><li style="list-style-type:disc">com enfermaria ou apartamento;</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809f-9895-cbfdae7fea99" class="bulleted-list"><li style="list-style-type:disc">desde que a faixa de preço seja compatível.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b9-9fa7-dfa2e4a36323"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-802c-80f5-cbc6ea7d98ed" class="">🟦 <strong>5. Tipos de portabilidade</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8075-b038-f7408b076129" class="">A portabilidade pode ser:</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8046-abc1-f1a7351b12ef" class="">✔ 5.1 Portabilidade comum (a mais usada)</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c5-8534-fa7ea68e25f2" class="">É a troca padrão, feita após cumprir o tempo mínimo no plano.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8023-8148-c2c2c2ec7d1e" class="">✔ 5.2 Portabilidade especial</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b7-992d-c440bb299566" class="">É uma portabilidade <strong>excepcional</strong>, aplicada a casos específicos:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803e-bec5-d76d1fea1118" class="bulleted-list"><li style="list-style-type:disc">Operadora que deixou o mercado (falência, liquidação, suspensão)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801c-87e1-e1136ecbf153" class="bulleted-list"><li style="list-style-type:disc">Cancelamento do plano coletivo empresarial por decisão da empresa</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d3-9012-d816d74e3dd3" class="bulleted-list"><li style="list-style-type:disc">Demissão sem justa causa</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803c-8e14-dc9ed195b4d7" class="bulleted-list"><li style="list-style-type:disc">Aposentadoria</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806c-9e63-d381d2f74842" class="bulleted-list"><li style="list-style-type:disc">Extinção do contrato coletivo</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ea-97f3-d3fe751df6b2" class="">Nesses casos, muitos requisitos são flexibilizados, como o tempo mínimo no plano.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80d3-864d-ec3dc2211076" class="">✔ 5.3 Portabilidade por rescisão</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c2-9a9e-c182f8a9f064" class="">Quando a operadora <strong>cancela o contrato</strong>, o beneficiário tem direito à portabilidade dentro de 60 dias, mesmo que não tenha cumprido o tempo mínimo.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c2-b993-d0ab744b9d13"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80ba-9595-cd97aee7446a" class="">🟦 <strong>6. Prazos para pedir portabilidade</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8035-9d67-f7ee09d7d202" class="">Depois de cumprir o período mínimo no plano, a portabilidade pode ser solicitada:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8099-b506-ce39e132cce9" class="bulleted-list"><li style="list-style-type:disc"><strong>Em qualquer época do ano</strong><div style="display:contents" dir="auto"><p id="2c606824-621d-80f6-9d59-fd4fc8b82c09" class="">(antigamente só era possível no mês de aniversário do contrato; isso mudou).</p></div></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8061-895c-fd24ed472dcb" class="">Após aceitar a portabilidade, o novo plano tem:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a4-ac21-ec2424a0c871" class="bulleted-list"><li style="list-style-type:disc"><strong>10 dias para aprovar ou recusar</strong> (desde que haja justificativa legal).</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8082-96e8-ee0369b7555b"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8099-881b-ceef228c91c3" class="">🟦 <strong>7. O que NÃO pode acontecer na portabilidade</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80eb-8983-f44cd3ed08cb" class="">❌ Exigir exames de saúde</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8051-b5bc-e0ad6ea1ba13" class="">O plano <strong>não pode</strong> solicitar avaliação médica, laudos ou entrevistas técnicas.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-807a-841e-e2b8139e346f" class="">❌ Cobrar carências novamente</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8039-8b38-cea21d77dd9a" class="">Se todos os requisitos forem atendidos, <strong>não pode existir nova carência</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f8-8ab1-fa9341b2b8ee" class="">❌ Impedir a mudança por doença</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800a-aa48-ee6332f600fe" class="">É proibido negar portabilidade por causa de:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8018-a89e-d943ca916b91" class="bulleted-list"><li style="list-style-type:disc">Doenças crônicas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e0-be02-f37421656de5" class="bulleted-list"><li style="list-style-type:disc">Doenças graves</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e6-8d8a-f8269a7e4fe9" class="bulleted-list"><li style="list-style-type:disc">Uso frequente do plano</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8033-b23c-f54559256c57" class="bulleted-list"><li style="list-style-type:disc">Cirurgias futuras previstas</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80b1-8c17-f8e1d3b7b2ca" class="">❌ Impedir por ter usado muito o plano</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c9-b999-cefc5c6d9ed4" class="">O histórico de utilização não pode ser usado contra o beneficiário.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80a8-a1e5-eac5ffaabfe9"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8036-a14f-fc4dad72f3eb" class="">🟦 <strong>8. Como funciona o processo em 5 passos simples</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-806b-a2c1-e4986723ce7d" class="numbered-list" start="1"><li><strong>Consultar no site da ANS</strong>: ver quais planos são compatíveis.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8019-9ec7-c6b465368479" class="numbered-list" start="2"><li><strong>Solicitar proposta</strong> na nova operadora.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8076-ae6f-db9be3db8f90" class="numbered-list" start="3"><li><strong>Entregar documentos</strong>: comprovante de pagamento, carteirinha, contrato ou declaração do plano atual.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8056-a79d-eff5dc3b453f" class="numbered-list" start="4"><li><strong>Aguardar análise (10 dias)</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8057-a5e6-fae35d685d44" class="numbered-list" start="5"><li><strong>Após aceitação, cancelar o plano atual</strong>, se desejar.<div style="display:contents" dir="auto"><p id="2c606824-621d-8038-b551-e2d048d3b8dc" class="">(A portabilidade não cancela automaticamente).</p></div></li></ol></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e9-87c3-e19b65090661"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80b6-b59a-dc5f268dad1b" class="">🟦 <strong>9. Perguntas comuns sobre portabilidade</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-807d-8ab5-e490eb22bb93" class=""><strong>📌 Posso trocar de plano mesmo se estiver em tratamento?</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ab-ae96-cda618621567" class="">Sim. A operadora <strong>não pode negar portabilidade</strong> por motivo de tratamento em andamento.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8044-90a3-e659065439ac" class=""><strong>📌 Posso trocar para um plano mais barato?</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80fc-a4bc-df109ab340c6" class="">Sim, desde que seja compatível na segmentação e faixa de preço.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-805a-b4f2-fad01cb2e75a" class=""><strong>📌 Posso trocar para um plano melhor?</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808b-abaa-ef51ef354fdf" class="">Sim, desde que o plano seja compatível no sistema da ANS.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-802f-8a27-ed91e24ff893" class=""><strong>📌 Posso fazer portabilidade várias vezes?</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808f-b042-f193edb42844" class="">Sim. A cada portabilidade, o prazo de 2 anos recomeça.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ae-8987-d34a6cc50ba2" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f4-b8b5-f863d8a21dfb" class="">🟦 <strong>APROVEITAMENTO DE CARÊNCIA: explicação completa e detalhada</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8074-b93e-e60373c6e99f" class="">O <strong>Aproveitamento de Carência</strong>  é um mecanismo que permite ao cliente entrar em um novo plano de saúde <strong>cumprindo apenas parte das carências</strong> ou <strong>tendo isenção em algumas delas</strong>, mas <strong>não todas</strong> como acontece na portabilidade.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807c-a8e0-fdd44496f37c" class="">É muito importante entender que:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8079-8783-ecf1f9eb7b7f" class="">👉 <strong>Aproveitamento de Carência NÃO é Portabilidade de Carência</strong></p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ab-bf86-fbc7fbaf149b" class="">👉 Os dois mecanismos são totalmente diferentes</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8027-a089-f0d5c07ac125" class="">👉 Cada um é regido por regras e objetivos distintos</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800b-ad17-cb8909d57456" class="">👉 E cada um atende perfis de clientes diferentes</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ca-88a7-d31667f3cb70" class="">A seguir, tudo explicado de forma simples e completa.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8015-862c-e007cd2cacc4"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-806b-9926-c54e40233243" class="">🟦 <strong>1. O que é Aproveitamento de Carência?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8070-8288-c2010701fa63" class="">É quando o cliente entra em um novo plano de saúde e <strong>não precisa cumprir todas as carências desde zero</strong>, porque a operadora oferece regras especiais para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8057-b8d9-e944452cda6d" class="bulleted-list"><li style="list-style-type:disc"><strong>reduzir carências</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803d-97f5-ce2d960507c8" class="bulleted-list"><li style="list-style-type:disc"><strong>zerar algumas carências</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8080-bf75-f6532a495204" class="bulleted-list"><li style="list-style-type:disc"><strong>aproveitar parte do tempo já cumprido em um plano anterior</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b4-bc9f-fe19a78ec143" class="">O aproveitamento de carência <strong>NÃO é um direito garantido por lei</strong> (diferente da portabilidade).</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8023-90a8-d932d8dd205c" class="">Ele é uma <strong>política comercial</strong> da operadora ou do produto.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b0-9d01-eae03c9ea34f" class="">Ou seja:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800a-bad4-cb0a66602041" class="">👉 Cada operadora define se oferece ou não</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a5-a528-c651820f9b08" class="">👉 Cada rol de carências é diferente</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a1-8153-fc55718b2ed6" class="">👉 Cada tabela tem suas próprias regras</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b8-96e1-ee043e5d9307"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8008-88d4-ecf55d39bc79" class="">🟦 <strong>2. Como funciona o Aproveitamento na prática?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d3-85be-d7c7ccec191e" class="">Ele pode funcionar de 3 formas:</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8002-aec0-cb0b37a1f80c" class="">✔ 2.1 Redução parcial da carência</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800a-9591-f85aaf8a83b5" class="">O cliente não começa do zero: cumpre <strong>menos tempo</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8092-a768-feb237c856fb" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e5-bc38-c607efecee5c" class="bulleted-list"><li style="list-style-type:disc">Carência normal para internação: 180 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8067-bcc2-d2f0abe4c1d9" class="bulleted-list"><li style="list-style-type:disc">Com aproveitamento: 90 dias</li></ul></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80c9-8ba8-ee6c7da6ae19" class="">✔ 2.2 Isenção total para alguns serviços</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806b-be34-eeca4a5045bb" class="">Em alguns casos, a operadora <strong>zera</strong> carências como:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80db-8c92-c0820b42bd64" class="bulleted-list"><li style="list-style-type:disc">Consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808d-a5d6-c5510b98acac" class="bulleted-list"><li style="list-style-type:disc">Exames simples</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8020-9379-d879714fa469" class="bulleted-list"><li style="list-style-type:disc">Atendimento de urgência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8054-a9cf-dc6393384ad7" class="bulleted-list"><li style="list-style-type:disc">Terapias</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8067-83ad-ea162a30cb60" class="">É bem comum em promoções.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80c5-bf36-d0659c354e2e" class="">✔ 2.3 Aproveitamento proporcional</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8082-8367-df9cde1a8501" class="">A operadora verifica quanto tempo o cliente já cumpriu no plano anterior e “desconta” da carência.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808e-8f65-c561492d3baf" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8090-9c9d-e05bf559c93a" class="bulleted-list"><li style="list-style-type:disc">Carência para cirurgia: 180 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ce-b20d-d397be961015" class="bulleted-list"><li style="list-style-type:disc">Cliente já cumpriu 100 dias no plano anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808e-8e89-d1a391ae7365" class="bulleted-list"><li style="list-style-type:disc">Ele só cumpre os <em>80 dias restantes</em></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d6-b957-f8000d29c7de" class="">Nem todas as operadoras trabalham assim — algumas só oferecem carências fixas reduzidas.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8010-bc6d-e65cf33f1a77"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-809e-bb11-dbfc82ab41ed" class="">🟦 <strong>3. O que define as regras do Aproveitamento?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c6-a2fb-ff6c8e69557e" class="">O aproveitamento depende das políticas de:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809f-a87c-fc015e40cbec" class="bulleted-list"><li style="list-style-type:disc"><strong>Operadora</strong> (Unimed, Amil, Bradesco, SulAmérica, Hapvida etc.)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804a-8489-d5b93c348bf6" class="bulleted-list"><li style="list-style-type:disc"><strong>Administradora</strong> (para planos coletivos por adesão)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-977d-c0c43d3edd78" class="bulleted-list"><li style="list-style-type:disc"><strong>Tipo de plano</strong> (individual, PME, coletivo por adesão)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fb-b031-cd48b71b9066" class="bulleted-list"><li style="list-style-type:disc"><strong>Campanhas comerciais</strong> (promoções temporárias)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8025-ba23-d81ec1a842be" class="bulleted-list"><li style="list-style-type:disc"><strong>Vínculos</strong> (ex.: vínculo com entidade/clube/empresa)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f6-af6b-d2841ee8f0fc" class="">Cada cenário pode ter regras completamente diferentes.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-803f-a872-c398db98fe63"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8022-8a0a-cd781f38d3ed" class="">🟦 <strong>4. Quem tem direito ao Aproveitamento?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a1-8900-ef671fcc3a3e" class="">A resposta é: <strong>não é um direito automático</strong> — depende <em>exclusivamente</em> da operadora.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b8-a5f0-fad6f7ad2613" class="">Mas, de forma geral, a maioria trabalha com critérios como:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80cf-8d78-fa0928ab46e3" class="">✔ Tempo mínimo de permanência no plano anterior</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80dc-9262-d750b94bc140" class="">Exemplo: ter pelo menos 6 ou 12 meses em um plano anterior.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8052-b555-ea60ce0c7580" class="">✔ Tipo do plano anterior</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ff-b175-dab85bb12fe6" class="">Algumas operadoras só aceitam planos:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803e-979e-daaf0c976129" class="bulleted-list"><li style="list-style-type:disc">regulamentados pela ANS</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f1-a31e-c2f371825ece" class="bulleted-list"><li style="list-style-type:disc">hospitalares</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d2-987d-c475e8df3dd7" class="bulleted-list"><li style="list-style-type:disc">de empresas reconhecidas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807f-b7d0-c4e490c3d779" class="bulleted-list"><li style="list-style-type:disc">de determinadas regiões</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-801f-b615-e28a0302cb94" class="">✔ Faixa etária compatível</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8074-9902-d93d54eef8d2" class="">Algumas operadoras limitam aproveitamento para idosos em campanhas específicas.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-800b-b0ed-e3431a205db0" class="">✔ Comprovação documental</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80dd-9678-fe8d3c33f972" class="">Comprovantes geralmente necessários:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804d-a0e5-ef9d45d46f0e" class="bulleted-list"><li style="list-style-type:disc"><strong>Cópia da carteirinha</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8007-ad66-e3804a4ec093" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprovante de pagamento dos últimos 3 meses</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80de-8bfd-e69b03acbc6c" class="bulleted-list"><li style="list-style-type:disc"><strong>Declaração ou carta de permanência</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8014-a36a-c6febfa9b7d7" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprovante de cancelamento do plano anterior</strong></li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80de-806d-e08621b45ccb"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f1-86a3-f45e682cdf4f" class="">🟦 <strong>5. Diferença entre Portabilidade e Aproveitamento de Carência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8078-9053-f0c5e77c5bad" class="">Aqui está uma tabela clara:</p></div><div style="display:contents" dir="ltr"><table id="2c606824-621d-80c4-b134-e2ca99a6156e" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8088-9e69-c17010a50c6e"><th id="WE~k" class="simple-table-header-color simple-table-header">Critério</th><th id="bJEY" class="simple-table-header-color simple-table-header">Portabilidade</th><th id="`lbX" class="simple-table-header-color simple-table-header">Aproveitamento de Carência</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2c606824-621d-807e-88e3-d125ea5f8b24"><td id="WE~k" class=""><strong>É garantido por lei?</strong></td><td id="bJEY" class="">✔ Sim, direito regulado pela ANS</td><td id="`lbX" class="">❌ Não, depende da operadora</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8025-ad6d-e1ab058f392a"><td id="WE~k" class=""><strong>Zera TODAS as carências?</strong></td><td id="bJEY" class="">✔ Sim, 100%</td><td id="`lbX" class="">❌ Não obrigatoriamente</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80b0-aa6f-cc0c74356b22"><td id="WE~k" class=""><strong>Precisa cumprir 2 ou 3 anos?</strong></td><td id="bJEY" class="">✔ Sim</td><td id="`lbX" class="">❌ Não</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80e2-ac26-c683875c4dab"><td id="WE~k" class=""><strong>Exige plano compatível?</strong></td><td id="bJEY" class="">✔ Sim</td><td id="`lbX" class="">❌ Não necessariamente</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8059-84bc-f9579f414a3d"><td id="WE~k" class=""><strong>Precisa ter plano ativo?</strong></td><td id="bJEY" class="">✔ Sim</td><td id="`lbX" class="">✔ Quase sempre</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8001-88ca-ddf11cb09707"><td id="WE~k" class=""><strong>Pode trocar de tipo de plano?</strong></td><td id="bJEY" class="">Limitado</td><td id="`lbX" class="">Mais flexível</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8059-872a-e6c497070984"><td id="WE~k" class=""><strong>Pode migrar para plano superior?</strong></td><td id="bJEY" class="">Só se for compatível</td><td id="`lbX" class="">Em geral, sim</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80e2-ac9c-d5530270bf9f"><td id="WE~k" class=""><strong>Usado para vender?</strong></td><td id="bJEY" class="">Difícil, complexo</td><td id="`lbX" class="">Muito usado comercialmente</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8025-b7ac-d8fbfcbac117"><td id="WE~k" class=""><strong>Pode exigir CPT?</strong></td><td id="bJEY" class="">Não</td><td id="`lbX" class="">Sim</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80af-bb63-feab81c11d2d"><td id="WE~k" class=""><strong>Documentação mais complexa?</strong></td><td id="bJEY" class="">Sim</td><td id="`lbX" class="">Depende</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b6-a28c-e759bf273bff" class="">Resumo simples:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ec-8e2c-cd64606d75e4" class="">👉 <strong>Portabilidade</strong> é um direito</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8051-b4a9-f20af78815d9" class="">👉 <strong>Aproveitamento</strong> é uma oferta comercial</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-804f-a0c2-f2bf8f7f606d"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-804b-8f3d-cea66dba082b" class="">🟦 <strong>6. Situações em que o Aproveitamento é mais interessante</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8094-8d9d-f382eb5f897d" class="">O aproveitamento é extremamente útil quando:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809d-9868-c5afa3730afc" class="">✔ O cliente <strong>não tem</strong> tempo de permanência suficiente para portabilidade</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8070-acdb-ea7fe2406a1e" class="">Exemplo: está há 8 meses no plano e quer trocar.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8015-bce2-ffee0a278592" class="">✔ O cliente quer trocar por um plano melhor, com maior cobertura ou rede superior</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80fb-8206-f5a0fed6f7e4" class="">Exemplo: mudar de um plano regional para nacional.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80e8-8c68-f59ce60bea60" class="">✔ O cliente quer incluir dependentes</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c8-9c3c-efef1e9db5bd" class="">Portabilidade não serve para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8095-9296-fd9683d5459a" class="bulleted-list"><li style="list-style-type:disc">adicionar filhos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8098-a260-e2695eb409bc" class="bulleted-list"><li style="list-style-type:disc">adicionar cônjuge</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f7-99ef-e13ba8b0027e" class="bulleted-list"><li style="list-style-type:disc">adicionar pais</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8031-b692-d5273fb6e07e" class="">Aproveitamento funciona nesses casos.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-802e-951e-f185c4d10b72" class="">✔ O cliente está sem plano e quer aproveitar histórico antigo</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d7-bbed-c2c4d3c875ba" class="">Algumas operadoras aceitam planos cancelados há até 30, 60 ou 90 dias.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8097-b2ff-c02595b6c67a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8091-ada5-ea101b94f7bc" class="">🟦 <strong>7. Tipos de Aproveitamento mais comuns no mercado</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804c-ad78-e8246e09779c" class="">Aqui estão os modelos que você encontra na prática:</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80a4-bc45-f8bec4f9f3dc" class="">✔ 7.1 Aproveitamento total</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8049-b9c2-d78c2f92da5d" class="">Zera carências para consultas e exames.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b9-a5ff-d16182be200c" class="">Reduz carência de internação para 60, 90 ou 180 dias.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-800d-b5df-f167c099ad7f" class="">✔ 7.2 Aproveitamento parcial</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8087-96f6-e3d8a2ddc5af" class="">Ex.:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fb-bf23-c39b02d2bc3a" class="bulleted-list"><li style="list-style-type:disc">Consultas: zero carência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d9-9713-dc41dfe59f85" class="bulleted-list"><li style="list-style-type:disc">Exames simples: zero</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8017-9c2c-fc9714a56d2b" class="bulleted-list"><li style="list-style-type:disc">Exames complexos: 90 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80dc-92dd-e6f4f7938882" class="bulleted-list"><li style="list-style-type:disc">Internação: 180 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bf-9eff-f31a8ae7cf85" class="bulleted-list"><li style="list-style-type:disc">Cirurgia: 180 dias</li></ul></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8096-afa7-c648d9e24607" class="">✔ 7.3 Aproveitamento baseado no tempo cumprido</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80cf-9dff-d6d622b0a447" class="">É o modelo mais “justo”, mas menos comum.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8081-9a0b-c71b2d4ca0ec" class="">✔ 7.4 Aproveitamento promocional</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e6-ac6b-dca12f3d5305" class="">Campanhas especiais com regras mais flexíveis, por tempo limitado.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8046-8320-c871ce080574"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-802d-9ef4-f1926b7c7ab2" class="">🟦 <strong>8. Documentos exigidos para Aproveitamento</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80cb-b1a9-e1a98c39e271" class="">Geralmente incluem:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ff-9c64-cd0dc2a4f5d1" class="bulleted-list"><li style="list-style-type:disc"><strong>Carteirinha do plano anterior</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8086-810d-d2f52e5dec7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprovante de pagamento de 2 ou 3 meses</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8096-ba86-f4a7c44b869d" class="bulleted-list"><li style="list-style-type:disc"><strong>Carta de permanência</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8077-a7ac-ebe1e79bd96f" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprovante de vínculo</strong> (em planos empresariais)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ca-bba6-f5f86c044b2e" class="bulleted-list"><li style="list-style-type:disc"><strong>Declaração da operadora anterior</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80af-845b-d20e806dcc41" class="bulleted-list"><li style="list-style-type:disc"><strong>Comprovação de cancelamento</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8085-afb6-cb5974347cfc" class="">Cada operadora tem sua lista própria.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8047-b0e6-c420e3bce2ef"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-807c-89a0-f93b89160c80" class="">🟦 <strong>9. O que o corretor deve explicar para o cliente</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8023-8049-fbcb8a8bccbc" class="">✔ 9.1 Aproveitamento não é garantia</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8038-9d9e-d29a8f7182f6" class="">Depende da análise da operadora.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80d1-b15e-cd6cc73a1946" class="">✔ 9.2 A operadora pode recusar</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8001-bd9f-c81a8f480513" class="">Se houver divergências, inadimplência, ou documentos insuficientes.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-803f-917c-eb6d3daae73e" class="">✔ 9.3 Pode haver carências residuais</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804b-96bb-d369e2d4f4ab" class="">Ex.: internação ainda pode ter 90 dias.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-807c-9dbd-d1e60ee9528d" class="">✔ 9.4 Doenças pré-existentes podem gerar CPT</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8009-acbb-e47d663f3e0f" class="">Portabilidade não permite CPT — aproveitamento permite.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8099-bcab-f12f57787dff" class="">✔ 9.5 O aproveitamento é uma vantagem comercial</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8080-9b97-debc5a457c4a" class="">Serve para facilitar a adesão.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-809d-82c2-d1367f577344"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80e0-ad49-cd49aa2733c6" class="">🟦 <strong>10. Como explicar isso para o cliente (de forma simples)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f3-8592-e511e17e7201" class="">Você pode usar esse discurso:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-806c-a39c-d81308fbbdf1" class="">“Existem duas formas de aproveitar seu histórico de carência.<div style="display:contents" dir="auto"><p id="2c606824-621d-805b-8b4b-cc12152c5be4" class="">A portabilidade, que é um direito regulado pela ANS, e o aproveitamento, que é uma política comercial da operadora.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8072-bd6a-c5291948b81b" class="">No aproveitamento, você não precisa começar todas as carências do zero, mas ainda pode ter alguns prazos reduzidos.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e0-bd09-d64961e0359c" class="">É mais rápido, mais flexível e permite mudar para um plano melhor, incluir dependentes e contratar imediatamente.”</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-809f-840e-f15ae1a2ff7d" class="">Outro exemplo:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8064-baa6-ccc5ae12c1f2" class="">“Você já cumpriu parte das carências no seu plano antigo.<div style="display:contents" dir="auto"><p id="2c606824-621d-8072-8685-d096fea3a3d5" class="">No novo plano, podemos aproveitar esse tempo e reduzir seus prazos — por exemplo, consultas e exames ficam liberados, e internações podem ter uma carência menor.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8005-9e10-efc59e45c14e" class="">Não é portabilidade, mas ajuda muito a não recomeçar tudo.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b4-bd59-cad7b58c6dc5"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8022-bd4f-ccbcd2365b86" class="">🟦 <strong>11. Exemplos práticos para facilitar o entendimento</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8006-af60-f34ffe7f11f1" class=""><strong>Caso A — Cliente tem 10 meses de plano antigo</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f0-85f8-ceb145fd9c51" class="bulleted-list"><li style="list-style-type:disc">Não pode fazer portabilidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f7-8592-c23400e650c3" class="bulleted-list"><li style="list-style-type:disc">Pode fazer aproveitamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d8-9dfd-d5fd6061beb0" class="bulleted-list"><li style="list-style-type:disc">Consultas liberadas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803e-aa99-fb6d10ea3a9b" class="bulleted-list"><li style="list-style-type:disc">Internação reduzida para 90 dias</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ff-872f-db667d6a8df9" class=""><strong>Caso B — Cliente quer incluir o filho</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e4-9b3a-c895901bc4f9" class="bulleted-list"><li style="list-style-type:disc">Portabilidade não serve</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8053-b482-ffa0e20517a3" class="bulleted-list"><li style="list-style-type:disc">Aproveitamento permite incluir</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809f-bc43-d253c2824f16" class="bulleted-list"><li style="list-style-type:disc">Carências reduzidas</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8032-a4ca-d6685b51b0e1" class=""><strong>Caso C — Cliente quer mudar para um plano melhor (nacional, apartamento)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ca-bd4e-f9cb0165144f" class="bulleted-list"><li style="list-style-type:disc">Portabilidade pode não permitir</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8060-a2a6-e9763a16c9fb" class="bulleted-list"><li style="list-style-type:disc">Aproveitamento sim</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b4-bd0a-e07709f29211" class="bulleted-list"><li style="list-style-type:disc">Pode reduzir carências</li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

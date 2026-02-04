@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Termos do atendimento médico</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-802a-921c-f6962a939a84" class="page sans"><header><h1 class="page-title" dir="auto">Termos do atendimento médico</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8063-9d0d-c5a0e02c0a36" class=""><strong>1. Consulta</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b8-8fc5-d3b805ee9091" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Atendimento médico para avaliação, diagnóstico, prescrição de exames ou acompanhamento do paciente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80dd-b832-f62bf4d3e95a" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Clínico geral, pediatria, cardiologia, ginecologia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8016-8082-f467092c61ab" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d4-be48-e3e8281e0b69" class="bulleted-list"><li style="list-style-type:circle">Normalmente sem carência, exceto para planos recém-contratados ou dependentes incluídos</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fe-84bf-c7adc1b77047" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8029-8e8a-d510408bbd77" class="">“Consulta é quando você vai ao médico para avaliação, diagnóstico ou acompanhamento da saúde.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80ba-b3a8-f7acc0e7635b"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8060-b2aa-da9046628e3c" class=""><strong>2. Telemedicina</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80df-866e-f6cb1d12529b" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Consulta médica realizada <strong>remotamente</strong>, por vídeo, telefone ou chat seguro.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8021-a527-eaf36b0fd929" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Avaliação de sintomas leves, acompanhamento de doenças crônicas, orientação sobre exames.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8026-b508-e819af7f234f" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-806d-9bc4-c1b842678fb4" class="bulleted-list"><li style="list-style-type:circle">Pode substituir consultas presenciais para casos não emergenciais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8080-819c-ddf6a435aa66" class="bulleted-list"><li style="list-style-type:circle">Cobertura depende do plano</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8072-95b6-c3471eb770e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-807d-8fa2-e522b87b81f9" class="">“Telemedicina é atendimento médico à distância, por vídeo ou telefone, útil para acompanhamento ou orientações sem precisar ir ao consultório.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8047-b14b-cd24032c8484"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8079-a5b7-e4802db17c2d" class=""><strong>3. Exame</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f1-b7d6-d0be288c96af" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Procedimento diagnóstico ou preventivo, com diferentes níveis de complexidade:<div style="display:contents" dir="auto"><ul id="2c606824-621d-80ac-ab7a-e9238901bf25" class="bulleted-list"><li style="list-style-type:circle"><strong>Baixa complexidade:</strong> hemograma, glicemia, exame de urina</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8098-a1d4-d1b1f3ea4001" class="bulleted-list"><li style="list-style-type:circle"><strong>Média complexidade:</strong> ultrassom, raio-X, mamografia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a7-bb29-fa1604fe2b5c" class="bulleted-list"><li style="list-style-type:circle"><strong>Alta complexidade:</strong> ressonância magnética, tomografia, PET-CT, exames genéticos</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8065-ab94-efbcfde2ba20" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d3-a390-cd0e7414deb8" class="bulleted-list"><li style="list-style-type:circle">Alguns exames podem ter carência específica</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8088-9ed7-c5b5681a94b2" class="bulleted-list"><li style="list-style-type:circle">Cobertura depende do plano e da necessidade médica</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d8-9067-fb39d80ed779" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-806e-a5db-d49e14fd98a1" class="">“Exames ajudam o médico a diagnosticar ou acompanhar a saúde, podendo variar de simples a avançados.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8001-aafe-d2116f7b57ec"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-807d-9ee2-f0ea3c566e40" class=""><strong>4. Internação</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8074-8274-d00b6273466e" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Permanência do paciente no hospital para tratamento que exige <strong>supervisão contínua</strong> ou cirurgia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8027-8bb6-d3092fb9e737" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Cirurgias, parto, tratamentos pós-acidente.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808b-bab9-c89fee6a7cb3" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-8027-b984-fa9d7ef1193f" class="bulleted-list"><li style="list-style-type:circle">Pode ser em enfermaria ou apartamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8038-9781-df9d43efe001" class="bulleted-list"><li style="list-style-type:circle">Internações podem ter carência, exceto em casos de urgência ou emergência</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8043-b863-db7eb7ec9a8d" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80fc-974d-cd8c7197f0ce" class="">“Internação é quando você precisa ficar no hospital para tratamento ou cirurgia.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8029-b911-e15c04f670af"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8060-81e4-cde533f5be24" class=""><strong>5. Cirurgia Eletiva</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8000-8693-e28c30969cc3" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Cirurgia programada, <strong>não emergencial</strong>, planejada com antecedência.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800a-aa07-e5952bc926ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Cirurgia de vesícula, ortopédica, hérnia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8028-91f6-cc0a184f9b8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d2-a3ec-e263a596e12f" class="bulleted-list"><li style="list-style-type:circle">Pode ter carência específica</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8063-94b8-d5143e61b241" class="bulleted-list"><li style="list-style-type:circle">Normalmente exige <strong>autorização prévia da operadora</strong></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803e-9cb7-d0d811b90559" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80c5-bacd-f5d2a73cd16d" class="">“Cirurgia eletiva é aquela agendada com antecedência, não emergencial. Precisa seguir regras do plano e autorização.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8055-8a2d-e81945a9c109"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8099-807c-eee4fd713b22" class=""><strong>6. Terapias Eletivas</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bb-86f6-e0a7a356f13f" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Procedimentos terapêuticos <strong>programados e não emergenciais</strong>, com objetivo de reabilitação, prevenção ou melhoria da qualidade de vida.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803c-9320-fdee54f488be" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Sessões de fisioterapia para reabilitação de lesão, fonoaudiologia, psicoterapia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8033-9ff5-e7d177e74428" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ac-8b3d-c38a7fad0fe3" class="bulleted-list"><li style="list-style-type:circle">Pode haver limite de sessões ou necessidade de autorização</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805a-b633-d477c0951bf9" class="bulleted-list"><li style="list-style-type:circle">Normalmente não são urgentes, mas são importantes para manutenção da saúde</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8004-a40d-e850b8c54b94" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8011-bd78-f9d5fb737255" class="">“Terapias eletivas são tratamentos planejados, como fisioterapia ou psicoterapia, para recuperação ou prevenção, que precisam ser agendados com o plano.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b0-82ea-edbd7531cbb0"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8011-b381-cd6956f78f15" class=""><strong>7. Cirurgia de Emergência</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f6-be07-fcff992ff6ed" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Procedimento cirúrgico <strong>urgente</strong>, com risco de vida ou complicações graves.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8047-a7af-d285d635464b" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Apendicectomia de urgência, cesariana emergencial.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808c-9a2f-f24388debb5c" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Cobertura imediata garantida em qualquer plano, sem carência.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8026-a978-e96b47cd44d5"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-801f-9b9b-fb6927ed992c" class=""><strong>8. UTI (Unidade de Terapia Intensiva)</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e5-9843-d63ee3d13572" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Área do hospital para pacientes em estado crítico, com monitoramento constante e equipamentos avançados.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80aa-aec7-ef38a91f8ea8" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Infarto grave, acidentes graves, complicações pós-cirurgia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8061-a1dc-f95e9032983c" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f6-9433-e392dc24357e" class="bulleted-list"><li style="list-style-type:circle">Normalmente sem carência em emergências</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-a306-f89b7abee9da" class="bulleted-list"><li style="list-style-type:circle">Parte da internação hospitalar, mas pode ter regras específicas</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8005-9846-ee4b3632d2ab"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80e9-86e3-f6e71ac4d238" class=""><strong>9. Urgência</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809e-a87b-d5b2cc7c7537" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Atendimento rápido, sem risco imediato de morte.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8031-98d2-dd35a685f562" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Entorse, febre alta, cortes que precisam de sutura.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8091-9a59-f1a793b3fce1" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Cobertura imediata, sem carência.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e1-b40b-e4b2822f91a1" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8095-b6ab-c8fb11fe376b" class="">“Urgência é quando você precisa de atendimento rápido, mas não há risco de morte imediato.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80f6-b319-ea8cad59647b"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80f5-9b7c-c9017d4a1a26" class=""><strong>10. Emergência</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8084-8477-dd908eb34129" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Atendimento imediato com risco de vida ou grave dano à saúde.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8053-86dc-f546d0d9ec6f" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Infarto, AVC, hemorragia intensa, acidentes graves.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bb-a2ce-c69d526a8087" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Cobertura garantida sem carência ou autorização prévia.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8071-9cda-da2d01003839"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-807a-a4f2-c0ba746a7c5b" class=""><strong>11. Remoção</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a7-b1b7-d0ce808550f3" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Transporte do paciente entre unidades de saúde quando necessário para tratamento adequado.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8088-bd0f-efb3d8fbde81" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Ambulância terrestre, transporte aéreo, transferência de UTI.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bf-93d6-cb348954c466" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Urgência e emergência normalmente incluem remoção.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80bf-ba6c-e5e2e4ed6b58"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-802d-8a2f-d300c04c80c4" class=""><strong>12. Home Care</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8063-a916-e65a6bd30094" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Atendimento médico, de enfermagem ou terapêutico <strong>na residência do paciente</strong>.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8006-b9ae-c418462cf193" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Curativos complexos, fisioterapia, administração de medicamentos, monitoramento de pacientes crônicos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806e-ac7f-f8c663dec074" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-8071-8b05-d3a0278d3fe6" class="bulleted-list"><li style="list-style-type:circle">Necessita autorização prévia da operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8034-bc49-c5f04d669836" class="bulleted-list"><li style="list-style-type:circle">Substitui internação quando possível</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d5-8f3c-f061e2640aa3"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80d2-80ee-f0117f6d58d2" class=""><strong>13. Procedimento Ambulatorial</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8091-99ee-d77bfa14a104" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Tratamento que <strong>não exige internação</strong> hospitalar.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d0-bf65-f122b5a4088f" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Pequenas cirurgias, quimioterapia ambulatorial, sessões de fisioterapia.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809a-82d3-f7a0c0f9cf48" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Alguns procedimentos ambulatoriais têm carência específica.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-800f-9901-d9fd735e47d1"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8069-b411-feffcf1e4bde" class=""><strong>14. Sessões de Terapia</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8086-96be-fe51bb7cef59" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Tratamentos de reabilitação ou acompanhamento médico.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f5-90d3-fff80c7a269c" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Fisioterapia, fonoaudiologia, psicoterapia, nutrição clínica.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801c-bcd1-d00c69619514" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Pode haver limite de sessões ou necessidade de autorização.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80db-bc10-d56be0ce4fce"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8045-a581-ec60eb1aaf99" class=""><strong>15. Internação Psiquiátrica / Saúde Mental</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802e-ba9d-d7dbe7a3742b" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Internação para tratamento de transtornos mentais ou dependência química.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8020-b5b6-d3236e13b74b" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Carência própria, cobertura pode variar por plano.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-808a-9d7d-e3bc380b215b"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8040-8800-e336a5cc0ddc" class=""><strong>16. Exames Preventivos e Diagnóstico de Risco</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8040-a394-de0a0a723c4c" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Procedimentos para prevenção ou identificação de fatores de risco.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f5-81ef-d4f0d6aeb01e" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Check-ups, papanicolau, mapeamento genético familiar.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8023-a1b8-d094eba5e881" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Normalmente sem carência, exceto inclusão de dependentes.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80de-b936-c33a674fbc9c"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80f4-b155-fcf5024a477c" class=""><strong>17. Transplantes</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b2-ae8f-cbf07852d116" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Cirurgias complexas para substituição de órgãos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cd-b65a-fc51ca1c6ea8" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Rim, fígado, coração.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cd-b00d-c459e43435b4" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Geralmente carência maior e autorização prévia obrigatória.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e2-a425-e3a83fd0242c"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80d5-9e8c-d07adf7599cc" class=""><strong>18. Terapias Complementares / Integrativas</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805b-869f-d8443386ef57" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Tratamentos alternativos quando cobertos pelo plano.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d2-8db4-f74de437b809" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Acupuntura, quiropraxia, pilates terapêutico.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808c-b45c-eea6fb3fa1ab" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong> Cobertura limitada, depende do plano.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80ab-9b4f-daf1dd20e21d"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80eb-b8c8-c105933c274f" class=""><strong>19. Médico de Família e Comunidade</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807a-8b13-e67aa2c057eb" class="bulleted-list"><li style="list-style-type:disc"><strong>Definição:</strong> Médico que <strong>acompanha integralmente a saúde de um indivíduo ou família</strong>, prevenindo doenças, tratando condições crônicas e coordenando cuidados.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8042-a7f7-ec894de1ea6b" class="bulleted-list"><li style="list-style-type:disc"><strong>Exemplos:</strong> Acompanhamento de hipertensão, diabetes, vacinação, orientação sobre hábitos de vida.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bc-8c57-e683bf629d0d" class="bulleted-list"><li style="list-style-type:disc"><strong>Observações:</strong><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f1-a17c-d496c1eef3de" class="bulleted-list"><li style="list-style-type:circle">Atuação contínua e preventiva</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8036-a688-f3e2957b8cc3" class="bulleted-list"><li style="list-style-type:circle">Facilita encaminhamentos para especialistas</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ec-b72c-ea8cf18e8d6d" class="bulleted-list"><li style="list-style-type:disc"><strong>Como explicar:</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8013-ac64-d69445ae7d63" class="">“O Médico de Família acompanha você e sua família de forma completa, prevenindo doenças e coordenando cuidados, evitando idas desnecessárias a emergências.”</blockquote></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

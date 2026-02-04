@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>APRESENTAÇÃO DE SOLUÇÃO (POSICIONAMENTO DE PRODUTO)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cd06824-621d-80a3-9397-cfaeab08c4da" class="page sans"><header><h1 class="page-title" dir="auto">APRESENTAÇÃO DE SOLUÇÃO (POSICIONAMENTO DE PRODUTO)</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8075-a73b-e7d5f35ffa82" class=""><strong>1. Apresentar SOLUÇÃO, não PRODUTO</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8001-9db4-d65bb12132d8" class=""><strong>Produto x Solução</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a7-8657-f7860aebe7b4" class="bulleted-list"><li style="list-style-type:disc"><strong>Produto</strong>: plano X, operadora Y, tabela Z</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800d-a8f2-dea20441231d" class="bulleted-list"><li style="list-style-type:disc"><strong>Solução</strong>: resposta direta às dores, medos e objetivos do cliente</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-807b-bc70-dfd8ebd1f0e0" class="">❌ “Esse plano tem enfermaria, coparticipação e abrangência regional.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8070-83f1-ea9150af1f63" class="">✔️ “Esse plano resolve sua principal preocupação, que é atendimento rápido em emergência, sem estourar seu orçamento mensal.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8067-b7a1-c2f8c5dcb77d" class="">A maioria dos corretores apresenta assim:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a8-8fb2-c2752174387e" class="bulleted-list"><li style="list-style-type:disc">nome do plano</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803f-9e6e-ee65e698e8fa" class="bulleted-list"><li style="list-style-type:disc">operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c5-9f12-e78c3359ca6f" class="bulleted-list"><li style="list-style-type:disc">tabela</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803c-9dfa-e10fe25a7351" class="bulleted-list"><li style="list-style-type:disc">preço</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e8-aa73-e27431a08aa3" class="">Isso transforma o plano em <strong>commodity</strong> e leva o cliente a comparar apenas valores.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a2-8aed-e68cf60a9d21" class=""><strong>O que é apresentar solução</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80db-9f2e-def5c202c541" class="">Apresentar solução é mostrar:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8024-a638-cae77186d5e5" class="bulleted-list"><li style="list-style-type:disc"><strong>por que</strong> aquele plano faz sentido para aquele cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8081-8ba3-c4dcbcaa8d63" class="bulleted-list"><li style="list-style-type:disc"><strong>como</strong> ele resolve as dores identificadas no diagnóstico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bb-9858-db6acf170137" class="bulleted-list"><li style="list-style-type:disc"><strong>onde</strong> ele protege</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b9-bfb7-cf96a5dad98e" class="bulleted-list"><li style="list-style-type:disc"><strong>quando</strong> ele será usado</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8030-ae72-e506036790e2" class="">👉 O plano vira consequência do diagnóstico, não o centro da conversa.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8034-b1e5-c3194662950d" class=""><strong>Por que não vender produto</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f8-a77b-faff029f25cb" class="">O cliente:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b3-9af2-fa097d1e80c4" class="bulleted-list"><li style="list-style-type:disc">não entende termos técnicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8040-be8f-d4e833676d5a" class="bulleted-list"><li style="list-style-type:disc">não consegue comparar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803a-bce5-fb92cb5b470d" class="bulleted-list"><li style="list-style-type:disc">se sente inseguro</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e3-ba9e-f4fd1f1eea98" class="bulleted-list"><li style="list-style-type:disc">volta para o preço</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8020-b282-d57b89b0a0c5" class="">Quando você vende produto:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800e-81a5-c4a237bc650d" class="bulleted-list"><li style="list-style-type:disc">vira “tirador de pedido”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809b-ad5a-f43b41b30f31" class="bulleted-list"><li style="list-style-type:disc">disputa preço</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bc-a922-d6e84d55a6bf" class="bulleted-list"><li style="list-style-type:disc">perde autoridade</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8091-9adb-e95eeee63792" class="">Quando você vende solução:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a6-bbc4-e9a4a7050202" class="bulleted-list"><li style="list-style-type:disc">conduz a decisão</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80af-abaa-f649de8a6407" class="bulleted-list"><li style="list-style-type:disc">gera confiança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d4-8cb9-c4cde9d11c62" class="bulleted-list"><li style="list-style-type:disc">reduz objeções</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8014-9298-d6eb404c2f6b" class="">❌ “Esse plano custa X”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-807a-bb87-cdc10c1447db" class="">✔️ “Com base no que você me contou, esse plano atende exatamente três pontos importantes para você…”</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8055-af41-d7b666917219" class=""><strong>Como apresentar solução (passo prático)</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8054-bd6c-cf009090a2e1" class="">Sempre conecte o plano ao diagnóstico:</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8020-80b8-cfdaa56f2fd7" class=""><strong>Modelo de frase:</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80d6-a76e-c4af8c4dc04e" class="">“Pelo que você me contou, seu principal ponto é ____. Pensando nisso, essa opção funciona melhor porque ____.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8037-b0b1-cf6900f69fb2" class=""><strong>Exemplo prático</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-809e-9287-fe2dc7697c6f" class="">Cliente com medo de emergência:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80a6-a6a0-cf4d2552821c" class="">“Você comentou que sua maior preocupação é atendimento rápido em urgência. Esse plano tem pronto-socorro referência perto da sua casa e atendimento 24h, o que reduz bastante o risco que você me trouxe.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80f4-a6d8-c1816ceaa2ab"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80b9-8e74-e1b2d82c409d" class=""><strong>2. Como traduzir termos técnicos em linguagem simples</strong></h2></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8029-808d-eecb31369189" class="">Planos de saúde têm:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8075-a387-e1041280ece5" class="bulleted-list"><li style="list-style-type:disc">termos jurídicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8092-95a1-c90d71eea4b7" class="bulleted-list"><li style="list-style-type:disc">regras da ANS</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f4-a73a-df3109da59f7" class="bulleted-list"><li style="list-style-type:disc">linguagem médica</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-805f-9977-d4f2f535ed5c" class="">Se o cliente <strong>não entende</strong>, ele:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b9-973d-ebdb0a8df39e" class="bulleted-list"><li style="list-style-type:disc">desconfia</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8012-8c6d-c34ca7f46d42" class="bulleted-list"><li style="list-style-type:disc">fica inseguro</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8086-8898-cc276692d01a" class="bulleted-list"><li style="list-style-type:disc">adia decisão</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c7-800e-d10413913b21" class="">O corretor não repete termos técnicos.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ea-b3ff-ef87afcc5091" class="">Ele <strong>traduz</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e0-9adb-f9947b0f8db3" class=""><strong>Exemplos de tradução</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-801c-8e3f-da87a040b55e" class=""><strong>Coparticipação</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80fc-ba2f-dd78d09eb720" class="">❌ “Você paga coparticipação conforme utilização”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80a8-a2cb-e2ccfa3f9aaa" class="">✔️ “Esse plano é mais barato por mês, mas toda vez que você usa, paga uma pequena parte do atendimento.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-805f-9578-ce8a106bc86e" class="">✔️ “Você paga uma mensalidade menor e, quando usa, paga um valor pequeno por consulta ou exame.”</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80be-b887-faa9a2b2a8c5" class=""><strong>Carência</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80bd-a252-d45a882ac3ec" class="">❌ “Carência de 180 dias para procedimentos”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ca-a972-d2ce2ff122ed" class="">✔️ “Nos primeiros meses, alguns atendimentos ainda não ficam liberados. Depois desse prazo, o plano funciona completo.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f6-82e5-cc35fd1b7759" class="">✔️ “É o tempo que o plano precisa para liberar alguns atendimentos depois da contratação.”</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8007-8dcf-c114281f01e5" class=""><strong>CPT</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80be-840c-ce0680133898" class="">❌ “Cobertura Parcial Temporária por DLP”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c9-845d-f90acd9e94f4" class="">✔️ “Se existir uma condição de saúde já conhecida, o plano pode limitar alguns atendimentos relacionados a ela por até 24 meses.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f7-8850-dde31adb27d8" class="">✔️ “Durante um período, algumas cirurgias ligadas a essa condição ficam limitadas.”</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-805d-88d0-d3bae08cf2eb" class=""><strong>Dica prática</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8039-b302-deca5a02c3df" class="">Sempre pergunte:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80c5-9eb2-c77014292356" class="">“Ficou claro até aqui?”</blockquote></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80f6-b936-f33d76eb26a1" class=""><strong>3. Estrutura ideal de apresentação de um plano</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80d1-915b-c31548be7ae1" class=""><strong>Nunca comece pelo preço</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c8-b5c3-e618e5050c48" class="">Preço sem contexto:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807a-b721-c696f47fd1c7" class="bulleted-list"><li style="list-style-type:disc">assusta</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8076-b311-dd9eabc9015f" class="bulleted-list"><li style="list-style-type:disc">gera objeção</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c5-b66c-dcdf1877c616" class="bulleted-list"><li style="list-style-type:disc">encerra a conversa</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80b7-af3c-d1f22465f7e6" class=""><strong>Estrutura ideal (PASSO A PASSO)</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8013-b7dc-e4ebe9ca4be6" class=""><strong>1️⃣ Retomada do diagnóstico</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-800d-aa46-c1564727b44b" class="">Mostra escuta e conexão:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-806e-9255-caf6aedef7bf" class="">“Pelo que você me contou, você busca segurança para emergências, consultas regulares e um valor que caiba no seu orçamento.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-808c-af29-ed8905666d15" class="">Isso mostra:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e6-ba05-fcf295e7a2a9" class="bulleted-list"><li style="list-style-type:disc">escuta</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a8-9193-d631309d0aa6" class="bulleted-list"><li style="list-style-type:disc">profissionalismo</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8081-8b59-e2871a7f023d" class="bulleted-list"><li style="list-style-type:disc">personalização</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8008-be25-c1a079e4507c" class=""><strong>2️⃣ Apresentação da solução</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8095-91e6-d2c9d46e0ef0" class="">Explique como o plano resolve:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806b-a025-e86e8832934a" class="bulleted-list"><li style="list-style-type:disc">uso médico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8076-9a4e-cdc70b2e4993" class="bulleted-list"><li style="list-style-type:disc">risco</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8077-b7cf-df507f5cc400" class="bulleted-list"><li style="list-style-type:disc">orçamento</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8053-82bb-d0ebc126ef83" class="">“Pensando nisso, separei essa opção porque ela atende exatamente esses pontos.”</blockquote></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80bc-91f9-d63a06ff49db" class="">“Esse plano atende bem porque você usa pouco no dia a dia, mas te protege em casos de emergência.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8095-a630-d005d6a00a6c" class=""><strong>3️⃣ Explicação dos diferenciais</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8050-8619-d4f3b8d573fc" class="">Só fale do que importa para aquele cliente:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8062-94d8-da98dbb19a22" class="bulleted-list"><li style="list-style-type:disc">hospital específico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8026-90e3-ca5be8e0e7ce" class="bulleted-list"><li style="list-style-type:disc">tipo de acomodação</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a1-945c-c6fb196eb00c" class="bulleted-list"><li style="list-style-type:disc">abrangência</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ba-86f1-c7bc7ff0dc89" class="bulleted-list"><li style="list-style-type:disc">coparticipação</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-807e-ac8c-dc662470e2a7" class="">Sempre ligando à dor.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80ca-953d-f9ae2af0ea39" class=""><strong>4️⃣ Limitações com transparência</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8039-b73c-e6972e54e99d" class="">Nunca esconda:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808f-b807-fbbb222aa39d" class="bulleted-list"><li style="list-style-type:disc">carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8075-866d-e90b3c57756a" class="bulleted-list"><li style="list-style-type:disc">coparticipação</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c2-9452-f428090c1fd6" class="bulleted-list"><li style="list-style-type:disc">rede</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-801b-85d3-f35002805b64" class="">Isso aumenta confiança e reduz cancelamento.</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-805b-aef6-f51e2610b653" class="">“Esse plano não cobre X nos primeiros meses, mas cobre Y desde o início.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8099-ab7b-e6ed5b65984d" class=""><strong>5️⃣ Valor no final</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-806f-98b0-f67efeaf44c6" class="">“Dentro desse cenário, o investimento mensal fica em torno de R$ ___.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d1-9c3e-e44a961152ed" class="">Preço vem <strong>por último</strong>, como consequência lógica.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8075-9285-db1c183f188d" class=""><strong>6️⃣ Validação</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80ec-94a5-e5b80cb23f71" class="">“Isso faz sentido para você dentro do que conversamos?”</blockquote></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8068-9ef0-d8c881790a2f" class=""><strong>4. Como comparar planos sem confundir o cliente</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8026-ae6a-db456d96f43d" class=""><strong>Erro comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804a-ae22-ffdc2e6cd5a2" class="">Mostrar:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e5-bf24-d5fd34735b13" class="bulleted-list"><li style="list-style-type:disc">4 ou 5 planos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c8-8ba4-ea628d016a52" class="bulleted-list"><li style="list-style-type:disc">várias tabelas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ce-81b7-edf58fb9a04b" class="bulleted-list"><li style="list-style-type:disc">muitos detalhes técnicos</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8043-b9d6-f007fd72c9f3" class="">Resultado:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b4-b184-d492c1a35a68" class="bulleted-list"><li style="list-style-type:disc">confusão</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8089-9867-eced33bfe912" class="bulleted-list"><li style="list-style-type:disc">indecisão</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8094-ad58-d23cbca1fdc9" class="bulleted-list"><li style="list-style-type:disc">fuga</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80f0-812b-c38161b88cdf"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80d4-b07c-f7e22f45b7f5" class=""><strong>Regra dos 2 ou 3</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c5-b597-d494e1833445" class="">Sempre compare:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c2-a787-f8229d5a0996" class="bulleted-list"><li style="list-style-type:disc"><strong>no máximo 2 opções (Um principal e um alternativo.)</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bb-a8ae-dff5eb5b1909" class="bulleted-list"><li style="list-style-type:disc">tenha sempre uma terceira opção na manga</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80c9-90b1-ea74a500b23e"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-807e-bae7-d3b669d324c5" class=""><strong>Comparação correta</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f2-bdcb-c5ef35391307" class="">Compare apenas:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807e-ac89-ce9352a1ea04" class="bulleted-list"><li style="list-style-type:disc">o que muda</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800e-b9db-ea46fd6c83a6" class="bulleted-list"><li style="list-style-type:disc">o que impacta a vida do cliente</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8067-885b-c1ee96854896" class=""><strong>Modelo simples de comparação</strong></h3></div><div style="display:contents" dir="ltr"><table id="2cd06824-621d-8079-ac70-f3b3f3f96804" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-808d-b3fd-c7146bdd322a"><th id="&gt;?Tu" class="simple-table-header-color simple-table-header">Ponto-chave</th><th id="HJ^\" class="simple-table-header-color simple-table-header">Plano A</th><th id="doND" class="simple-table-header-color simple-table-header">Plano B</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-8037-938c-fa31aad5e533"><td id="&gt;?Tu" class="">Rede hospitalar</td><td id="HJ^\" class="">Mais ampla</td><td id="doND" class="">Mais enxuta</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-80e4-a528-cde5c425b433"><td id="&gt;?Tu" class="">Mensalidade</td><td id="HJ^\" class="">Maior</td><td id="doND" class="">Menor</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-80b9-9f4e-c358e0406f5d"><td id="&gt;?Tu" class="">Coparticipação</td><td id="HJ^\" class="">Não</td><td id="doND" class="">Sim</td></tr></div><div style="display:contents" dir="ltr"><tr id="2cd06824-621d-8065-bbab-c97e47e8e646"><td id="&gt;?Tu" class="">Indicado para</td><td id="HJ^\" class="">Quem usa muito</td><td id="doND" class="">Quem usa pouco</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c4-a539-ce7522f51928" class="">Explique com palavras, não com tabela apenas.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a5-922d-ec21cf53fc4d" class=""><strong>Frase de condução</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8035-b9c8-f5962297e547" class="">“Os dois planos atendem sua necessidade, a diferença está no conforto e no custo mensal. Agora é decidir o que pesa mais para você.”</blockquote></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8093-a4a5-d386ea07cbb2" class="">“Esse plano A é mais econômico por mês, mas tem coparticipação. Já o plano B é um pouco mais caro, porém você não paga nada quando usa.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80eb-8252-cef189953f71" class=""><strong>Posicionamento correto</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-803c-9c00-c520ae878fc6" class="">Nunca diga:</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8039-8b6d-f83d77ca63d6" class="">❌ “Esse é melhor”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8090-9658-e2f26d49960c" class="">✔️ “Esse faz mais sentido para o que você busca”</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8070-92ea-f2ba8d7ebd42" class=""><strong>Ajude o cliente a decidir</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8060-b346-eb3e0cd931bf" class="">“Se sua prioridade for custo mensal, o plano A funciona melhor.<div style="display:contents" dir="auto"><p id="2cd06824-621d-8046-9831-c7762e144674" class="">Se for previsibilidade, o plano B é mais indicado.”</p></div></blockquote></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

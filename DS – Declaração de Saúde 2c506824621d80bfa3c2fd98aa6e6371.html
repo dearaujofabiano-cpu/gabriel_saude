@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DS – Declaração de Saúde</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-80bf-a3c2-fd98aa6e6371" class="page sans"><header><h1 class="page-title" dir="auto">DS – Declaração de Saúde</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8041-b234-d4b6fd794a74" class="">🟦 <strong>DS – DECLARAÇÃO DE SAÚDE</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-803c-a11a-d3aefb67401a" class="">A <strong>DS</strong>, ou <strong>Declaração de Saúde</strong>, é um <strong>documento obrigatório</strong> em alguns planos de saúde, principalmente <strong>individuais ou familiares</strong>, que serve para <strong>avaliar o risco do cliente antes da contratação</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8076-9da1-cfcb7d57275f" class="">Ela é essencial para a <strong>aceitação do plano</strong>, definição de carências e possíveis <strong>coberturas restritas (CPT)</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8056-b59a-e5c8d04f08f5"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80b1-8bf0-e6385629fa29" class="">✅ <strong>1. O que é a Declaração de Saúde</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8057-bcc4-f5c3e3a69b64" class="bulleted-list"><li style="list-style-type:disc">Documento preenchido pelo <strong>beneficiário</strong> ou responsável legal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80eb-a317-e23a2185817a" class="bulleted-list"><li style="list-style-type:disc">Contém perguntas detalhadas sobre <strong>histórico de saúde, doenças pré-existentes e tratamentos em andamento</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8036-badf-d97104282851" class="bulleted-list"><li style="list-style-type:disc">Tem como objetivo <strong>permitir que a operadora avalie o risco</strong> antes de liberar a adesão</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e8-a7d2-c5f529a07a0b"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-802a-8614-c57be3f90737" class="">✅ <strong>2. Quando a DS é exigida</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bc-bea4-cff7d61f9541" class="bulleted-list"><li style="list-style-type:disc"><strong>Planos Individuais e Familiares:</strong> sempre que há contratação direta com a operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ae-bb3e-e764b63f86a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Alguns planos Coletivos:</strong> quando há adesão em grupos pequenos ou com faixa etária específica</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a8-ac44-e979937ffc15" class="bulleted-list"><li style="list-style-type:disc"><strong>Portabilidade ou Aproveitamento de Carência:</strong> pode ser exigida para confirmar condições de saúde e aprovar redução de carência</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8006-b3be-d6f62aabea2b"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80c1-9b25-dcf3e6bfee94" class="">✅ <strong>3. Informações solicitadas na DS</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a4-b6bd-f3ed2cf0db85" class="">A Declaração de Saúde geralmente pergunta sobre:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-808a-8080-cee1c74aec05" class="numbered-list" start="1"><li><strong>Doenças pré-existentes</strong> (cardíacas, respiratórias, diabetes, hipertensão etc.)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-803f-b398-c3d5289fb232" class="numbered-list" start="2"><li><strong>Cirurgias anteriores</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8037-9ccb-ea565801049e" class="numbered-list" start="3"><li><strong>Internações hospitalares nos últimos anos</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80b8-af6a-db6857de5003" class="numbered-list" start="4"><li><strong>Uso de medicamentos contínuos</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80a7-9490-e1d61d937207" class="numbered-list" start="5"><li><strong>Exames recentes e histórico de diagnóstico</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-805b-b171-cc039e6331cf" class="numbered-list" start="6"><li><strong>Condições crônicas ou tratamentos em andamento</strong></li></ol></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-805e-bbf7-c0241ca8965a" class="">Importante: a omissão ou falsidade pode gerar indeferimento, suspensão ou cancelamento do plano.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8021-bbe0-c49ddf3f4325"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80c8-b049-cfef24563754" class="">✅ <strong>4. Avaliação da DS pela operadora</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8054-a677-e514c947c586" class="">Após receber a DS, a operadora pode:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-808c-9d31-c187123afd0b" class="">✔ Aceitar o cliente normalmente</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8030-8bf0-f1c3092f0701" class="bulleted-list"><li style="list-style-type:disc">Sem restrições ou carências adicionais</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-800a-a4e0-f5e8f8d091f5" class="">✔ Liberar com <strong>carências diferenciadas</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8062-aca9-da35a435437f" class="bulleted-list"><li style="list-style-type:disc">Carência padrão pode ser mantida ou ajustada</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f4-88be-e8ef65c5a945" class="">✔ Aplicar <strong>CPT (Cobertura Parcial Temporária)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f0-957b-f2265fce6032" class="bulleted-list"><li style="list-style-type:disc">Algumas doenças pré-existentes podem ter cobertura <strong>limitada por um período determinado</strong>, geralmente de 24 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809c-9431-daa341f8d4c1" class="bulleted-list"><li style="list-style-type:disc">Ex.: cirurgia cardíaca pré-existente: pode ser liberada apenas após 24 meses</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a9-ab0c-c665b25eecbd" class="">✔ Recusar a contratação</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f6-b21d-d7a75b7c7614" class="bulleted-list"><li style="list-style-type:disc">Raro, mas possível se houver alto risco ou omissão de informações críticas</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8053-88ac-d5e0a4afc6c3"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80ac-bafd-ed125597ab9c" class="">✅ <strong>5. Diferença entre DS e CID</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8099-98af-fe4a03cf906a" class="bulleted-list"><li style="list-style-type:disc"><strong>DS:</strong> declara o histórico de saúde do beneficiário</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8076-938e-fb4401c3c186" class="bulleted-list"><li style="list-style-type:disc"><strong>CID:</strong> Classificação Internacional de Doenças usada para diagnóstico médico</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8067-a78c-de1d19f17634" class="bulleted-list"><li style="list-style-type:disc">Na DS, muitas vezes o CID da doença precisa ser informado para a análise da operadora</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80f6-ba08-fd24effd9610"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8061-a12e-f68c99a0edc7" class="">✅ <strong>6. Como preencher corretamente a DS</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8094-b73e-c714326c3532" class="numbered-list" start="1"><li>Responder <strong>completamente e com precisão</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80a3-a909-fb5e6c06c949" class="numbered-list" start="2"><li>Não omitir doenças, tratamentos ou exames</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80b9-9907-ccadfec0bc5d" class="numbered-list" start="3"><li>Se não souber detalhes de medicação ou datas, consultar <strong>prontuário médico</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8064-baed-ec293708eb2a" class="numbered-list" start="4"><li>Assinar e datar corretamente</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80e5-8bb2-f1109559cbdb" class="numbered-list" start="5"><li>Guardar <strong>cópia da declaração</strong> para eventual comprovação</li></ol></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80ac-ba49-f7ec666d91ce" class="">Dica: sempre orientar o cliente que falsidade na DS pode cancelar o plano depois.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80fb-adcb-db8b2ac3b48f"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8080-b322-c009fd5b386b" class="">✅ <strong>7. Papel do corretor</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8032-bdb6-c2d29600e8c4" class="bulleted-list"><li style="list-style-type:disc">Explicar o <strong>objetivo da DS</strong> ao cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8062-bf3d-ce6b113d64b6" class="bulleted-list"><li style="list-style-type:disc">Garantir que todas as informações sejam <strong>completas e verdadeiras</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8026-b990-f3231e543ae8" class="bulleted-list"><li style="list-style-type:disc">Auxiliar na coleta de documentos médicos, se necessário</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800e-840f-f27c54c9f067" class="bulleted-list"><li style="list-style-type:disc">Orientar sobre <strong>consequências de omissões</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b4-a733-cbbd13a133c9" class="bulleted-list"><li style="list-style-type:disc">Esclarecer que a DS <strong>não é avaliação médica</strong>, mas análise de risco do plano</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e8-bcf2-d7c789f2c275"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-805e-8371-e663da0b7202" class="">✅ <strong>8. Como explicar para o cliente (linguagem simples)</strong></h1></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-801e-b31b-ee76c08be58b" class="">“A DS é um formulário obrigatório que você preenche sobre sua saúde.<div style="display:contents" dir="auto"><p id="2c606824-621d-8051-8bc7-c1b6ec26e11c" class="">Ela permite que a operadora analise o risco e defina se alguma cobertura precisa de carência extra ou restrição temporária.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f9-8b9b-f53300e2a45f" class="">É importante responder tudo corretamente para evitar problemas no futuro.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-808b-ad1e-e5fb0c2bd322"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8023-af33-d1be52417025" class="">✅ <strong>9. Cenários práticos</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80bf-9648-c32422fd3c0c" class=""><strong>Caso A — Cliente saudável</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8096-86c5-e1f6207041d7" class="bulleted-list"><li style="list-style-type:disc">DS preenchida sem doenças pré-existentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8047-963c-d788989f60ff" class="bulleted-list"><li style="list-style-type:disc">Plano aprovado normalmente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a3-b9a0-c3318684adc5" class="bulleted-list"><li style="list-style-type:disc">Carência padrão aplicada</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-802f-ac04-f7236ffbe239" class=""><strong>Caso B — Cliente com doença crônica</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a5-a8ef-db691fcfb1fb" class="bulleted-list"><li style="list-style-type:disc">DS indica diabetes e hipertensão</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ee-a277-cc823baf4d58" class="bulleted-list"><li style="list-style-type:disc">Operadora libera plano com CPT: cobertura de internação hospitalar relacionada à doença somente após 24 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8049-9601-f64993409501" class="bulleted-list"><li style="list-style-type:disc">Consultas e exames liberados imediatamente</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8074-a72a-c3a98e094191" class=""><strong>Caso C — Omissão de informação</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809b-a6f9-c51fd9a8d3c2" class="bulleted-list"><li style="list-style-type:disc">Cliente não informou cirurgia anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a1-826b-cd8695238081" class="bulleted-list"><li style="list-style-type:disc">Descoberto durante atendimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8010-870a-e6fb2431c199" class="bulleted-list"><li style="list-style-type:disc">Plano pode ser suspenso ou cancelado</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805c-8e23-f7d7930c5937" class="bulleted-list"><li style="list-style-type:disc">Pagamentos anteriores <strong>não garantem cobertura para a doença omissa</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8066-b601-c73270669d47" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-800d-8a63-fc2aa69ff384" class="">🟦 <strong>DOENÇA OU LESÃO PREEXISTENTE (DLP)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808c-aad6-d7596324173a" class="">Uma <strong>Doença ou Lesão Preexistente (DLP)</strong> é qualquer condição de saúde, física ou mental, que o beneficiário <strong>já possuía antes da contratação do plano de saúde</strong>. Esse conceito é essencial para corretores porque afeta <strong>carência, cobertura, CPT e aceitação do plano</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80ff-a88e-caaeb7913539"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8098-9588-de492408ae07" class="">✅ <strong>1. Definição oficial</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8056-b2da-d00a9455917b" class="">Segundo a <strong>ANS</strong>:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8021-925c-f4e4d578b8d7" class="">“Considera-se pré-existente qualquer doença ou lesão que o beneficiário ou seus dependentes já apresentavam antes da assinatura do contrato, ainda que não tenham sido diagnosticadas formalmente, desde que capazes de influenciar a avaliação de risco da operadora.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808e-a94a-f85e8c8bb4e5" class="">Em termos práticos, <strong>mesmo sintomas ou tratamentos anteriores podem ser considerados preexistentes</strong>, não apenas diagnósticos formais.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-809a-b834-f9ab65e9c295"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a3-9f8a-cb901b2b0dd6" class="">✅ <strong>2. Relação entre DLP e Declaração de Saúde (DS)</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806b-9033-dfaec83fbd24" class="bulleted-list"><li style="list-style-type:disc">A <strong>DS</strong> serve para identificar DLPs</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8028-9bb3-ea051b9a2c1b" class="bulleted-list"><li style="list-style-type:disc">O beneficiário deve informar <strong>todas as condições preexistentes</strong>, mesmo que não estejam em tratamento ativo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804d-a528-e11b1920e7dd" class="bulleted-list"><li style="list-style-type:disc">A <strong>omissão de DLP</strong> pode gerar:<div style="display:contents" dir="auto"><ul id="2c606824-621d-8016-a19f-c0d43f671458" class="bulleted-list"><li style="list-style-type:circle"><strong>Cobertura parcial temporária (CPT)</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806f-a2bc-ff94cf1ffa4e" class="bulleted-list"><li style="list-style-type:circle"><strong>Suspensão do plano</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8011-b464-f7640722a697" class="bulleted-list"><li style="list-style-type:circle"><strong>Cancelamento do contrato</strong></li></ul></div></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-801c-b9cc-e693de476cae" class="">O correto preenchimento da DS é fundamental para evitar problemas futuros.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e5-8818-f3ae0b5c8da1"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8042-919c-df4dffb51c8f" class="">✅ <strong>3. Impacto da DLP no plano</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80cc-9f0e-e8581c0e4e07" class="">✔ 3.1 Cobertura Parcial Temporária (CPT)</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8072-b255-fd547270736e" class="">Quando a DLP é identificada:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8086-ba78-c9009471ce25" class="bulleted-list"><li style="list-style-type:disc">A operadora pode limitar a cobertura relacionada à DLP por <strong>até 24 meses</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8057-b31e-f8ba9230629b" class="bulleted-list"><li style="list-style-type:disc">Durante esse período, procedimentos relacionados à DLP podem <strong>não ser cobertos ou ter cobertura parcial</strong></li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80c0-ad0f-ec66872ac512" class="">Exemplo: cirurgia cardíaca pré-existente → cobertura só após 24 meses, mas consultas cardiológicas podem ser liberadas imediatamente.</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80d7-b40a-eb889329df57" class="">✔ 3.2 Carência diferenciada</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805a-9da5-cddd888aa3e2" class="bulleted-list"><li style="list-style-type:disc">A carência padrão do plano <strong>não cobre a DLP</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ae-ae9e-c06955d52efb" class="bulleted-list"><li style="list-style-type:disc">Para casos não relacionados à DLP, carência padrão continua valendo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8025-84ce-f8abfaa6d031" class="bulleted-list"><li style="list-style-type:disc">Aproveitamento de carência <strong>não inclui doenças preexistentes</strong>, a menos que haja negociação ou portabilidade específica</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8098-b6c8-fd21c90ad44a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a7-a743-f9861f67a610" class="">✅ <strong>4. Como identificar uma DLP</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800e-acd2-f3f58391414e" class="">O corretor deve orientar o cliente a informar:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80a0-80c1-d9c5b3c367f2" class="numbered-list" start="1"><li>Diagnósticos médicos anteriores</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80ff-8afc-c35d569f5ea2" class="numbered-list" start="2"><li>Cirurgias passadas</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-801a-8f50-de773c59c93d" class="numbered-list" start="3"><li>Lesões com sequelas</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8099-9ca3-cd8a8069446b" class="numbered-list" start="4"><li>Doenças crônicas ou degenerativas</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8028-8cca-f90f895fe404" class="numbered-list" start="5"><li>Sintomas persistentes que indicam condição de saúde</li></ol></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8086-8e35-cb80d61840df" class="">Lembrar: quanto mais completa a informação, menor o risco de problemas futuros.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8048-8603-cd7c2d23d765"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8000-a5e5-fc58b3ada624" class="">✅ <strong>5. Diferença entre DLP e doença adquirida após contratação</strong></h1></div><div style="display:contents" dir="ltr"><table id="2c606824-621d-805d-a7dd-d94cbdf9dbc5" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8003-afe0-c7eb5a3a3628"><th id="dODr" class="simple-table-header-color simple-table-header">Característica</th><th id="UFuG" class="simple-table-header-color simple-table-header">DLP</th><th id="Kz`S" class="simple-table-header-color simple-table-header">Doença adquirida após contratação</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8038-8aaa-dbd8fca43cd2"><td id="dODr" class="">Quando ocorreu</td><td id="UFuG" class="">Antes da assinatura do plano</td><td id="Kz`S" class="">Depois da vigência do contrato</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8098-998e-cbd5587bf3dc"><td id="dODr" class="">Carência</td><td id="UFuG" class="">Pode gerar CPT</td><td id="Kz`S" class="">Segue carência normal ou uso imediato, dependendo da situação</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8097-bf78-d0f3a9a0d487"><td id="dODr" class="">DS</td><td id="UFuG" class="">Deve ser informada</td><td id="Kz`S" class="">Não precisa informar na DS</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8078-972e-fabe50b1c9d4"><td id="dODr" class="">Cobertura</td><td id="UFuG" class="">Limitada se houver CPT</td><td id="Kz`S" class="">Integral, após carência</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d7-9155-c32b8495ba03"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8038-bd53-c1bfc4b95202" class="">✅ <strong>6. Exemplos práticos de DLP</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8042-96c0-fbe3b218e172" class=""><strong>Caso A — Diabetes diagnosticada antes do contrato</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d3-8eb2-deb3f8cb72d8" class="bulleted-list"><li style="list-style-type:disc">DS indica a condição</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809a-9fe7-db9e5e8984bf" class="bulleted-list"><li style="list-style-type:disc">Operadora aplica CPT de 24 meses para internações relacionadas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ea-acb9-e1112be05701" class="bulleted-list"><li style="list-style-type:disc">Consultas e exames de rotina podem ser liberados imediatamente</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8001-92bd-d634cc7235d1" class=""><strong>Caso B — Fratura antiga</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f2-849c-ff5fe83445ce" class="bulleted-list"><li style="list-style-type:disc">Lesão óssea antiga informada na DS</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d7-8226-fbb9587dd1c7" class="bulleted-list"><li style="list-style-type:disc">Operadora libera cobertura total para outras condições</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8093-a18a-cb1321d5d6cd" class="bulleted-list"><li style="list-style-type:disc">Procedimentos relacionados à fratura antiga podem ser limitados temporariamente</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80e4-a66b-e41bd731963c" class=""><strong>Caso C — Omissão de DLP</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b9-8b98-f38225cd83b3" class="bulleted-list"><li style="list-style-type:disc">Cliente não informa doença crônica</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c0-b2a5-e43f54458c9e" class="bulleted-list"><li style="list-style-type:disc">Durante internação, operadora identifica condição preexistente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b2-a7e9-ce0cd16cb3e4" class="bulleted-list"><li style="list-style-type:disc">Cobertura parcial ou negativa, e possibilidade de cancelamento do plano</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8035-8f07-d78e511a1251"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f8-b688-eeb1b19c89b7" class="">✅ <strong>7. Como explicar para o cliente (linguagem simples)</strong></h1></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-805a-9ce3-ea2366bc6c27" class="">“Qualquer doença ou lesão que você já tinha antes de contratar o plano é considerada pré-existente.<div style="display:contents" dir="auto"><p id="2c606824-621d-802e-a108-caedca8deeae" class="">Isso não significa que você não terá cobertura, mas a operadora pode limitar procedimentos relacionados a essa condição por até 24 meses, período chamado de CPT.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a9-8a76-ccd8e593e19c" class="">Por isso, é muito importante informar tudo corretamente na Declaração de Saúde.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8062-bb81-fd3161427bda"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8041-b6a6-e4b8bcc3f799" class="">✅ <strong>8. Papel do corretor</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80b4-9655-d94933558901" class="numbered-list" start="1"><li>Orientar o cliente sobre a <strong>importância da DS completa</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80c6-bf38-ca1e05fece69" class="numbered-list" start="2"><li>Explicar <strong>CPT e carências diferenciadas</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8063-97de-f12ec93ce159" class="numbered-list" start="3"><li>Garantir que o cliente compreenda <strong>os riscos da omissão</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-804b-ba63-f213a8b77057" class="numbered-list" start="4"><li>Ajudar a planejar a adesão para <strong>aproveitar carências de forma estratégica</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-806c-ba8f-d01e19ea3ed2" class="numbered-list" start="5"><li>Esclarecer que <strong>pré-existência não impede adesão</strong>, apenas ajusta cobertura</li></ol></div><div style="display:contents" dir="auto"><p id="2c606824-621d-809e-a8b5-eb1a6a92a80e" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-806e-8348-c1025ce7679c" class="">🟦 <strong>CPT – COBERTURA PARCIAL TEMPORÁRIA</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8029-be1a-e5ed1277f1d0" class="">A <strong>Cobertura Parcial Temporária (CPT)</strong> é uma <strong>limitação temporária da cobertura do plano de saúde</strong> aplicada a <strong>doenças ou lesões preexistentes (DLP)</strong>. É uma forma legal de proteger a operadora contra riscos financeiros elevados e, ao mesmo tempo, permitir que o beneficiário contrate o plano mesmo com condições de saúde anteriores.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80cd-989c-f074edd4edf0"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80eb-9d2d-ff8e9bd6078b" class="">✅ <strong>1. Quando a CPT é aplicada</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a1-b401-d90ce680efd7" class="">A CPT é aplicada quando:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80d1-b221-eb0e7c4a40f0" class="numbered-list" start="1"><li>O beneficiário possui <strong>DLP identificada na Declaração de Saúde (DS)</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80af-8e50-c1fdd3faaf7c" class="numbered-list" start="2"><li>A operadora <strong>aceita a adesão</strong>, mas precisa limitar cobertura de procedimentos relacionados à DLP</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80dc-bd94-d722afca091c" class="numbered-list" start="3"><li><strong>Não se aplica a doenças adquiridas após a vigência do plano</strong></li></ol></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80af-b25c-c9675224916d" class="">Exemplo: cliente tem diabetes diagnosticada antes da contratação → internações relacionadas a diabetes podem ser limitadas temporariamente.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-807e-be8c-ef726c842fbf"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a9-817a-dd1e3c7cf79e" class="">✅ <strong>2. Regras da ANS sobre CPT</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e7-b61f-e88e653f8df2" class="">A ANS define regras claras:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8025-b990-fe0251d03d83" class="bulleted-list"><li style="list-style-type:disc"><strong>Duração máxima:</strong> 24 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800b-ac8b-d56c4fcc1d36" class="bulleted-list"><li style="list-style-type:disc"><strong>Cobertura limitada:</strong> apenas procedimentos relacionados à DLP</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8026-9fc9-ff0bcacbf1c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Demais procedimentos:</strong> cobertura integral, respeitando carência normal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8034-bcce-cea1115714bf" class="bulleted-list"><li style="list-style-type:disc"><strong>Não se aplica a atendimentos de urgência e emergência</strong>, que devem ser liberados imediatamente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-ac5d-c2bdb4a4acbb" class="bulleted-list"><li style="list-style-type:disc"><strong>Pode ser reduzida ou encerrada</strong> se o beneficiário comprovar regularidade de tratamento ou negociação com a operadora</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-804b-a80c-d820abe43ed9" class="">Observação: a CPT é uma proteção para a operadora, mas garante acesso parcial ao plano.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8004-a3e2-faf860523770"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8083-8e1c-e1363b505055" class="">✅ <strong>3. Diferença entre CPT e Carência</strong></h1></div><div style="display:contents" dir="ltr"><table id="2c606824-621d-80ab-aee8-e81fd9dab633" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8031-8de3-efb7f5c892cc"><th id="FXKB" class="simple-table-header-color simple-table-header">Característica</th><th id="oS]I" class="simple-table-header-color simple-table-header">CPT</th><th id="i~&lt;F" class="simple-table-header-color simple-table-header">Carência</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8061-ae7d-ed5ab4bc47f2"><td id="FXKB" class="">O que limita</td><td id="oS]I" class="">Apenas procedimentos relacionados a DLP</td><td id="i~&lt;F" class="">Todos os procedimentos previstos no plano</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-809b-8216-fbf80c04b221"><td id="FXKB" class="">Quando se aplica</td><td id="oS]I" class="">Quando há doença ou lesão preexistente</td><td id="i~&lt;F" class="">Sempre na contratação do plano ou em novos beneficiários</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80fe-9350-fc928597f5a5"><td id="FXKB" class="">Prazo</td><td id="oS]I" class="">Máximo de 24 meses</td><td id="i~&lt;F" class="">Conforme tabela de carências (consultas, exames, internação etc.)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80af-b12e-fdcc474e19c2"><td id="FXKB" class="">Cobertura de urgência</td><td id="oS]I" class="">Liberada imediatamente</td><td id="i~&lt;F" class="">Liberada imediatamente</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80fd-8067-f8fcf82d51e9"><td id="FXKB" class="">Possibilidade de redução</td><td id="oS]I" class="">Não, prazo fixo definido pela ANS</td><td id="i~&lt;F" class="">Sim, por portabilidade ou aproveitamento de carência</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-802c-b2cf-c295c2beb2eb"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8037-ad95-fb10471268c0" class="">✅ <strong>4. Como funciona na prática</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8090-9c54-d2f96fdb4620" class=""><strong>Exemplo 1 — Doença preexistente (cirurgia cardíaca)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8047-b0d0-de2af81d2121" class="bulleted-list"><li style="list-style-type:disc">Plano contratado: 01/01</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c7-822e-f068f6c87be2" class="bulleted-list"><li style="list-style-type:disc">CPT: 24 meses para procedimentos relacionados à cirurgia cardíaca</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c8-92b3-c9ba29a59b7e" class="bulleted-list"><li style="list-style-type:disc">Consultas cardiológicas e exames gerais: liberados imediatamente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b4-89cb-c2f234fe2f92" class="bulleted-list"><li style="list-style-type:disc">Outros procedimentos: cobertura total, respeitando carência normal</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8029-8cab-c5ea39c8bfa3" class=""><strong>Exemplo 2 — Lesão prévia (fratura antiga)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8015-8eef-d52795fdbd10" class="bulleted-list"><li style="list-style-type:disc">Plano contratado: 01/02</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-a2c8-c73d41abfc4b" class="bulleted-list"><li style="list-style-type:disc">CPT: internações e cirurgias relacionadas à fratura → limitada por até 24 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8074-a660-cba9d193be0b" class="bulleted-list"><li style="list-style-type:disc">Atendimento para outras condições → integral, respeitando carência</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80e5-b72d-e7a262c7f24f" class=""><strong>Exemplo 3 — Cliente omite DLP</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8001-b1f7-da808ce7c937" class="bulleted-list"><li style="list-style-type:disc">Operadora descobre doença após internação</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8051-b572-d3eabe182e14" class="bulleted-list"><li style="list-style-type:disc">Pode aplicar CPT retroativa ou recusar cobertura do procedimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8067-b555-c99afd32b9a2" class="bulleted-list"><li style="list-style-type:disc">O corretor deve sempre reforçar <strong>preenchimento correto da DS</strong></li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8010-8fc8-dc2f7c638d60"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8000-b525-de6aec9b024d" class="">✅ <strong>5. CPT e Portabilidade / Aproveitamento de Carência</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806d-b12c-dc04dedcea6e" class="bulleted-list"><li style="list-style-type:disc">Ao fazer <strong>portabilidade</strong>, a CPT <strong>não é transferida automaticamente</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8098-8c0d-c9fb14c751c6" class="bulleted-list"><li style="list-style-type:disc">Dependendo da operadora, pode ser necessário <strong>renegociar a DLP</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8083-a097-e6a092ccc622" class="bulleted-list"><li style="list-style-type:disc">Aproveitamento de carência <strong>não elimina CPT</strong>, pois ela é específica para doenças preexistentes</li></ul></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8029-8c09-f9682cc23fff" class="">Dica: sempre verificar as regras do plano de destino e informar o cliente sobre possíveis restrições.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b5-9472-eeed8470a85a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8060-868e-f413b0f6e9e3" class="">✅ <strong>6. Como explicar a CPT para o cliente (linguagem simples)</strong></h1></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8093-8c2e-e041a58a7bd3" class="">“Se você tiver alguma doença ou lesão anterior à contratação, a operadora pode limitar a cobertura de procedimentos relacionados a essa condição por até 24 meses.<div style="display:contents" dir="auto"><p id="2c606824-621d-8040-83d4-dd10a00b3fd6" class="">Isso é chamado de CPT – Cobertura Parcial Temporária.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8097-9e10-f7fbb577e41c" class="">Para outros procedimentos, o plano funciona normalmente, e atendimentos de emergência e urgência são liberados imediatamente.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d1-a09a-d9947f8ebb51" class="">É uma forma de proteger a operadora, mas não impede que você tenha acesso ao plano.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8042-849b-fec354086070"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8089-91d2-db08988df126" class="">✅ <strong>7. Papel do corretor</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8087-9070-c3ec1c8cd1ac" class="numbered-list" start="1"><li>Orientar o cliente sobre a <strong>existência da CPT</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8044-95c4-de2f2c2aca65" class="numbered-list" start="2"><li>Explicar que <strong>não significa rejeição do plano</strong>, apenas limitação temporária</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8097-9f66-df339bda3bab" class="numbered-list" start="3"><li>Garantir que a <strong>Declaração de Saúde (DS) esteja completa</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-803c-87e3-db78484f39a4" class="numbered-list" start="4"><li>Ajudar a planejar a adesão para <strong>minimizar o impacto da CPT</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8023-a4d1-c0933bf5b651" class="numbered-list" start="5"><li>Esclarecer que <strong>aproveitamento de carência não substitui CPT</strong></li></ol></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

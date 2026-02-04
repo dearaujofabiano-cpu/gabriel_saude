@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plano Coletivo por Adesão</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-80d7-aca9-d5a9fdc81898" class="page sans"><header><h1 class="page-title" dir="auto">Plano Coletivo por Adesão</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80a1-b993-ece889d6fa09" class=""><strong>1. O que é um Plano Coletivo por Adesão</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-808b-83ac-dff8e784fc1b" class="">O <strong>Coletivo por Adesão</strong> é um tipo de plano de saúde contratado por <strong>intermédio de uma administradora de benefícios</strong> e vinculado a uma <strong>entidade de classe</strong>, sindicato, conselho, associação profissional ou grupo de afinidade.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80f1-b2dd-d67b8d7414d0" class="">Ou seja, não pode ser contratado por pessoa física de forma direta como nos planos individuais/familiares. A pessoa “entra” no plano porque é ou se torna membro de uma entidade profissional.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8081-86f7-e6b4589e4655" class="">Em termos simples:</p></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-80f9-9882-e16ae742890a" class="">É um plano coletivo para pessoas que pertencem a uma categoria profissional ou associação.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-808c-b6fb-dbe5457e3941"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80df-85cd-f7f49232ef48" class=""><strong>2. Quem pode contratar?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80aa-a7ff-cdeb88fc1064" class="">A regra principal é:</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8025-b9a9-e0381eace3f1" class=""><strong>A pessoa deve ter vínculo com a entidade de classe</strong> habilitada junto à administradora de benefícios.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8046-93ac-e92c3a4fe0b9" class="">Tipos de entidades comuns:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f5-a8d9-f04325bbaff7" class="bulleted-list"><li style="list-style-type:disc">Conselhos profissionais → CRM, CRO, OAB, CRA, CREFITO, CRP</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a8-ae84-ff0859cfaf37" class="bulleted-list"><li style="list-style-type:disc">Sindicatos profissionais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809a-ab0e-fa978980c82f" class="bulleted-list"><li style="list-style-type:disc">Associações de classe (ex.: administradores, contadores, engenheiros)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8047-b607-ea881acc5d10" class="bulleted-list"><li style="list-style-type:disc">Associações de afinidade (ex.: estudantes, aposentados)</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e2-ac5f-d04d8514b7c1" class=""><strong>Atenção:</strong></p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8046-b6dd-d5aca8f3cdc5" class="">Cada administradora trabalha com um conjunto próprio de entidades conveniadas.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80fa-8b1f-e40704f9ef6d"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8080-9ec6-c463fd0e4cbf" class=""><strong>3. Como funciona a contratação</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80f4-a58e-cdc4aeed2f10" class="">O processo tem três pilares:</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80f1-819c-de77a16d88bd" class=""><strong>A) Beneficiário – a pessoa que quer o plano</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8003-9947-fcb42ad360df" class="">Ela precisa comprovar vínculo com a entidade.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8089-9282-d0a882b0852d" class="">Se não tiver, muitas administradoras permitem <strong>associar na hora</strong>, pagando uma taxa simbólica mensal.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80a4-9d0a-e96a1b2267de" class=""><strong>B) Entidade de Classe</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e0-bf71-c3e6eca0ba4c" class="">É quem legitima a adesão do beneficiário.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8096-8122-e9a2a36f5cee" class="">Mas <strong>não participa da gestão do contrato</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8097-b2f9-f17463f7cac4" class=""><strong>C) Administradora de Benefícios</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8063-886b-c190d1adb264" class="">É a empresa responsável por:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-801a-8587-f3dad53b3aee" class="bulleted-list"><li style="list-style-type:disc">intermediar a contratação</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8078-b4e0-fbdd0fa19163" class="bulleted-list"><li style="list-style-type:disc">gerenciar a carteira</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8003-b98a-ed5329f6350f" class="bulleted-list"><li style="list-style-type:disc">calcular reajuste</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8053-ae0d-d1e4e5998507" class="bulleted-list"><li style="list-style-type:disc">enviar boletos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f2-9aed-e96d3c96ca53" class="bulleted-list"><li style="list-style-type:disc">realizar inclusão/exclusão</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8044-8a7f-d281e086b846" class="bulleted-list"><li style="list-style-type:disc">atender o corretor</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805d-8d6b-f06485f00671" class="bulleted-list"><li style="list-style-type:disc">repassar informações à ANS</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80c3-8250-c557c395c903" class="">Ela faz a ponte entre o cliente e a operadora.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8000-90de-de95ecae7ba4" class=""><strong>D) Operadora de Saúde</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e2-9abb-c70448023fe4" class="">É quem fornece a cobertura, rede, hospitais, médicos etc.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80a3-8956-f440f586a7a9"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80fd-a4f5-f6c126469427" class=""><strong>4. Características principais</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80bd-89bc-fe50ec63378d" class=""><strong>🔹 1. Reajuste livre (não regulado pela ANS)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-807c-b40d-e43097f3055b" class="">Esse é o ponto mais crítico.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8090-a3ed-d6fc3bcca3a2" class="">O reajuste do adesão é feito pela <strong>administradora de benefícios</strong>, com base:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d2-a289-c7404e4bbb84" class="bulleted-list"><li style="list-style-type:disc">no índice de sinistralidade da carteira</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80cd-b19d-d4f8853c9169" class="bulleted-list"><li style="list-style-type:disc">no equilíbrio financeiro</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8023-b335-ff73fa9650b5" class="bulleted-list"><li style="list-style-type:disc">nas regras contratuais específicas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e2-abd0-db42cee6308e" class="bulleted-list"><li style="list-style-type:disc">no comportamento de uso do grupo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-807f-aa73-cbfdb65b4cb6" class="bulleted-list"><li style="list-style-type:disc">nos custos da operadora</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80ae-ac90-e53c72df247f" class="">Isso significa:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80af-a833-dd3526a48180" class="bulleted-list"><li style="list-style-type:disc">Pode ser mais barato na entrada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8054-8094-e79962ae3c01" class="bulleted-list"><li style="list-style-type:disc">Mas pode ter <strong>reajustes mais altos</strong> ao longo dos anos</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8098-9803-cfa40337974a" class=""><strong>🔹 2. Carências variáveis</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8044-a35f-d6ec69711bd0" class="">Depende:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ae-85ba-d63d9c633441" class="bulleted-list"><li style="list-style-type:disc">da administradora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809c-81fc-ee2f1e0bdc5d" class="bulleted-list"><li style="list-style-type:disc">da operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8080-b921-eeb012b2e863" class="bulleted-list"><li style="list-style-type:disc">da campanha vigente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-800b-8b12-fa889184bef1" class="bulleted-list"><li style="list-style-type:disc">do tamanho do grupo de adesão (carteira geral, não o grupo do cliente)</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-800c-8a20-e47d530ea357" class="">É muito comum:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8081-97b4-c74aaab0b9ea" class="bulleted-list"><li style="list-style-type:disc"><strong>Isenção parcial ou total de carências</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e4-8054-f2877ca55401" class="bulleted-list"><li style="list-style-type:disc"><strong>Isenção de CPT</strong> em campanhas especiais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a3-84fd-ed7634eef880" class="bulleted-list"><li style="list-style-type:disc">Carência reduzida por portabilidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ff-bfba-e02b275ea0cb" class="bulleted-list"><li style="list-style-type:disc">Carências padrão quando não há campanha</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-802b-be9e-c037a458bd71" class=""><strong>🔹 3. Preço inicial atrativo</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-806b-82a8-d2b0908e252b" class="">Em geral, é mais barato que:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-802b-8331-fbf29cf7f58b" class="bulleted-list"><li style="list-style-type:disc">Plano individual</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8034-957e-e6dfa31960f8" class="bulleted-list"><li style="list-style-type:disc">Plano familiar</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-804f-a77f-e8cb233bce1d" class="bulleted-list"><li style="list-style-type:disc">Plano PME até 3 vidas</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d0-9d0d-c405fe641800" class="">Isso explica porque o adesão é tão popular no mercado.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-802d-a240-c6cac07ecdab" class=""><strong>🔹 4. Grande variedade de produtos</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8094-879a-f255cb8bd3d9" class="">Operadoras normalmente oferecem:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-800e-850d-fdd9a35ab000" class="bulleted-list"><li style="list-style-type:disc">redes amplas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8067-9fdd-d30b6e8266ce" class="bulleted-list"><li style="list-style-type:disc">produtos premium</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-800f-b843-c527eb6ddf66" class="bulleted-list"><li style="list-style-type:disc">segmentações completas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8020-9055-d46cf1b20a5c" class="bulleted-list"><li style="list-style-type:disc">alternativas acessíveis</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8034-980b-d7801e5ab78e"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8047-bb4a-e0c19c09b6ce" class=""><strong>5. Regras e funcionamento do grupo (grupo coletivo de adesão)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8016-b304-db8873022611" class="">Aqui, “grupo” tem um significado diferente dos planos empresariais.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-807e-a3bf-d617c7b5949b" class="">No adesão, o grupo <strong>não são os funcionários de uma empresa</strong>, mas <strong>toda a carteira da administradora</strong> daquele produto.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-800a-b7d9-e8ebc13f8dba" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ef-a250-e7b29abffe3b" class="bulleted-list"><li style="list-style-type:disc">Plano X</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f8-97db-d677fa849a62" class="bulleted-list"><li style="list-style-type:disc">Administradora Y</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-803f-b36b-ea5e8005ae00" class="bulleted-list"><li style="list-style-type:disc">Entidade Z</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80fa-8aa9-e64850182caa" class="bulleted-list"><li style="list-style-type:disc">50 mil beneficiários</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e6-9e18-c08c987b6692" class="">Esse grupo de 50 mil pessoas <strong>é quem define sinistralidade e reajuste</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-803b-8b61-c8cff965ab2c" class="">Quanto maior o grupo → mais estável</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80eb-a4cf-f16b9c65b0be" class="">Quanto menor o grupo → mais sensível a variações</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-803b-a5ed-d642d3608c15"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8044-925e-ede79f03e9dc" class=""><strong>6. Reajuste no Coletivo por Adesão</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80ca-9a71-e30b66de1acc" class="">É composto por dois tipos:</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80e0-9f21-d86d5f9ae783" class=""><strong>(1) Reajuste por Variação (anual)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80db-a8ca-c1e9b4980bd7" class="">Calculado pela administradora com base em:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8089-9515-d4fd5c127455" class="bulleted-list"><li style="list-style-type:disc">sinistralidade acumulada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ae-afd8-fecc1fce3087" class="bulleted-list"><li style="list-style-type:disc">comportamento de uso</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8001-9d22-cbd02ff2e106" class="bulleted-list"><li style="list-style-type:disc">negociação com a operadora</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e7-81b8-d8d34d36e35f" class="">Ele costuma ocorrer em:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f7-9fb8-d37b789305ec" class="bulleted-list"><li style="list-style-type:disc">maio (grandes administradoras)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8069-a9e9-e9c0e434010b" class="bulleted-list"><li style="list-style-type:disc">ou em datas específicas de cada carteira</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-808d-bfaa-ecbc7f5c0a71" class="">Não há limite definido pela ANS.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8088-9c6e-d5b73c789188" class=""><strong>(2) Reajuste por faixa etária</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8041-aaa7-fff545de9412" class="">Segue as 10 faixas obrigatórias da ANS.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8060-b906-c858fba4c7e4" class="">Última faixa aos 59 anos.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8012-913c-cabd23612068"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8001-a002-e70f78b3cfc6" class=""><strong>7. Cancelamento – regras importantes</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80b6-a8a0-e252506c0240" class="">O coletivo por adesão <strong>pode</strong> ser cancelado pela administradora/operadora em casos de:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80c4-8859-cd4af5708ffa" class="bulleted-list"><li style="list-style-type:disc"><strong>Desequilíbrio financeiro grave</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8013-aa3c-d9d995877ab5" class="bulleted-list"><li style="list-style-type:disc"><strong>Rescisão contratual com a entidade</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80db-bce9-c5bf6e1258e9" class="bulleted-list"><li style="list-style-type:disc"><strong>Inadimplência do cliente</strong> (normalmente 60 dias)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-803d-84f0-e985520e5592" class="bulleted-list"><li style="list-style-type:disc"><strong>Encerramento da carteira</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e3-9afa-e8595aa5afd0" class="">Por outro lado, o cliente pode cancelar quando quiser.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-808f-8d5b-f8caaef62e96"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8071-bc76-c43f3956b0b7" class=""><strong>8. Vantagens do Plano por Adesão</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8094-b7e1-c573b1429a22" class=""><strong>Para o cliente:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8050-91bf-f19033821b27" class="bulleted-list"><li style="list-style-type:disc">Preço inicial competitivo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ae-afc0-d0581605646c" class="bulleted-list"><li style="list-style-type:disc">Boa rede de hospitais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d5-8b34-d850adb01dad" class="bulleted-list"><li style="list-style-type:disc">Muitas opções de produtos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8044-b6f8-f4b508af0b78" class="bulleted-list"><li style="list-style-type:disc">Condições de carência reduzida</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ff-80dd-e3dbf69da14f" class="bulleted-list"><li style="list-style-type:disc">Inclusão rápida</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8066-bf4f-d95f191de155" class="bulleted-list"><li style="list-style-type:disc">Possibilidade de adesão imediata a diversas entidades</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-801e-ae37-f5221f13a0a2" class="bulleted-list"><li style="list-style-type:disc">Cobertura idêntica à dos demais planos da operadora</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80ae-a221-eb081ffd348c" class=""><strong>Para o corretor:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8017-a6ac-e54f6730feb1" class="bulleted-list"><li style="list-style-type:disc">Conversão mais rápida</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806a-b8ef-fc6b03405cbd" class="bulleted-list"><li style="list-style-type:disc">Ticket médio bom</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806c-9b84-fdecf43cbd2e" class="bulleted-list"><li style="list-style-type:disc">Mercado muito amplo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80be-87cd-e7a5e4c638dd" class="bulleted-list"><li style="list-style-type:disc">Muita procura espontânea</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8075-b549-cf3262724b13" class="bulleted-list"><li style="list-style-type:disc">Planos fáceis de cotar</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f5-81ac-cfd5f6ad7b10" class="bulleted-list"><li style="list-style-type:disc">Processo de venda prático</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-804b-a6f5-c9a08224ccca" class="bulleted-list"><li style="list-style-type:disc">Múltiplas administradoras como parceiras</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80c9-8be3-e2a96dfcab46"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8011-8faf-c7ac589ad739" class=""><strong>9. Desvantagens do Plano por Adesão</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8078-aba7-e724aedcd890" class=""><strong>Para o cliente:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e8-999b-ee910a5a2b36" class="bulleted-list"><li style="list-style-type:disc">Reajustes podem ser altos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-802c-9604-cc1fc1ddedfd" class="bulleted-list"><li style="list-style-type:disc">Contrato pode ser rescindido em situações específicas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b7-bd72-c604be700575" class="bulleted-list"><li style="list-style-type:disc">Obriga vínculo com entidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8024-b50e-ca5652ec79b6" class="bulleted-list"><li style="list-style-type:disc">Regras variam muito entre administradoras</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a0-8e30-cef1c3cb6a29" class="bulleted-list"><li style="list-style-type:disc">Campanhas mudam com frequência</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8019-a345-ce16bd365fae" class=""><strong>Para o corretor:</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-803e-903f-e534f87104a7" class="bulleted-list"><li style="list-style-type:disc">Pós-venda mais complexo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-807f-afa8-c635546a761e" class="bulleted-list"><li style="list-style-type:disc">Reajustes podem gerar cancelamentos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8024-9c50-ea4303daadce" class="bulleted-list"><li style="list-style-type:disc">Necessidade de explicar o papel da administradora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8053-9727-d0b0faa681ea" class="bulleted-list"><li style="list-style-type:disc">Pode haver resistência de clientes mais técnicos</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8038-b8c8-f95e1f695741"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8097-9004-e7b2e0554e6b" class=""><strong>10. Pontos críticos para o corretor explicar corretamente</strong></h1></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80b3-a73e-f86a95462f12" class="numbered-list" start="1"><li><strong>Não é plano individual.</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8014-b5c6-fa1501300c90" class="numbered-list" start="2"><li><strong>Não tem reajuste limitado pela ANS.</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-801e-8eb6-f27a70308454" class="numbered-list" start="3"><li>O reajuste depende da <strong>sinistralidade da carteira</strong>, não da inflação médica.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-8055-ae83-d5862366718d" class="numbered-list" start="4"><li>A entidade <strong>não presta atendimento</strong>, é apenas vínculo formal.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80ab-b16f-d8ee1ebfaa03" class="numbered-list" start="5"><li>A administradora <strong>faz a gestão</strong>, mas <strong>não é a operadora</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-805d-bca9-da9c7a4dd3be" class="numbered-list" start="6"><li>O produto da operadora é o mesmo para todas as categorias — muda apenas o tipo de contratação.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c506824-621d-80ae-aed3-c2cfbe05ac0d" class="numbered-list" start="7"><li>As regras e carências <strong>variam de forma significativa</strong> entre administradoras.</li></ol></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8056-a0e9-cbdafb8fdcff"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80f0-ac1f-db624a50fbc5" class=""><strong>11. Como explicar para o cliente (versão simples)</strong></h1></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-80ef-a8f7-d12588a9a279" class="">“O plano por adesão é um plano coletivo vinculado a uma entidade de classe.<div style="display:contents" dir="auto"><p id="2c506824-621d-80f6-832b-dd41f14a7ea6" class="">Ele costuma ter preço inicial mais baixo e mais opções de rede, mas o reajuste é definido pela administradora e pode variar mais.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-800b-b17a-fcee3d6115ab" class="">É uma opção muito contratada por quem quer custo-benefício e não tem CNPJ para contratar um empresarial.”</p></div></blockquote></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

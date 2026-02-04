@@ -1,0 +1,715 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ÉTICA, TRANSPARÊNCIA E PROTEÇÃO DO CORRETOR</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cd06824-621d-800c-99bf-cb7dcf919e80" class="page sans"><header><h1 class="page-title" dir="auto">ÉTICA, TRANSPARÊNCIA E PROTEÇÃO DO CORRETOR</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8057-a3d6-cf40c083ad06" class=""><strong>1. O que NUNCA Prometer</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a2-881b-d93e5bfa4bcc" class=""><strong>Por que promessas são o maior risco</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80dc-bcdc-e7a7880bab98" class="">Grande parte das reclamações contra corretores vem de:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8012-818c-c7ffdbab1bb2" class="bulleted-list"><li style="list-style-type:disc">promessa verbal</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ee-9e8b-e68b74c88097" class="bulleted-list"><li style="list-style-type:disc">interpretação equivocada</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8097-b931-dd5bf5dcf745" class="bulleted-list"><li style="list-style-type:disc">expectativa criada sem base contratual</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-806d-83ee-d0dc91d5f41c" class="">Mesmo com boa intenção, prometer algo que <strong>não está garantido em contrato</strong> expõe o corretor.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8075-96ae-ce140d81e954"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80fe-a2ab-e9125655c91c" class=""><strong>Promessas proibidas (mesmo que “todo mundo fale”)</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8057-a07a-f5139b3287d0" class="">❌ “Esse plano cobre tudo”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ae-b8d3-e814f26111a6" class="">❌ “Você não vai ter carência”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b1-ba6d-cba603acc1b9" class="">❌ “A operadora nunca nega atendimento”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8063-8b10-da0518cacdf5" class="">❌ “Esse hospital sempre atende”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8093-8f2f-e17f78bc3380" class="">❌ “Se precisar, eu resolvo lá dentro”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8097-a3f3-c42e7c477a24" class="">❌ “Depois a gente vê isso”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8004-b910-e357f9fbbaf7"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a9-8157-e6ba4f70aeca" class=""><strong>Forma correta de se posicionar</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d8-89c2-f486af5d762d" class="">Trocar promessa por <strong>clareza de regra</strong>.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8047-ac16-f575960ed460" class="">✔️ “Esse plano tem regras definidas pela ANS e pela operadora. Vou te explicar exatamente como funciona.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-807d-8608-f0b5cf34d4bc" class="">✔️ “A cobertura depende do contrato e da situação clínica.”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-809b-a965-cd7ff6016304"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f5-80d3-f19aea316a82" class=""><strong>Frase de proteção</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-806e-960f-f9b7669882f0" class="">“Tudo que posso garantir é o que está no contrato.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-802c-a340-e003320ac25d"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-803c-991a-fe8144e6706a" class=""><strong>2. Como Documentar Informações Passadas ao Cliente (Proteção Real)</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-807a-a07a-d35b962e21f1" class=""><strong>Por que documentar é essencial</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8049-831b-cb3d8c919603" class="">Na dúvida futura, o que vale é:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b4-9348-cd11820b9a66" class="bulleted-list"><li style="list-style-type:disc">o que foi escrito</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e6-9ea4-d481ffaf38f9" class="bulleted-list"><li style="list-style-type:disc">o que foi enviado</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8060-bfd9-e81eff7d8a9e" class="bulleted-list"><li style="list-style-type:disc">o que foi registrado</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d6-b211-e709fc673a21" class="">Memória não protege corretor. <strong>Registro protege.</strong></p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8031-8317-de0e542f99e3"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-800d-8a81-c7905693d089" class=""><strong>O que SEMPRE deve ser documentado</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806f-af0d-c8722367a6c6" class="bulleted-list"><li style="list-style-type:disc">tipo de plano</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d0-b4a1-d039ce4e8247" class="bulleted-list"><li style="list-style-type:disc">coparticipação ou não</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a5-b81d-c44558a059f4" class="bulleted-list"><li style="list-style-type:disc">carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8017-b9c4-cc2c816ed46d" class="bulleted-list"><li style="list-style-type:disc">CPT ou agravo (se houver)</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8007-909a-ed59d6010419" class="bulleted-list"><li style="list-style-type:disc">rede principal</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8095-8198-cc5f35585843" class="bulleted-list"><li style="list-style-type:disc">vigência</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804c-8088-f0fc22b6202e" class="bulleted-list"><li style="list-style-type:disc">limitações relevantes</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8071-859a-ca39b4ea5c02"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a3-9665-ef4f71a4a44e" class=""><strong>Boas práticas de documentação</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80cf-ac56-d28ad5fee5a2" class=""><strong>Após a conversa</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8065-92c2-e33a125139dd" class="">Enviar mensagem ou e-mail com resumo:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80f5-97a4-dddbd44afd21" class="">“Conforme conversamos, o plano escolhido é X, com essas características…”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8090-b49d-d0c3a256c01d"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808a-81a2-e2717bb1c5d3" class=""><strong>Antes da contratação</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805b-876e-d8b8b563c71b" class="bulleted-list"><li style="list-style-type:disc">enviar material oficial da operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8029-b785-e34d8c28b1ce" class="bulleted-list"><li style="list-style-type:disc">destacar regras sensíveis</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8061-9f34-dabc803ab6b5" class="bulleted-list"><li style="list-style-type:disc">pedir confirmação de leitura</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-802c-b1d8-ca84996c9a00"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-807e-9185-cea8769b0a75" class=""><strong>Durante a venda</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808b-a242-fdc2e8814d91" class="bulleted-list"><li style="list-style-type:disc">evitar áudios longos sem registro escrito</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8075-854d-c70aad0a7494" class="bulleted-list"><li style="list-style-type:disc">sempre complementar com texto</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8093-95ae-e9b699344bca"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-806d-a95e-e90a0642c2a3" class=""><strong>Frase-chave</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8014-9648-fe1812cb1f50" class="">“Vou te mandar tudo por escrito para não ficar nenhuma dúvida.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e0-b235-d631581cbb7e" class="">Isso protege e transmite profissionalismo.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8060-857b-e753847e0f8a"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80a7-99ec-ebddd17421d2" class=""><strong>3. Como Explicar Regras Sem Assustar o Cliente</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80b8-8c4b-d7cf7829c43f" class=""><strong>Erro comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8060-9a1c-ef43f58b4892" class="">Explicar regra como ameaça:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8017-a153-f6d28ace0a9a" class="">“Tem carência de 180 dias, CPT de 24 meses…”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8014-a58a-f3fc89584e83" class="">Isso gera medo e bloqueio.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8001-95a1-c2023f776b55"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8049-9f63-c8828f1dc5d1" class=""><strong>Forma correta</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c0-b015-ebeada9c5f5c" class="">Explique regras como:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8058-8087-dff68ec2c895" class="bulleted-list"><li style="list-style-type:disc">padrão do mercado</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800b-b3c1-e3d8fb3184ae" class="bulleted-list"><li style="list-style-type:disc">proteção do sistema</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d8-9183-ee98b40cd772" class="bulleted-list"><li style="list-style-type:disc">algo previsível</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80a5-8880-f38040449a8a"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-802d-80e7-f19458aae834" class=""><strong>Exemplo de abordagem</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8060-929e-d867c4c4c275" class="">“Essas regras existem para equilibrar o uso do plano. Vou te explicar como elas funcionam no seu caso.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80dc-a4ea-cf126dcc4f20"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e0-992a-e2ab9b2e5c12" class=""><strong>Técnica da normalização</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80b8-b404-dc1235496fa9" class="">“Todos os planos seguem esse padrão definido pela ANS.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80db-bc22-c3bcb0cafb87" class="">Normalizar reduz ansiedade.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80d4-bf68-e9f8f7a54c07"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-807d-9534-cef934cbf81e" class=""><strong>Importante</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80a5-8f65-f4fbbdf68284" class="">Nunca omitir regra para fechar venda.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8019-84eb-eae58769b4e7" class="">A surpresa futura gera cancelamento e reclamação.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8041-bec7-f9c443cb9678"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80d3-9f36-c3f313499387" class=""><strong>4. Limites do Papel do Corretor</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80cf-a075-e3eee8849a02" class=""><strong>O corretor NÃO é</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8069-bfdf-eff1d08c551d" class="bulleted-list"><li style="list-style-type:disc">médico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807f-82fb-e9f5980906e9" class="bulleted-list"><li style="list-style-type:disc">auditor</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a8-9526-c685f3796e36" class="bulleted-list"><li style="list-style-type:disc">operador de autorização</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b8-8791-f5d1ee27b1dd" class="bulleted-list"><li style="list-style-type:disc">atendente da operadora</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8044-b4db-d5cff9f9c927"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e4-a0d7-dcee2ff71484" class=""><strong>O corretor É</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-802a-90ca-da984f281b56" class="bulleted-list"><li style="list-style-type:disc">orientador</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c4-95b7-fec4ec7a1326" class="bulleted-list"><li style="list-style-type:disc">tradutor de regras</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803d-bc29-e002650ef1a0" class="bulleted-list"><li style="list-style-type:disc">intermediador</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806b-9dc6-decf55d4833a" class="bulleted-list"><li style="list-style-type:disc">apoio na escolha</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801e-b7ff-c73862b71f4c"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a7-b2b0-e8ea872c9036" class=""><strong>Frases de limite saudável</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8071-b329-ca59faa08a91" class="">“Essa decisão é médica, não posso orientar nesse ponto.”<div style="display:contents" dir="auto"><p id="2cd06824-621d-8050-bcc8-d492fee49cf8" class="">“Quem autoriza é a operadora, não o corretor.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8030-b5b2-e4fc9178eba3" class="">“Posso te ajudar a entender a regra, mas não garantir o desfecho.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80b6-87c7-f45b2ea824ea"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808f-9cf5-ee421c37d54e" class=""><strong>Por que isso protege</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804b-b60d-dae92bfd222a" class="">Evita:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8008-a377-cb188e1f00cf" class="bulleted-list"><li style="list-style-type:disc">responsabilidade indevida</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8021-a0bc-ee132ce22060" class="bulleted-list"><li style="list-style-type:disc">cobrança futura</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-801f-a50b-e93fb46c68c2" class="bulleted-list"><li style="list-style-type:disc">desgaste emocional</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8058-bfb8-dbb86352d9a0"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8055-9186-f3f305bdd0b3" class=""><strong>5. Como Dizer “NÃO” para uma Venda Errada</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8073-80cc-ca324033f97a" class=""><strong>Quando é uma venda errada</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8032-a680-f6dedbdb7e5b" class="bulleted-list"><li style="list-style-type:disc">cliente quer burlar regra</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80eb-9238-e1a1d13c55aa" class="bulleted-list"><li style="list-style-type:disc">quer cobertura imediata indevida</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8004-9e95-d23b398d744c" class="bulleted-list"><li style="list-style-type:disc">não entende limitações</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8038-9093-d5b06eec035b" class="bulleted-list"><li style="list-style-type:disc">não tem perfil financeiro</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-803f-8261-f7f8927dccfe"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8022-ad93-c3d39ab02785" class=""><strong>Por que dizer NÃO é profissional</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-801e-a489-f89251ec44fa" class="">Venda errada vira:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806e-9799-cb0405fc76ca" class="bulleted-list"><li style="list-style-type:disc">cancelamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c0-9043-eea0eae9ede2" class="bulleted-list"><li style="list-style-type:disc">reclamação</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ba-9ef0-e10376057dbb" class="bulleted-list"><li style="list-style-type:disc">desgaste</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8038-8134-edc624431b3e" class="bulleted-list"><li style="list-style-type:disc">risco jurídico</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8095-a0c3-c6a0a4e0950c"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a9-9e57-eba76cd90600" class=""><strong>Exemplo de negativa ética</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8072-a55d-c4b831b07e69" class="">“Nesse momento, esse plano não é o mais adequado para você. Prefiro ser honesto agora do que gerar problema depois.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80de-a68e-fe15395cffe3"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8089-8eb1-d1a525b77787" class=""><strong>Resultado</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80fb-b7c5-f0ccc5b2e8cd" class="bulleted-list"><li style="list-style-type:disc">respeito</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80da-b83d-d3ba3011a3e5" class="bulleted-list"><li style="list-style-type:disc">autoridade</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8027-8c26-caeeee89e2ad" class="bulleted-list"><li style="list-style-type:disc">muitas vezes, o cliente volta depois</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8092-acd3-e54341b28f69"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-805a-9bae-cea1818680ee" class=""><strong>6. Follow-up Sem Ser Chato</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8026-9727-cfd200479066" class=""><strong>Erro comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f5-9d80-c35ac163358a" class="">Cobrar decisão:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-801b-81c6-e423f500fc5c" class="">“E aí, decidiu?”<div style="display:contents" dir="auto"><p id="2cd06824-621d-8042-922b-ef3bcf97e359" class="">“Vai fechar?”</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8067-bd6d-fd0cf1d41e32" class="">Isso gera fuga.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8007-b68e-f3173f36f674"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80b4-b93b-eebd804bcc01" class=""><strong>Follow-up consultivo</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8028-bb0a-f6c51cf7adcc" class="">O foco não é a venda, é o apoio.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8028-b1f1-db472a24caac"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8010-a910-f610587779e8" class=""><strong>Exemplos elegantes</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-807a-bb6e-c369ae3db31f" class="">“Fiquei à disposição se surgir alguma dúvida.”<div style="display:contents" dir="auto"><p id="2cd06824-621d-8000-8446-db2cb3a29e55" class="">“Queria saber se ficou alguma questão em aberto.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8030-b662-f2f37345cbb4" class="">“Posso te ajudar a comparar com calma?”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-808e-b4a7-ffcf2a3b614d"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8052-85ef-ffdf27309cba" class=""><strong>Frequência saudável</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800a-831a-e82d62f2587d" class="bulleted-list"><li style="list-style-type:disc"><strong>Após reunião/proposta:</strong> 24 a 48 horas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8091-96a0-cd34e7b40fbf" class="bulleted-list"><li style="list-style-type:disc"><strong>Contatos subsequentes (Nutrição):</strong> A cada 2 a 4 dias.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808e-9efe-e94c14d0a824" class="bulleted-list"><li style="list-style-type:disc"><strong>Total de Contatos:</strong> Média de 5 a 8 contatos para fechar vendas, com 80% das vendas precisando de 5 ou mais.</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8057-a548-fd55007019dc" class="bulleted-list"><li style="list-style-type:disc">Depois: respeitar silêncio</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-802d-98bf-cbe07cd75cf1"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8011-9d8c-e13f09004858" class=""><strong>Regra de ouro</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8044-bcb3-e1dcf92937ff" class="">Follow-up bom resolve dúvida, não cobra decisão.</blockquote></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80ed-8fe8-e89c6b9241c0" class=""><strong>7. Como Lidar com Reclamações e Experiências Passadas dos Clientes</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e0-b751-f37d79951f88" class=""><strong>Por que esse tema é tão sensível</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-801c-afe6-f521c3f3d071" class="">Muitos clientes chegam carregando:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807c-8d96-f95ea18011ed" class="bulleted-list"><li style="list-style-type:disc">frustração com operadora anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c1-977b-f39f345be1b0" class="bulleted-list"><li style="list-style-type:disc">experiências de negativa de cobertura</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8066-84d8-ccafd46412ea" class="bulleted-list"><li style="list-style-type:disc">demora em atendimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800e-8974-e27f4ea92495" class="bulleted-list"><li style="list-style-type:disc">problemas com reajuste</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8060-9be6-ed60e198a885" class="bulleted-list"><li style="list-style-type:disc">sensação de ter sido enganado por outro corretor</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b4-a047-e959ef403dff" class="">Essas experiências criam:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803b-8307-c915de517512" class="bulleted-list"><li style="list-style-type:disc">desconfiança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bf-877d-cbc179852bd4" class="bulleted-list"><li style="list-style-type:disc">postura defensiva</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8065-830b-e80ae88483d9" class="bulleted-list"><li style="list-style-type:disc">resistência à decisão</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ec-af97-c22b28cc6857" class="bulleted-list"><li style="list-style-type:disc">medo de repetir o erro</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8015-9828-e3c7522ab5a5" class="">👉 O cliente não está atacando o corretor atual.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8056-b1ba-ca73213b082d" class="">Ele está <strong>tentando se proteger</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8043-8173-f880229dd5d8"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a7-a9f4-e7bc6fa1b692" class=""><strong>Erro grave do corretor</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8065-9b75-cfd632af51c5" class="bulleted-list"><li style="list-style-type:disc">minimizar a reclamação</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-801e-83ce-e9a7ef6e0a28" class="bulleted-list"><li style="list-style-type:disc">defender operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a7-a68f-e299d81793fb" class="bulleted-list"><li style="list-style-type:disc">falar mal do concorrente</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-802c-aaa9-f5dda6005ccf" class="bulleted-list"><li style="list-style-type:disc">dizer “isso não acontece aqui”</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-801c-a083-cdf3de34f4ed" class="">Essas atitudes:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8039-8a6c-ec1adb04fa68" class="bulleted-list"><li style="list-style-type:disc">invalidam o sentimento do cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80df-9e47-e0f8c2c141ca" class="bulleted-list"><li style="list-style-type:disc">quebram conexão</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bc-980c-d2880f1e5098" class="bulleted-list"><li style="list-style-type:disc">criam expectativa irreal</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8039-af8c-e6567c0be80d"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8059-a643-e944a3f2992a" class=""><strong>Postura correta: acolher sem assumir culpa</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8016-9abe-f225328e2d0f" class=""><strong>Validação emocional</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80c0-ba4b-e00e4a757f1d" class="">“Entendo a sua frustração. Isso realmente gera insegurança.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d2-8fa2-c8b5b741b8e0" class="">Validar não é concordar.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b1-82a4-ff3ec55e37cf" class="">É reconhecer o impacto emocional.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8032-8d90-f9223020f13d"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f5-b316-e7a8549b3d5b" class=""><strong>Separar emoção de regra</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-804b-a230-e75cb4c444dd" class="">“Vamos olhar juntos o que aconteceu e entender como funcionam as regras para evitar isso novamente.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80be-8ec9-da0eac898570" class="">Aqui o corretor sai do campo emocional e entra no técnico.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8093-b607-cad47cdf96fa"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808a-a629-df45a7154a89" class=""><strong>Nunca prometer que não vai acontecer</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8065-ab69-dcf27879dcdb" class="">❌ “Isso não vai acontecer de novo”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8009-bb2f-df903dd15260" class="">❌ “Essa operadora não faz isso”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-809d-b0fd-e8f5049a0e9d" class="">✔️ “O que posso fazer é te explicar as regras e te ajudar a escolher um plano mais alinhado com o seu perfil.”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801a-bd85-c47a6ba288c9"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808f-a2eb-e231d2c511b3" class=""><strong>Transformar a reclamação em diagnóstico</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b6-9c6a-e5644e072466" class="">Use a experiência passada para entender:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8037-9dd1-ff1ba0d4ce21" class="bulleted-list"><li style="list-style-type:disc">tipo de uso</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8004-8078-d2c7907a9bb1" class="bulleted-list"><li style="list-style-type:disc">expectativa irreal</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cf-906c-cee42d93b5ec" class="bulleted-list"><li style="list-style-type:disc">falha de orientação anterior</li></ul></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-807f-90e0-c568c94753b4" class=""><strong>Perguntas úteis</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8094-9463-e709946785eb" class="bulleted-list"><li style="list-style-type:disc">“O que exatamente aconteceu?”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b4-9aaf-e03893a9fd22" class="bulleted-list"><li style="list-style-type:disc">“Qual foi a maior frustração?”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c5-9da0-e16fe31dfb74" class="bulleted-list"><li style="list-style-type:disc">“O que você espera que seja diferente agora?”</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8059-ac40-df8ed469bf75"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a1-bbad-f31a6430e4ab" class=""><strong>Educar sem parecer defensivo</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8053-9612-e9f696e026af" class="">“Muitas negativas acontecem por regra contratual, não por má vontade. Vou te explicar como isso funciona para você se proteger melhor.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8065-8911-d3d736398a62" class="">Isso devolve controle ao cliente.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8090-b04c-cc06c4866d96"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8057-be82-f07bcbc29537" class=""><strong>Reposicionar o papel do corretor</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8089-bef3-d47484677a61" class="">“Meu papel é te orientar para reduzir riscos e evitar surpresas, não garantir decisões da operadora.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8061-9bed-e80bba00d054" class="">Essa frase:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8051-a2ae-ed43fda8dca9" class="bulleted-list"><li style="list-style-type:disc">protege o corretor</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8099-b47f-c9be7ea5424a" class="bulleted-list"><li style="list-style-type:disc">ajusta expectativa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806c-89eb-fb669c1a62b2" class="bulleted-list"><li style="list-style-type:disc">aumenta confiança</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80fa-8cba-ed1e5af3123b"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-800c-8086-e051b6d54d37" class=""><strong>Quando o cliente generaliza</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8019-badc-fed619bc3f35" class="">“Plano de saúde não funciona”, “todas as operadoras são ruins”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ce-88da-dd84cfa6fe0f" class="">Resposta madura:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8077-99b8-ef9429216b76" class="">“O sistema tem regras e limitações. O que muda é o quanto o cliente entende e escolhe bem dentro dessas regras.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80e7-b7ac-c1eb66497ac0"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80eb-b9a9-f6bb3b27a396" class=""><strong>Reclamação como oportunidade</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-808b-b502-e161b5728bfe" class="">Quando bem conduzida:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807f-a96c-eb1403b20662" class="bulleted-list"><li style="list-style-type:disc">aumenta autoridade</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805d-8f4b-ec70f9646069" class="bulleted-list"><li style="list-style-type:disc">aprofunda conexão</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8000-8cc9-fd593cce3b79" class="bulleted-list"><li style="list-style-type:disc">acelera decisão</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-801a-8770-d285516486a4" class="">O cliente pensa:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80ad-b7fb-d697f207a99a" class="">“Agora alguém está sendo claro comigo.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8002-af27-d2876233a531" class="">
+</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8048-9414-df9d1bd1eba3" class="toggle"><li><details open=""><summary><mark class="highlight-teal_background"><strong>SITUAÇÕES COMUNS DE RECLAMAÇÃO E COMO LIDAR</strong></mark></summary><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80dc-92a0-e4bb8e8b7356" class=""><strong>1. “Meu plano negou um exame / cirurgia”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e2-8aab-e9f96d4337c0" class=""><strong>O que geralmente está por trás</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d9-b903-f144bf792b4a" class="bulleted-list"><li style="list-style-type:disc">carência não cumprida</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8064-a854-cb5770cc8603" class="bulleted-list"><li style="list-style-type:disc">CPT ativa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8017-bf7a-df96b1987435" class="bulleted-list"><li style="list-style-type:disc">exame fora do rol</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a3-a0a7-d9ec870ee22d" class="bulleted-list"><li style="list-style-type:disc">pedido médico sem critérios</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-802f-a0bc-cf5735ab90b4"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808e-9977-cb70c9516ff1" class=""><strong>Como abordar</strong></h3></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-801e-a47f-e99bd0e82a3e" class="numbered-list" start="1"><li>Acolher</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-8080-a3e5-d11f9c8b16c3" class="numbered-list" start="2"><li>Entender o contexto</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-80ab-8281-c05652918af1" class="numbered-list" start="3"><li>Explicar regra</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2cd06824-621d-8035-9659-ce1efe254856" class="numbered-list" start="4"><li>Reposicionar expectativa</li></ol></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801e-820e-f2a1ed333b28"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8075-98db-e0ca8771c4d8" class=""><strong>Frase de abordagem</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-808a-a064-e36ce0e20b35" class="">“Entendo a frustração. Vamos entender exatamente em qual situação isso aconteceu para eu te explicar como funciona essa regra.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80f4-922a-d89baabe79df"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80de-95d7-d5f7f8836999" class=""><strong>Explicação segura</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-802c-8f5c-fa2b25e15093" class="">“Negativas normalmente acontecem por regra contratual, não por decisão do corretor ou da operadora naquele momento.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80cf-a45d-c1c6825db65f"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-804a-9489-cb7f8a718f53" class=""><strong>O que NÃO dizer</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80ea-b2b0-c33ea66775c8" class="">❌ “Isso é absurdo”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-809b-bcfc-f5dcc3938f48" class="">❌ “Essa operadora é ruim”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8079-ac3d-f8391b080e0d" class="">❌ “No meu plano isso não acontece”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8070-9381-e426b8f0d0ea"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8057-920c-d34220d4738c" class=""><strong>2. “O corretor anterior me enganou”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8078-a1d6-d7d22d16a06e" class=""><strong>O que está por trás</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c4-a321-e17abd5505be" class="bulleted-list"><li style="list-style-type:disc">promessa mal explicada</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d8-8856-c8623ae3ca3f" class="bulleted-list"><li style="list-style-type:disc">expectativa criada sem base</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b7-b354-db8f1c75a03f" class="bulleted-list"><li style="list-style-type:disc">falta de entendimento do contrato</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80cc-a2e4-d914e12b07ec"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8022-9af8-ee2b3e9aa59a" class=""><strong>Como abordar</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806a-a5af-f4c48b1e2803" class="bulleted-list"><li style="list-style-type:disc">não defender o colega</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f0-b7c2-d31af748f4fa" class="bulleted-list"><li style="list-style-type:disc">não assumir culpa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8092-ba0e-c512c56b0ee2" class="bulleted-list"><li style="list-style-type:disc">não desqualificar</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8047-ba91-dc96d2a611c6"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-803a-b6e7-e70806afe16b" class=""><strong>Frase correta</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8047-9185-d5c630b9609f" class="">“Infelizmente, muitas vezes as regras não são explicadas com clareza. Vamos fazer diferente agora.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8069-8dbf-e6c47f3220b7"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80d4-aff4-ef9bd9b3ea87" class=""><strong>Reposicionamento</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8040-bb0f-fdc89878e900" class="">“Meu papel é te explicar tudo antes da decisão, inclusive o que o plano não cobre.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-807a-a0b2-d9b9580d2f89"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808a-bbda-c0d0d9f5af4f" class=""><strong>O que evitar</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b6-9ebc-ec758f3f4594" class="">❌ “Esse corretor errou”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8034-8c6a-c533c40224a1" class="">❌ “Comigo não acontece”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8018-8d3c-c561e0eb44de"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80d0-9f67-e8750495425d" class=""><strong>3. “Esse plano aumentou muito”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f4-a294-dd35a7e69c72" class=""><strong>O que pode ter acontecido</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804b-8b57-e9962121ee57" class="bulleted-list"><li style="list-style-type:disc">reajuste por faixa etária</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d1-82cd-fb48395dfab6" class="bulleted-list"><li style="list-style-type:disc">reajuste anual</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f8-87f8-df32acd4008b" class="bulleted-list"><li style="list-style-type:disc">reajuste coletivo</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80bc-acc2-ee5406c02052"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80dd-a857-feb54a6f6e65" class=""><strong>Abordagem correta</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80ab-8436-dbac7211f5c3" class="">“Vamos separar o que foi reajuste anual e o que foi mudança de faixa etária para você entender exatamente o motivo.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8029-8bb6-d7e70a8ea1e2"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-809f-8d9d-f4afea53c3de" class=""><strong>Educação sem confronto</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8075-be91-fa4793d55e4c" class="">“Todo plano segue regras de reajuste definidas pela ANS ou pelo contrato coletivo.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8096-a682-d524bceab060"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-803e-88ea-feb773fb937e" class=""><strong>Erro comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80dc-95e1-f40dfe7cb521" class="">Prometer controle sobre reajuste.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80c1-9181-cf0d3745f1b1"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8058-9a04-cbc025ceb9dc" class=""><strong>4. “Fiquei sem atendimento quando mais precisei”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8069-a7a1-e5f08ecd01e0" class=""><strong>O que pode estar por trás</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809e-a16f-f462fd4ba921" class="bulleted-list"><li style="list-style-type:disc">urgência fora da rede</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80be-a067-fa4137542e4d" class="bulleted-list"><li style="list-style-type:disc">carência</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8061-a44e-d4d2e0b1187a" class="bulleted-list"><li style="list-style-type:disc">falta de autorização prévia</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8047-b7a0-e1086780d07a"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-806e-8307-d5bb91b25ba2" class=""><strong>Como lidar</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80b8-8edb-e2adfa7d6610" class="">“Isso realmente gera insegurança. Vamos entender o contexto para evitar que isso se repita.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8024-89e3-fe40e2a35437"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f8-b875-f680d8ea4e58" class=""><strong>Transformação em diagnóstico</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8006-862c-eef7bbd76e93" class="">“Depois dessa experiência, o que é mais importante para você hoje: hospital específico, urgência rápida ou previsibilidade?”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8065-9f90-c07a9db4e247"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80f1-960f-ca4f34b41bd1" class=""><strong>5. “Plano de saúde não presta”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-806e-ae19-d16e178a6866" class=""><strong>O que está por trás</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c6-9b4e-ece0c1b8b579" class="bulleted-list"><li style="list-style-type:disc">frustração acumulada</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807a-a877-ed5a36028f7b" class="bulleted-list"><li style="list-style-type:disc">expectativa irreal</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803b-bf2b-debbfd876e47" class="bulleted-list"><li style="list-style-type:disc">desconhecimento do sistema</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8055-a733-caf9bbdf5c70"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80bd-85da-cc0c9f92ed9b" class=""><strong>Resposta madura</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80f4-9681-d3ac3c9f7b90" class="">“O sistema tem regras e limitações. O que muda é o quanto a pessoa entende essas regras antes de contratar.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-806b-8133-f3a4f43b5078"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80d0-be95-f085297ab30e" class=""><strong>Reforço de autoridade</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80f3-9aea-e301983e01cf" class="">“Meu papel é te ajudar a escolher dentro dessas regras para reduzir risco.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8024-ac30-d007330a392e"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80af-97e5-f581b3601362" class=""><strong>6. “Não confio mais em corretor”</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8017-ab43-eca9fc18c935" class=""><strong>O que o cliente quer</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bb-89db-d5fb6b1d6f10" class="bulleted-list"><li style="list-style-type:disc">controle</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805b-aa9a-ffb3210777ee" class="bulleted-list"><li style="list-style-type:disc">clareza</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e7-9126-dafe0da7bfe8" class="bulleted-list"><li style="list-style-type:disc">segurança</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80e8-b871-f2f43b634ae3"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8006-be96-e789de1feadb" class=""><strong>Resposta correta</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80f3-89d3-e431c91171fb" class="">“Você não precisa confiar em mim. Precisa entender as regras. Eu te explico tudo e você decide.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80dc-ab65-fe073f36de86"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80bd-ac1b-fbb7d19d0e7d" class=""><strong>Por que funciona</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8034-b5cb-d2837bc0ae6e" class="">Tira a pressão da confiança pessoal e coloca no conhecimento.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8026-abfe-cb35c6b026ae"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-809f-a157-ee544c1a62a3" class=""><strong>7. Cliente chega armado, defensivo</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80be-b383-cd1c25c97943" class=""><strong>Sinais</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cb-8c13-ee7f22f660ec" class="bulleted-list"><li style="list-style-type:disc">perguntas agressivas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8073-b647-fd8180508fd5" class="bulleted-list"><li style="list-style-type:disc">tom de desconfiança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8094-a803-f34011cebdd5" class="bulleted-list"><li style="list-style-type:disc">interrupções</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8070-9248-e7f0c5eb933f"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a4-8a94-e61828c032fd" class=""><strong>Como agir</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f2-ade2-ee685e9f5deb" class="bulleted-list"><li style="list-style-type:disc">voz calma</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80af-96c9-f550d1b80184" class="bulleted-list"><li style="list-style-type:disc">ritmo mais lento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8070-a50d-fba7428f2fa2" class="bulleted-list"><li style="list-style-type:disc">explicação estruturada</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-807d-9eb6-cb377b34ce5e"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a5-bab1-d445a68b905a" class=""><strong>Frase-chave</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8006-b421-dd8a9418dd43" class="">“Vamos com calma. Prefiro que você entenda tudo antes de decidir.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-800b-bb9f-daf2740023ce"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80c1-9bdd-e6ad9f7c08da" class=""><strong>8. Cliente compara experiências ruins com o novo plano</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-801c-adc7-d832ab902d6f" class=""><strong>Abordagem correta</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80b2-8e10-f76395c9422f" class="">“Vamos comparar regras, não promessas.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8042-8f1d-fb307eb0865b"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-802a-a7fc-ff87b426bc3a" class=""><strong>Exemplo</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-808c-b901-f0d2267bff88" class="">“Esse plano tem regras diferentes daquele que você teve. Vou te explicar onde muda.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8024-aad8-eb78c9e1cdd4"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8076-bbfd-e00704306056" class=""><strong>9. Cliente quer garantia absoluta</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f0-9e54-eae188828e42" class=""><strong>Pedido comum</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-803a-94fc-f53705ee22d4" class="">“Você garante que vai cobrir?”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80fd-b0b8-cb1a342a072c"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8092-9144-d87598456966" class=""><strong>Resposta segura</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8003-a0b6-cbd927dbc03a" class="">“Quem garante é o contrato. O que eu faço é te explicar exatamente o que está previsto nele.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80b4-9741-c8830d56d9ac"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80c9-8c2b-ef38308e1da0" class=""><strong>10. Cliente volta à conversa muito desconfiado</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-800c-b13c-ffda2ff8d0ec" class=""><strong>Como recuperar</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805e-ba77-d1adfa447b58" class="bulleted-list"><li style="list-style-type:disc">repetir informações</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8093-a95a-dbff95584140" class="bulleted-list"><li style="list-style-type:disc">mandar por escrito</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806a-8b15-fd6a2102bb95" class="bulleted-list"><li style="list-style-type:disc">reforçar limites</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80ee-a510-f5240d2131c9"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8057-bfd8-ccf49c8cdf2b" class=""><strong>Frase de fechamento</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8005-9697-fc31fbfb1e1c" class="">“Prefiro ser claro agora do que gerar problema depois.”</blockquote></div></details></li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8012-90d9-db770a13dbb1" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

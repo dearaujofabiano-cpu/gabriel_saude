@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Plano Odontológico</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-8008-b1da-dd6cb38d5746" class="page sans"><header><h1 class="page-title" dir="auto">Plano Odontológico</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c606824-621d-8016-afb7-ce1d92496ed2" class="">Os <strong>planos odontológicos</strong> fazem parte da saúde suplementar, mas têm regras, precificação e dinâmica muito diferentes dos planos médicos. São produtos mais acessíveis, de alto volume, excelente porta de entrada para novos clientes e com carência reduzida ou até mesmo isenta. Muitas vendas começam pelo odontológico e evoluem para saúde.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c8-97e7-eb6748337ec3"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80d3-bb99-eb4639fe34c5" class="">1. <strong>O que é um Plano Odontológico</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8085-9e12-e948b745c64a" class="">É um serviço contratado para garantir <strong>acesso a dentistas, exames e tratamentos</strong> por meio de uma rede credenciada ou reembolso (em alguns casos).</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80de-ae2c-c7f01d565329" class="">Ele cobre <strong>procedimentos preventivos, diagnósticos e restauradores</strong>, conforme normas da ANS.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c6-8f66-d3cc71aac79f" class="">Características principais:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801a-9d02-c5bccd6819d8" class="bulleted-list"><li style="list-style-type:disc">Preço baixo (geralmente entre R$ 20 e R$ 80 por mês).</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ba-9bce-db6a0496e8e4" class="bulleted-list"><li style="list-style-type:disc">Adesão simples.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8082-90b3-dcda2bc81326" class="bulleted-list"><li style="list-style-type:disc">Menos regras complexas que os planos médicos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8037-87b3-c04af81ff56f" class="bulleted-list"><li style="list-style-type:disc">Mercado muito grande e pouco explorado por corretores iniciantes.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ea-87ec-f61ec7a3f8fa" class="bulleted-list"><li style="list-style-type:disc">Possibilidade de venda <strong>individual, familiar, PME e adesão</strong>.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-803d-a668-e601fb1b9f19"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-803a-bdbd-ed99b13fdba3" class="">2. <strong>Base Legal e Regulação</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805f-9801-f73b29c5e138" class="">Os planos odontológicos são regulados pela <strong>ANS</strong>, assim como os médios-hospitalares.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ae-9f13-c66994446eae" class="">A ANS define <strong>o Rol de Procedimentos Odontológicos</strong>, que determina a cobertura mínima obrigatória.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d8-9262-c464c5b86293" class="">Além disso, a ANS fiscaliza:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a9-a830-e030843bb961" class="bulleted-list"><li style="list-style-type:disc">Carência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d8-a093-fda163d0a447" class="bulleted-list"><li style="list-style-type:disc">Regras contratuais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c7-93b1-c0703371c379" class="bulleted-list"><li style="list-style-type:disc">Garantias assistenciais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8062-bec2-cb6b259c3b50" class="bulleted-list"><li style="list-style-type:disc">Reajustes (para planos individuais odontológicos)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8066-a633-d165cd52c0f8" class="bulleted-list"><li style="list-style-type:disc">Transparência de informações</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80f3-9310-e08734c63f42"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-801a-8b1a-e15957cf241c" class="">3. <strong>O que os Planos Odontológicos Precisam Cobrir (Cobertura Obrigatória – Rol da ANS)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8085-bbf7-f4a630fb2fb7" class="">O Rol é atualizado periodicamente, mas inclui obrigatoriamente:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8029-af52-d302b2f5f0cf" class=""><strong>3.1. Procedimentos Preventivos</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801c-a925-faee18c09df8" class="bulleted-list"><li style="list-style-type:disc">Limpeza e profilaxia completa</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f9-881e-e03404055f3c" class="bulleted-list"><li style="list-style-type:disc">Aplicação de flúor</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8038-9ec1-dcf5e53284e1" class="bulleted-list"><li style="list-style-type:disc">Polimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b9-b4fb-fef6b742fce0" class="bulleted-list"><li style="list-style-type:disc">Orientação de higiene</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8044-83e8-cfc7e2172fe1" class=""><strong>3.2. Diagnóstico</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8051-97bc-e6bcfc0544e1" class="bulleted-list"><li style="list-style-type:disc">Consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800b-b145-dad50e6166c1" class="bulleted-list"><li style="list-style-type:disc">Raios X (intra e extraorais)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c3-ba6d-dd659290181e" class="bulleted-list"><li style="list-style-type:disc">Exames complementares</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8006-86a9-eb1108354a0c" class=""><strong>3.3. Urgência e Emergência</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a6-9a1b-c6bae62dc808" class="">Obrigatório em TODOS os planos:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a2-aa24-c4c201561655" class="bulleted-list"><li style="list-style-type:disc">Curativos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807f-9eeb-e3d51865b4b7" class="bulleted-list"><li style="list-style-type:disc">Drenagem</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804c-83b6-fa12cb5d4dbc" class="bulleted-list"><li style="list-style-type:disc">Remoção de tecido</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8073-a39c-da7bf825d913" class="bulleted-list"><li style="list-style-type:disc">Tratamentos que aliviam dor imediata</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8029-8ffb-d6a638834396" class=""><strong>3.4. Restaurações e Tratamentos Básicos</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8059-8492-ce7cba8125b5" class="bulleted-list"><li style="list-style-type:disc">Tratamento de cáries</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805e-98db-ebddf5e188e0" class="bulleted-list"><li style="list-style-type:disc">Restaurações diversas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8041-a764-e35d59a650bf" class="bulleted-list"><li style="list-style-type:disc">Tratamentos de gengiva (periodontia)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808a-aa34-dca6e4d5e48e" class="bulleted-list"><li style="list-style-type:disc">Endodontia (canal)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-807c-8c79-ff46aec584f0" class=""><strong>3.5. Extrações</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bf-9eb0-f80c63cb47a0" class="bulleted-list"><li style="list-style-type:disc">Dentes permanentes e decíduos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807a-b464-dee7619396a9" class="bulleted-list"><li style="list-style-type:disc">Inclusos e impactados (dependendo da operadora)</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a7-9799-fd0ee212a642" class=""><strong>3.6. Outros procedimentos comuns cobertos</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-ab51-d71d76380cb9" class="bulleted-list"><li style="list-style-type:disc">Colocação de próteses provisórias (em parte das operadoras)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bc-95f3-ce133be84db8" class="bulleted-list"><li style="list-style-type:disc">Raspagem periodontal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ed-a7d2-c9c2e09971b6" class="bulleted-list"><li style="list-style-type:disc">Gengivectomia (casos simples)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80be-8fe2-c60323e60d60" class="bulleted-list"><li style="list-style-type:disc">Documentação ortodôntica básica (em alguns planos)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8026-b0c0-c32bdc825382"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80d4-acdb-f81343a15120" class="">4. <strong>O que normalmente NÃO cobre</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800b-a8fb-dce338ded9fa" class="">A ANS não obriga os planos a cobrirem tudo.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804e-97a0-c642322d3fe1" class="">Os itens abaixo dependem de cada operadora e plano:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8098-b170-eb6b7ce41148" class="bulleted-list"><li style="list-style-type:disc"><strong>Aparelhos ortodônticos completos (braquetes e manutenção)</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d0-9016-d8bfec13d850" class="bulleted-list"><li style="list-style-type:disc"><strong>Implantes dentários</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8040-8601-f709bc7c99e8" class="bulleted-list"><li style="list-style-type:disc"><strong>Próteses fixas ou móveis complexas</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-855d-d08d2f1bb60f" class="bulleted-list"><li style="list-style-type:disc"><strong>Facetas, lentes de contato dental</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8062-944e-c0bf32ae72d1" class="bulleted-list"><li style="list-style-type:disc"><strong>Clareamento</strong> (cosmético)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80eb-ab69-fd63992aea92" class="bulleted-list"><li style="list-style-type:disc"><strong>Cirurgias complexas de bucomaxilo</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b7-ac98-f92a8a3d53ff" class="">Muitos clientes não sabem disso — sua mãe deve avisar sempre com clareza.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-806c-a3e1-cbd6de43c0d5"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80f3-b0d7-d106d2cabdb0" class="">5. <strong>Carência no Plano Odontológico</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8003-9b87-d949e8180e09" class="">Carências comuns (podem variar):</p></div><div style="display:contents" dir="ltr"><table id="2c606824-621d-8091-add4-da2e446f7afe" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2c606824-621d-807f-b38c-da1dca1e29ce"><th id="pxLd" class="simple-table-header-color simple-table-header">Procedimento</th><th id="@xvo" class="simple-table-header-color simple-table-header">Carência Geral</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8070-8f31-db4419c01f1b"><td id="pxLd" class="">Urgência</td><td id="@xvo" class="">24h</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-806e-8552-f4a6f07e1e06"><td id="pxLd" class="">Consultas e exames simples</td><td id="@xvo" class="">24–72h</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80e9-a7c5-e7dd44257f55"><td id="pxLd" class="">Diagnósticos</td><td id="@xvo" class="">24–72h</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-801d-8556-c1e316298a5b"><td id="pxLd" class="">Restaurações</td><td id="@xvo" class="">30 dias</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80ba-8ceb-c83ae7ad561b"><td id="pxLd" class="">Endodontia (canal)</td><td id="@xvo" class="">60–180 dias</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8054-9d87-c545c8f13a2b"><td id="pxLd" class="">Cirurgias simples</td><td id="@xvo" class="">60–90 dias</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801e-aed9-c88ff54c0ed1" class="">Muitas operadoras fazem <strong>promoções com carência zero</strong>, especialmente para adesões empresariais ou durante campanhas mensais.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b3-9fcf-e39e2df0d0f3"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8088-b61f-f50f027e295c" class="">6. <strong>Tipos de Plano Odontológico</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ec-90ca-ff3814be56c1" class="">Pode ser contratado em múltiplas modalidades:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8033-85d6-cca66ff4205a" class=""><strong>6.1. Individual/Familiar</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-880b-eeb476c211e0" class="bulleted-list"><li style="list-style-type:disc">Contratação direta com a operadora.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8060-8a81-c9b8f5396ed4" class="bulleted-list"><li style="list-style-type:disc">Reajuste regulado pela ANS.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f6-a454-c31c8e5bb8dd" class="bulleted-list"><li style="list-style-type:disc">Carências normalmente mais rigorosas.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b1-9996-c4fdd4c7b514" class="bulleted-list"><li style="list-style-type:disc">Preço fixo por vida.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-807b-8040-faf8b3326e04" class=""><strong>6.2. Empresarial (PME)</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802e-9d8b-ca9bee9840c2" class="bulleted-list"><li style="list-style-type:disc">A partir de <strong>2 vidas</strong>, já é possível contratar.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8008-bd77-e59bd662614f" class="bulleted-list"><li style="list-style-type:disc">Carência reduzida ou zero, dependendo da operadora.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8060-a6c1-e3678ecab2fd" class="bulleted-list"><li style="list-style-type:disc">Preço mais competitivo.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f6-87dd-f368357a9974" class="bulleted-list"><li style="list-style-type:disc">Ótimo para vender para MEIs.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80e1-af5d-f4ca681aed41" class=""><strong>6.3. Coletivo por Adesão</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e8-ba52-e1d278e67a51" class="bulleted-list"><li style="list-style-type:disc">Via administradora de benefícios.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8024-970d-f5894bfb0579" class="bulleted-list"><li style="list-style-type:disc">Abrange estudantes, profissionais e categorias.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cf-a23a-ee04cb0ac8c5" class="bulleted-list"><li style="list-style-type:disc">Costuma ter preços mais baixos.</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808c-8337-ccc7d5ef2d96" class="bulleted-list"><li style="list-style-type:disc">Regras variam conforme a administradora.</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8078-a1ff-c60cf6038a44"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-807a-b403-cedf0af2f235" class="">7. <strong>Rede Credenciada</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-803f-ba73-e6225a701279" class="">A rede credenciada é o grande diferencial dos planos odontológicos.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8055-9f21-ea691195dc9c" class="">O cliente precisa saber:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805e-96a1-d301b9090fd3" class="bulleted-list"><li style="list-style-type:disc">Onde fica o dentista mais próximo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8005-8a9f-f5c7cddd8a03" class="bulleted-list"><li style="list-style-type:disc">Se há especialistas (canal, ortodontia, periodontia)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e1-bcdb-c8b3790c04ee" class="bulleted-list"><li style="list-style-type:disc">Se o consultório aceita ficha clínica digital</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805e-b894-cd909fc13edd" class="bulleted-list"><li style="list-style-type:disc">Se há clínicas populares integradas (como Orthopride, Sorridents)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808d-9ca0-e37c5f626599" class="bulleted-list"><li style="list-style-type:disc">Tempo médio de agendamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fa-81a8-c9f2d74b9b08" class="bulleted-list"><li style="list-style-type:disc">Reputação do profissional</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800a-a836-f3dac695134e" class="">Dica: <strong>sempre consulte o cliente sobre localização antes da venda</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b4-8e18-f754bef101f7"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80bb-aad3-eb919d58b271" class="">8. <strong>Reembolso em Plano Odontológico</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f1-8dbc-f58c85dccf50" class="">Nem todas as operadoras oferecem, mas quando oferecem:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802f-9a6f-c0498d3db936" class="bulleted-list"><li style="list-style-type:disc">Cliente paga o dentista particular</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803b-a7c1-fb493c227fda" class="bulleted-list"><li style="list-style-type:disc">Envia nota fiscal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d8-8d09-d05be4d88e91" class="bulleted-list"><li style="list-style-type:disc">Recebe parte do valor de volta</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8054-b130-c57e27e22333" class="bulleted-list"><li style="list-style-type:disc">Tabela de reembolso é limitada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d8-9da4-ee7522167734" class="bulleted-list"><li style="list-style-type:disc">Pode ser por <strong>procedimento</strong> ou <strong>percentual</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802e-8218-f272367e2070" class="bulleted-list"><li style="list-style-type:disc">Geralmente mais vantajoso em planos premium</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8083-b820-ead872c7b208" class="">Boa estratégia para clientes exigentes ou que já têm dentista particular.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8009-bd78-f879a5640935"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80b3-8b19-f9282cc1444c" class="">9. <strong>Preço e Reajustes</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-808c-ad4b-cc845e040844" class=""><strong>9.1. Faixa de preços</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8002-98f3-efed6eb75b7a" class="">Planos odontológicos costumam custar:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f0-8038-fbbd52e593ed" class="bulleted-list"><li style="list-style-type:disc"><strong>R$ 19 a R$ 45</strong> → planos básicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8020-ab82-ebaeb98d172c" class="bulleted-list"><li style="list-style-type:disc"><strong>R$ 50 a R$ 90</strong> → planos completos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a0-9245-d419b1af9fb2" class="bulleted-list"><li style="list-style-type:disc"><strong>R$ 100 a R$ 200</strong> → com ortodontia e estética parcial</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80aa-ad44-c4e337faa823" class="bulleted-list"><li style="list-style-type:disc"><strong>R$ 200+</strong> → premium com reembolso</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f8-9331-ee502077a148" class=""><strong>9.2. Reajuste</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8052-827f-c6cee6e91cee" class="bulleted-list"><li style="list-style-type:disc">Individual → regulado pela ANS</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808b-94f4-db9d8f7e9f68" class="bulleted-list"><li style="list-style-type:disc">Adesão e Empresarial → reajuste anual aplicado pela operadora/administradora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8065-846f-f5aa9bcb1aa0" class="bulleted-list"><li style="list-style-type:disc">Sem influência da sinistralidade tão forte quanto nos planos médicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8000-bb81-e1338f10709c" class="bulleted-list"><li style="list-style-type:disc">Valores costumam ser mais estáveis</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80a7-ae22-cf98db3746ca"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8053-a99c-cef578df0da3" class="">10. <strong>Como Explicar para Clientes (Linguagem Clara)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804a-a3eb-c4e9a66896e0" class="">Seu discurso pode seguir esta linha:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80fe-b638-eadb586863a5" class="">“O plano odontológico funciona como o plano de saúde, mas é mais barato e cobre tudo o que é essencial: limpeza, consulta, raio X, urgências, restaurações e canal.<div style="display:contents" dir="auto"><p id="2c606824-621d-8086-a126-c478ce8a2c23" class="">A grande diferença entre um plano e outro está na rede credenciada e nas coberturas extras, como aparelhos e implantes.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8004-ab10-ef7fb220be55" class="">Se você já tem um dentista de confiança, posso ver um plano com reembolso.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ac-b18c-fa9c0141880e" class="">Se prefere pagar barato e ter vários dentistas na região, posso te mostrar um plano com rede bem completa próximo da sua casa.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-801d-ac50-fdc43248f2ad"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80ae-b157-f5afb5b635d8" class="">11. <strong>Tipos de Clientes e Como Abordar</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80af-922a-c78a838243fd" class=""><strong>1. Cliente que nunca teve plano</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ae-ae5c-cdb8ce325a3c" class="">Foco: preço + urgências + limpeza anual</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806d-b723-d9383d8ba3f4" class="">Explicação: “Você paga pouco por mês e tem atendimento imediato em casos de dor.”</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8004-983e-cf61460679bf" class=""><strong>2. Cliente com problemas dentários recorrentes</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8070-9a33-c72eb882697d" class="">Foco: endodontia + periodontia + rede</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ea-8ad4-f4f6a0b8c70a" class="">Explicação: “Canal no particular custa R$ 800 a R$ 1.800; com o plano, você economiza muito.”</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8027-984c-e3e402d9443c" class=""><strong>3. Mães e pais</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8082-ac00-fa26f0f264fd" class="">Foco: urgência + prevenção + aparelhos (se houver)</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bf-ad91-d96958820406" class="">Explicação: “Se a criança sentir dor, você tem atendimento na hora.”</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8050-9ecc-e7f00394ce91" class=""><strong>4. MEIs</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8070-91e2-dbb589b3a3d3" class="">Foco: custo benefício + carência zero + dedução fiscal</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801f-892b-f9696832b886" class="">Explicação: “O valor é empresarial, mais barato e com carência reduzida.”</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8000-b067-ef25aeb75e95" class=""><strong>5. Pessoas que já têm dentista particular</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e4-98ab-c0bae8258486" class="">Foco: reembolso</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807a-9387-f7886973ffbb" class="">Explicação: “Você continua no seu dentista e recebe parte do valor de volta.”</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c7-be7c-e81b8ebef602"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-800f-9e46-cb1d2064ebbf" class="">12. <strong>Erros Comuns de Corretores iniciantes</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c6-9e19-ecd349073a6c" class="bulleted-list"><li style="list-style-type:disc">Prometer aparelho incluso quando não existe</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cf-9352-ce19c97a0440" class="bulleted-list"><li style="list-style-type:disc">Não verificar rede credenciada por endereço</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a2-9ef7-dbc8ada56861" class="bulleted-list"><li style="list-style-type:disc">Não explicar que clareamento e lentes dentais não estão inclusos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c2-88d1-c21f4d8128b2" class="bulleted-list"><li style="list-style-type:disc">Esquecer de enviar o Rol da ANS</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fb-a069-e74d0189e0aa" class="bulleted-list"><li style="list-style-type:disc">Não avisar sobre carências</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800e-a703-f4ad572490d0" class="bulleted-list"><li style="list-style-type:disc">Não comparar cobertura x preço x rede</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8096-b353-f5290c979ebf"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8085-8176-e5093ff08726" class="">13. <strong>Oportunidade de Vendas</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8074-a2f5-e17b8726d7c9" class="bulleted-list"><li style="list-style-type:disc">Excelente produto de entrada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8071-9adf-c514e8c76877" class="bulleted-list"><li style="list-style-type:disc">Fácil upsell para plano de saúde completo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8039-a0ae-f6c728d60edb" class="bulleted-list"><li style="list-style-type:disc">Baixa taxa de cancelamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8000-bfca-ff63caa045dd" class="bulleted-list"><li style="list-style-type:disc">Contratação rápida, por WhatsApp</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809d-bff1-c95412b450c9" class="bulleted-list"><li style="list-style-type:disc">Ideal para começar carteira própria</li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

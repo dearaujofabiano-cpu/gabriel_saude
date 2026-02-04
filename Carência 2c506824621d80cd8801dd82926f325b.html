@@ -1,0 +1,716 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Carência</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-80cd-8801-dd82926f325b" class="page sans"><header><h1 class="page-title" dir="auto">Carência</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c606824-621d-8096-a2da-cf6b4e0431b2" class="">A <strong>carência</strong> é um dos assuntos mais importantes para qualquer corretor dominar. É também um dos temas que mais geram dúvidas nos clientes — e mais causam problemas quando não é explicado com clareza.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8059-af83-e211024f818a" class="">Saber explicar carência <strong>de forma simples, técnica e honesta</strong> é essencial para fecharvendas com segurança e para evitar dores de cabeça no pós-venda.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c0-bc5e-e8f79c955166"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-801e-8231-e042995e8853" class=""><strong>1. O que é Carência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ad-8a04-e16d0225b441" class="">Carência é o <strong>período que o beneficiário precisa esperar para usar determinados serviços do plano</strong> depois da contratação.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805a-bb24-e5eefffe25c9" class="">Durante esse período, o cliente <strong>paga a mensalidade normalmente</strong>, mas ainda não pode utilizar alguns tipos de atendimento.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8013-9051-c0fe6b9b66df" class="">A carência serve para proteger a operadora contra <strong>uso imediato sem contribuição</strong>, evitando fraudes e garantindo o equilíbrio financeiro do plano.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b4-9795-d1ec9a2db6b4"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80fe-a833-e5e0d3e8e2ca" class=""><strong>2. Carências Padrão Definidas pela ANS</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8092-82fb-eaf1d4e0e3d3" class="">A ANS define carências máximas que <strong>nenhum plano pode ultrapassar</strong>:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a3-8a17-e1eb15cf8618" class="">✔ <strong>24 horas — Urgência e Emergência</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f2-9d60-fe6c3e4faaf2" class="">Somente situações de risco imediato:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8062-a7fe-c06cab994a50" class="bulleted-list"><li style="list-style-type:disc">acidentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8075-8778-c953d347df67" class="bulleted-list"><li style="list-style-type:disc">fraturas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b5-b51f-de9c5658b712" class="bulleted-list"><li style="list-style-type:disc">infarto/AVC</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806f-a80c-fba376f8ff82" class="bulleted-list"><li style="list-style-type:disc">hemorragia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d2-afa3-ef4f3d662aa1" class="bulleted-list"><li style="list-style-type:disc">risco materno</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e3-9e37-d97cb88ef89d" class="bulleted-list"><li style="list-style-type:disc">sofrimento fetal</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ca-aa91-d0c24c9cf19f" class="bulleted-list"><li style="list-style-type:disc">risco de morte</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-806c-9de7-dd54e14c40f6" class="">✔ <strong>300 dias — Parto a termo</strong> (parto normal)</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8071-be52-ef6834514b61" class="">Esse é um dos prazos mais importantes.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80c4-b60e-dd5261018def" class="">✔ <strong>180 dias — Demais procedimentos</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-800f-a0a3-c22d43601cb3" class="">Inclui:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8080-9288-e7d36a2f5e10" class="bulleted-list"><li style="list-style-type:disc">cirurgias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d8-84ad-ff4523a79c00" class="bulleted-list"><li style="list-style-type:disc">internações</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8046-a415-de05dabcdeb2" class="bulleted-list"><li style="list-style-type:disc">exames mais complexos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8099-b0ff-ceb41e904678" class="bulleted-list"><li style="list-style-type:disc">consultas especializadas</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a2-88d5-ecfc376a8bb9" class="">✔ <strong>24 meses — Doenças ou Lesões Preexistentes (DLP)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8010-aa25-d46d14f926db" class="">Aplica-se quando o cliente <strong>já tinha</strong> uma doença diagnosticada antes de contratar o plano e declara isso na DPS (Declaração de Saúde).</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8074-b094-ca5c6a2b87fa" class="">É um dos temas mais sensíveis do setor.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8025-9d74-ce9d105340b5"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-803e-8637-e97806cad579" class=""><strong>3. O que </strong><em><strong>não</strong></em><strong> tem carência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a3-9e59-c0b5ddac8540" class="">Isso é importante para explicar ao cliente:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e2-bb81-e6476fcf4a0b" class="bulleted-list"><li style="list-style-type:disc"><strong>contratação nacional ou regional</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e2-b72c-e44a96a06a7f" class="bulleted-list"><li style="list-style-type:disc"><strong>troca de acomodação</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fe-9b88-e0a632b53af0" class="bulleted-list"><li style="list-style-type:disc"><strong>alteração de coparticipação</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8026-816e-cecd41281ddb" class="bulleted-list"><li style="list-style-type:disc"><strong>inclusão de dependente recém-nascido (até 30 dias)</strong> vinculado à mãe</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8013-b28f-e293e1cf1661" class="bulleted-list"><li style="list-style-type:disc">consultas simples (em alguns planos, mas depende da operadora)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8049-a2e8-f42887cd4416"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-803b-a9a4-f864eb30b122" class=""><strong>4. Tipos de Carência (como funcionam na prática)</strong></h1></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-803f-9caa-fc4f5b5f7bf2" class="">✔ 4.1 Carência padrão</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8095-8f84-ee8e8c0203ef" class="">É a lista acima, aplicada automaticamente para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cd-b2e1-f2c271e34b90" class="bulleted-list"><li style="list-style-type:disc">planos individuais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8022-9c02-f917ff088169" class="bulleted-list"><li style="list-style-type:disc">planos familiares</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8034-8e16-d613e0e98509" class="bulleted-list"><li style="list-style-type:disc">planos empresariais de 1 a 29 vidas (em geral)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-b7f4-d4e228e664ef" class="bulleted-list"><li style="list-style-type:disc">planos por adesão (na maioria das administradoras)</li></ul></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8004-b50e-dfc7e7496ea1" class="">✔ 4.2 Carência reduzida</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8059-890e-cd26c4f45489" class="">Algumas operadoras reduzem carências se o cliente:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f7-a65d-fe0b1dc1a3f1" class="bulleted-list"><li style="list-style-type:disc">está aprendendo para uma faixa de carências promocional</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c9-aa58-db4eb733825a" class="bulleted-list"><li style="list-style-type:disc">vem de outra operadora há mais de 6 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8011-a504-e99e30196e0d" class="bulleted-list"><li style="list-style-type:disc">tem histórico de plano antigo ativo (portabilidade simplificada)</li></ul></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80a1-8e66-fb3d1f2c6f0c" class="">✔ 4.3 Isenção total de carências</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80af-af83-fd423bb6a64a" class="">Acontece principalmente quando:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8062-b7fe-d095966fd60d" class=""><strong>PME com 30 vidas ou mais</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807b-94a1-e0acd8d91be2" class="">→ Carência totalmente zerada para titulares e dependentes incluídos logo no início do contrato.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a8-92fc-e6603a8060c6" class=""><strong>Migração de plano empresarial para outro empresarial (mesmas vidas)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80af-8825-c593981495bd" class="">→ Na maioria dos casos, isenta tudo.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8026-95e5-c1f81e51ff68" class=""><strong>Períodos promocionais da operadora</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e2-a33e-d4ddc724785d" class="">→ Algumas campanhas zeram carências de consultas, exames ou até internações.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80a7-8822-dfaf0241974a" class="">✔ 4.4 CPT (Cobertura Parcial Temporária) — 24 meses</h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ee-a2f5-f7813037a384" class="">É aplicada somente quando o cliente declara ter uma <strong>Doença ou Lesão Preexistente (DLP)</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804d-a6a4-ebba98b15d65" class="">Durante os 24 meses, <strong>não</strong> tem cobertura para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c9-85a5-c68c8f5f17f4" class="bulleted-list"><li style="list-style-type:disc">cirurgias ligadas à doença</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8064-ab11-f10c51f963e8" class="bulleted-list"><li style="list-style-type:disc">procedimentos de alta complexidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807f-bdb5-eb6c10cd8065" class="bulleted-list"><li style="list-style-type:disc">internações relacionadas à DLP</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bc-a829-f171baf1e1da" class="">Mas tem cobertura para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80be-8883-f7a2043166e8" class="bulleted-list"><li style="list-style-type:disc">consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806f-aee5-d2dfdabb70bd" class="bulleted-list"><li style="list-style-type:disc">exames simples</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f6-88ff-e766ae392d9d" class="bulleted-list"><li style="list-style-type:disc">procedimentos não diretamente relacionados à preexistência</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80e8-adc0-c634133063d9"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80ac-b4eb-c78a5cd59150" class=""><strong>5. A Carência na Prática (como funciona no dia a dia)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8027-b792-c242119f0df6" class="">O cliente assina o contrato → entra no plano → recebe o cartão → e <strong>já pode usar algumas coisas</strong>, como:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8011-8bbd-d2dd44ad9b0b" class="bulleted-list"><li style="list-style-type:disc">telemedicina</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8008-89cc-ca81b7066b28" class="bulleted-list"><li style="list-style-type:disc">consultas básicas (depende da operadora)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8063-958b-d66a303396a6" class="bulleted-list"><li style="list-style-type:disc">pronto atendimento para emergências (24h)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8025-b5e8-ec2231639fc2" class="bulleted-list"><li style="list-style-type:disc">alguns exames simples</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8045-8903-da0229730471" class="">Porém, para usar:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cd-990c-dad3268a65f0" class="bulleted-list"><li style="list-style-type:disc">internações</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f3-8191-f68154381bc7" class="bulleted-list"><li style="list-style-type:disc">cirurgias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c2-805f-fa84506a310b" class="bulleted-list"><li style="list-style-type:disc">exames de alta complexidade (como ressonância)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b1-b16d-e93f516b93f0" class="bulleted-list"><li style="list-style-type:disc">parto</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d9-ad34-e4e0c1ec9a12" class="">…precisa esperar o prazo específico.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8029-885e-f0c30acfd1d0"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8018-97fa-e990fb7c2379" class=""><strong>6. Carência e Tipo de Plano</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80d7-a5d4-fc0643671233" class="">✔ Plano Individual / Familiar</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806a-8914-e3859dae14f9" class="">→ Sempre tem carências padrão ANS.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b4-9c5a-fdb487a98dd4" class="">Não existe isenção total.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8070-8cb5-f15f081a7bc7" class="">✔ Coletivo por Adesão</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8079-88e3-f5881505cfd0" class="">→ Depende da administradora.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807f-a591-d91cba273e7f" class="">→ Normalmente tem carências, mas muitas vezes reduzidas.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80db-8035-d68f178242a6" class="">✔ PME (Empresarial)</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f7-a3b9-da0db583d59d" class="">O mais importante:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cd-9ef9-d0c34b7131ea" class="bulleted-list"><li style="list-style-type:disc">1 a 29 vidas → <strong>normalmente tem carências</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805c-956b-c967bbab4db7" class="bulleted-list"><li style="list-style-type:disc">30+ vidas → <strong>isenta carências</strong> (titulares e dependentes incluídos no início)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8084-9132-df1cc51826a5" class="">Isso é decisivo na hora da venda.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8079-ae6d-cd798ce212be"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8038-ae81-ffbc4c1984cb" class=""><strong>7. O impacto da Carência no Perfil do Cliente</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c0-be8a-ca09e8d9f37e" class="">Carência influencia diretamente a <strong>necessidade e urgência</strong> do cliente.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80b0-aa64-fab8081b246a" class="">✔ Cliente que precisa usar imediatamente →</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-803c-83c4-eb450929dc5a" class="">Plano com carências reduzidas ou isenção → apresentar PME 30+ vidas se for possível → ou plano de adesão com carência promocional.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f1-aa54-e35a2dcf6b53" class="">✔ Cliente sem pressa →</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8090-a6f1-cf582552563c" class="">Pode escolher um plano mais barato com carência padrão.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-806a-a9bd-cab9dad829f5" class="">✔ Gestantes ou mulheres que desejam engravidar →</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c0-aac8-dcaf3aef3015" class="">É crucial avisar sobre o prazo de <strong>300 dias</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8068-94e5-d1d4b0098b3d" class="">✔ Pessoas operadas recentemente ou com doença ativa →</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8002-9d7b-f05255065dee" class="">Cuidado:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808f-9eb8-dac506576398" class="bulleted-list"><li style="list-style-type:disc">se já é preexistente, haverá CPT</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8088-b9fb-d4804fef4b29" class="bulleted-list"><li style="list-style-type:disc">situações mal explicadas geram muita reclamação</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80bb-ac1a-ed7960ad21f3"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8047-b583-f587f886d8a3" class=""><strong>8. Perguntas essenciais para evitar problemas no futuro</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e6-a986-fca906f5b0ad" class="">Perguntar SEMPRE:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80fe-bde4-f1fb7df288ca" class="numbered-list" start="1"><li><strong>“Tem alguma cirurgia marcada?”</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80bc-8ca7-ee2b13c9f3f0" class="numbered-list" start="2"><li><strong>“Tem alguma doença diagnosticada?”</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80ff-90bf-c55299c86b91" class="numbered-list" start="3"><li><strong>“Teve alguma internação nos últimos meses?”</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8070-88f8-c623c0ec236d" class="numbered-list" start="4"><li><strong>“Tem plano ativo atualmente?”</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-806a-8cb6-ed603a7ba292" class="numbered-list" start="5"><li><strong>“Você precisa usar o plano imediatamente?”</strong></li></ol></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801b-9958-f1980a89e23f" class="">Essas perguntas são obrigatórias para evitar dores de cabeça.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80aa-b7d0-fe2b5b28118e"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8082-a7da-d9c2f5be6418" class=""><strong>9. Como explicar Carência para o Cliente (versão simples e perfeita)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8092-98b9-c36213332098" class="">Use frases como:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80a4-b944-f2e72c457e46" class="">“Carência é o tempo que o plano pede para você começar a usar alguns serviços.<div style="display:contents" dir="auto"><p id="2c606824-621d-803d-9eaa-ce6f98f071a6" class="">Funciona como quando você entra numa empresa e tem o período de experiência.”</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-809e-b6f1-c540bda628a4" class="">Ou:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8011-b8f2-cc5f4f6bdd7a" class="">“O plano funciona desde o primeiro dia, mas alguns procedimentos complexos têm uma espera obrigatória.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8044-8960-ccd43ab85a9d" class="">E para deixar claro:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8061-b100-f5011d989909" class="">“Para emergência, você está coberto em 24 horas.<div style="display:contents" dir="auto"><p id="2c606824-621d-802c-ad7a-e8817cdb4671" class="">Para rotina, exames e internação seguem prazos diferentes.”</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806d-a06b-fe4e22365644" class="">Isso passa segurança e evita problemas.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-804c-b34b-f2471770aeda"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8006-b2be-fc65d4da61ee" class=""><strong>10. Erros que nunca pode cometer ao vender</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8072-9f9d-fca453a6f5dd" class="bulleted-list"><li style="list-style-type:disc">Prometer que <strong>não existe carência</strong> quando o plano possui</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80fc-8560-edd2fc996cbc" class="bulleted-list"><li style="list-style-type:disc">Não perguntar sobre doenças pré-existentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808b-a956-d2bce03ccb81" class="bulleted-list"><li style="list-style-type:disc">Não explicar a <strong>CPT de 24 meses</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-803b-9372-eef8b61d40ba" class="bulleted-list"><li style="list-style-type:disc">Não avisar sobre o prazo de <strong>300 dias para parto</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80dc-9168-eca0b913e2fe" class="bulleted-list"><li style="list-style-type:disc">Dizer que o cliente “pode usar tudo” no primeiro mês</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804b-9625-c04c8d77ab7f" class="bulleted-list"><li style="list-style-type:disc">Não dar exemplos práticos ao cliente</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ea-8dfa-d1ca91b78981" class="">Esses erros geram <strong>reclamações gravíssimas</strong>, principalmente na ANS e no Procon.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806e-a764-f803c877fa0e" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80b9-865f-d2e6c8a871d3" class="">⭐ <strong>REDUÇÃO E ISENÇÃO DE CARÊNCIAS</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a4-8244-d5ffb13a9658" class="">Redução e isenção de carências são mecanismos que permitem que o cliente <strong>utilize o plano mais rapidamente</strong> do que no padrão definido pela ANS.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8035-a6a7-fa84fa9b5c1c" class="">Eles existem principalmente para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-802c-8a8e-fe16bd673029" class="bulleted-list"><li style="list-style-type:disc">estimular migração entre operadoras</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d0-8885-ea2e60ea53d3" class="bulleted-list"><li style="list-style-type:disc">facilitar entrada de empresas novas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a4-9753-cbd67de25d11" class="bulleted-list"><li style="list-style-type:disc">evitar perda de competitividade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80de-b19d-eb54e8da97e2" class="bulleted-list"><li style="list-style-type:disc">compensar histórico de uso do plano anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8055-bb4b-c948f8b2e0f0" class="bulleted-list"><li style="list-style-type:disc">ampliar a carteira de clientes com menor risco</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8024-8e72-f7aeb97004dc" class="">É um tema estratégico  e um dos que mais ajudam a fechar contratos mais rapidamente quando bem explicado.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-800a-975a-ff6a4ce621e1"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8010-8f94-ce5e11f3f8a4" class="">⭐ 1. <strong>O que é Redução de Carência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bd-9c48-cfb4f567f733" class="">Redução de carência é quando a operadora <strong>diminui os prazos obrigatórios</strong> antes que o beneficiário possa usar determinados serviços.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807c-8e59-dd4683724577" class="">Exemplo prático:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f2-bcd2-dbf6e6573fc6" class="bulleted-list"><li style="list-style-type:disc">Carência padrão para cirurgia: <strong>180 dias</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8039-a841-cd7a2a244205" class="bulleted-list"><li style="list-style-type:disc">Redução aplicada por campanha: <strong>60 dias</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8064-aa30-fe490f2dcb41" class="bulleted-list"><li style="list-style-type:disc">Redução por portabilidade simplificada: <strong>0 dias</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801f-8888-e70cfe9f9d4f" class="">A redução pode ser parcial (apenas para alguns procedimentos) ou geral (para tudo, exceto parto e DLP).</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8071-9da4-f64eeaa34a26"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80dd-b30a-e5251aa8d59f" class="">⭐ 2. <strong>O que é Isenção de Carência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8049-9f5d-df464aa2f3d1" class="">Isenção de carência significa que o cliente <strong>não precisa esperar nenhum período</strong> para usar os procedimentos cobertos.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8098-ab5b-f42a95db187e" class="">Ou seja, a operadora libera o uso imediato para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8018-925e-c66a43d37a7d" class="bulleted-list"><li style="list-style-type:disc">consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809a-af14-e8ff541ad965" class="bulleted-list"><li style="list-style-type:disc">exames</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a2-ae8d-c8f068883641" class="bulleted-list"><li style="list-style-type:disc">internação</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8049-b83c-f03c346e002c" class="bulleted-list"><li style="list-style-type:disc">cirurgia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ec-80cd-fc755384eb7c" class="bulleted-list"><li style="list-style-type:disc">terapias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a0-821b-e0affae39c5b" class="bulleted-list"><li style="list-style-type:disc">pronto atendimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e4-be7e-f796e7d0a777" class="bulleted-list"><li style="list-style-type:disc">parto (somente se houver regra específica)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ea-9f0a-e3e8d995ac51" class="">Mas atenção:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8012-8b9e-fcac1d980935" class="">Isenção total não é tão comum e quase sempre depende das <strong>regras comerciais da operadora</strong>, principalmente para <strong>planos empresariais com mais vidas</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-800f-838c-f27b5efda473"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-805c-999d-f578d3a9d23b" class="">⭐ 3. <strong>Como as operadoras definem Redução e Isenção</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8013-b20e-fbbcb06f9380" class="">Isso depende de vários fatores combinados:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-803b-91c2-daf070a0f955" class="">✔ 3.1 Tipo de plano (Essencial)</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e6-ab5c-dd3e177684ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Individual/Familiar:</strong> quase nunca tem isenção</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8011-b440-de8c3cebcde7" class="bulleted-list"><li style="list-style-type:disc"><strong>Coletivo por Adesão:</strong> redução frequente, isenção ocasional</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804e-8020-c0b250b9b8bd" class="bulleted-list"><li style="list-style-type:disc"><strong>Empresarial 1 a 29 vidas:</strong> pode ter redução, raramente isenção</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804a-9f57-c7624105b0d8" class="bulleted-list"><li style="list-style-type:disc"><strong>Empresarial 30+ vidas:</strong> quase sempre isenção total</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8017-852f-e8a315e8b9f2" class="">✔ 3.2 Tamanho do grupo</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f9-870b-c4641dfa5e2b" class="">Quanto maior o grupo, menor o risco — então maior a chance de isenção.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-804e-bece-d133671f6d71" class="">✔ 3.3 Campanhas promocionais</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8079-91b5-e60cb0014c4c" class="">Operadoras fazem campanhas para atrair clientes, reduzindo carências temporariamente.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f5-af68-c9a5f41c3917" class="">✔ 3.4 Histórico do plano anterior (portabilidade/migração)</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80e0-974b-f86f2d4641d1" class="">Se o cliente tinha plano ativo, a operadora pode conceder isenção.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f4-a84c-e7b8663229df" class="">✔ 3.5 Política interna da operadora</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b0-99e5-e0500407188d" class="">Cada operadora cria suas próprias regras de negócio.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8007-8532-d6698b3cdc2f"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80be-a5d8-fe5fa398257d" class="">⭐ 4. <strong>Principais Situações Onde Há Redução ou Isenção</strong></h1></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8018-a734-d9d39d49ca5f" class="">✔ 4.1 <strong>PLANO EMPRESARIAL (PME)</strong> — o mais importante</h2></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8085-a628-dea7ce351b8c" class=""><strong>→ De 1 a 29 vidas (micro e pequeno grupo)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b3-a807-fe944321409b" class="">Normalmente:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806e-900c-d6335d9081a4" class="">➡ Carências padrão ANS</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8040-988b-f5f4582a63a3" class="">➡ Possível redução parcial em campanhas</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80fa-b338-c1f7e59e12f5" class="">➡ Isenção mais difícil</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80f7-8623-e801c0dc6eca" class=""><strong>→ De 30 a 99 vidas (médio grupo)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f0-bceb-ec7e545090b9" class="">➡ Isenção total de carências (quase sempre)</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ac-914c-fa64d809d595" class="">➡ Precisa incluir <strong>todas as vidas</strong> na adesão inicial</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8021-a0c0-c3f9c28d4cfa" class="">➡ Dependentes também entram sem carência</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-805c-adef-eda94fd45ffc" class=""><strong>Regra de ouro:</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-807f-ab39-fdf9b6b8f935" class="">Se o plano empresarial tiver 30 vidas ou mais, quase sempre há isenção total, desde que as vidas sejam incluídas no início.</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8043-bc8f-c3b7f73f8bd7" class=""><strong>→ 100+ vidas (grandes contas)</strong></h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8043-ab63-d9df13fb627b" class="">➡ Isenção total</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c8-a436-dd5c31f168de" class="">➡ Condições negociais especiais</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f8-8a78-cca268f575d9" class="">➡ Possibilidade de isentar até parto</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8084-8a81-fe34d2f17017" class="">➡ Regras personalizadas por contrato</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80bf-9ffa-f98ecd175947"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8094-82bc-ca3f1382f6d5" class="">✔ 4.2 <strong>Plano Coletivo por Adesão</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8008-afde-c769ae3fd022" class="">Depende da <strong>administradora</strong>, mas geralmente funciona assim:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e7-9265-c10f41711432" class="bulleted-list"><li style="list-style-type:disc"><strong>Isenção parcial</strong>: consultas e exames de baixa complexidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ef-9e81-f3dbf7ad9874" class="bulleted-list"><li style="list-style-type:disc"><strong>Redução</strong>: internação e cirurgias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8085-a8da-cc057d733ee7" class="bulleted-list"><li style="list-style-type:disc"><strong>Parto</strong> normalmente NÃO tem redução</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f7-a2f4-e94cf6d86124" class="bulleted-list"><li style="list-style-type:disc"><strong>DLP</strong> sempre mantém CPT de 24 meses</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8008-893f-f416a2e7f08d" class="">A maioria das administradoras lança campanhas periódicas, e o corretor precisa acompanhar.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8016-980f-c62657629672"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8053-b93b-ed43eb16f117" class="">✔ 4.3 <strong>Migração entre operadoras dentro da mesma empresa</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8089-83a0-d6ecc4ccebd5" class="">Quando uma empresa troca de operadora:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b5-a931-d9f7d897cf74" class="">➡ <strong>Isenção total</strong> quase sempre</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8022-8a0e-d8eac951f848" class="">➡ Desde que sejam as mesmas vidas</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8048-8abb-f3de87941bd5" class="">➡ E sem interrupção de contrato</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8069-9873-f88fc1ef4bd6" class="">Isso é chamado de <strong>portabilidade empresarial</strong> ou <strong>troca de carteira</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80b2-8ae7-f39b674f5f6d"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80a8-a980-f1de0c27fdef" class="">✔ 4.4 <strong>Portabilidade de carências (pessoa física)</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c8-9342-f01b787fd904" class="">Regras da ANS permitem:</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bb-b4e3-c5d468e8d15b" class="">➡ Redução ou isenção dependendo do tempo de permanência no plano anterior</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d7-babe-f670bc1699e2" class="">➡ Exige plano anterior compatível</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d6-8da3-c1239c67387c" class="">➡ Exige adimplência</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a1-8086-d06cc6e49329" class="">➡ Exige manutenção da segmentação (Ambulatorial, Ambulatorial + Hospitalar, etc.)</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8015-a564-dd37fac88d4b" class="">Portabilidade é técnica, mas essencial.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8010-84e2-eff6af312f70"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8027-8240-d58c8b0c7a29" class="">⭐ 5. <strong>Onde NÃO existe isenção de carência</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ed-8611-e6ebf8d46078" class="">Mesmo com redução, normalmente NÃO há isenção para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e1-a85a-f2703f3bf2c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Parto</strong> (300 dias)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8077-a3bd-f473231e72b0" class="bulleted-list"><li style="list-style-type:disc"><strong>Doença Preexistente</strong> → CPT 24 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809c-8585-d908c83c219e" class="bulleted-list"><li style="list-style-type:disc"><strong>Transplantes especiais não previstos no rol</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8040-891d-e4581cedc96c" class="bulleted-list"><li style="list-style-type:disc"><strong>Procedimentos não cobertos</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8026-b0d2-d0821c0410b1" class="">A CPT nunca é eliminada, apenas avaliada caso a caso.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8021-810d-cf9d59cbb0ed"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8062-9736-c58ff3290cc4" class="">⭐ 6. Impacto na Venda e Explicação para o Cliente</h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-809c-a2b4-ef3f29469eb7" class="">Esse tema influencia muito a hora da venda.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ae-8b62-d35830b7962d" class="">✔ Quando explicar <em>redução</em>:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8027-8187-cab1f0cc9a02" class="">“Esse plano permite que você use mais rápido — consultas e exames já começam em poucos dias.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809d-a2bc-dcb8512fd9e4" class="">✔ Quando explicar <em>isenção</em>:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80fb-b052-faab705248c6" class="">“Aqui você não tem carência. Pode usar tudo desde o primeiro dia, inclusive internações, cirurgias e exames complexos.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8083-a4d1-cafe2c735793" class="">✔ Quando alertar sobre limitações:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8020-8f61-c216686e4f61" class="">“Somente parto e doenças preexistentes seguem regras específicas, mas eu vou te explicar tudo.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-807b-b7a8-fc39162f7cef"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8088-88b6-f9fa33b899cc" class="">⭐ 7. Como evitar problemas (essencial!!)</h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-804f-8ecb-d28638119ffc" class="">SEMPRE:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8046-bbdd-f4c30d9b9c5c" class="bulleted-list"><li style="list-style-type:disc">pedir documentos do plano anterior</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e9-a1b5-fdf0db701696" class="bulleted-list"><li style="list-style-type:disc">confirmar se o cliente tem doença prévia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cc-87be-fd528e50cf71" class="bulleted-list"><li style="list-style-type:disc">analisar reciprocidade entre produtos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809b-b1ec-f30d0ad4ca1a" class="bulleted-list"><li style="list-style-type:disc">verificar campanhas ativas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8064-8f63-f75c37e72df1" class="bulleted-list"><li style="list-style-type:disc">pedir contrato/termo de adesão</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80de-8725-f844ed34709d" class="bulleted-list"><li style="list-style-type:disc">entregar a carta de carências ao cliente (protegendo a venda)</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8001-9dea-f48edc1199ee" class="">Esse é um dos pontos que mais geram reclamação na ANS quando mal explicado.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d0-97b6-c15ca4c5a5c9"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a7-b8cf-e2eb193bf2df" class="">⭐ 8. Frases prontas para usar na venda</h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80a9-bef7-e1b35a0940d0" class="">✔ Para explicar isenção:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-805f-aeeb-e597983a0967" class="">“Esse plano empresarial com mais de 30 vidas permite que todos usem desde o primeiro dia — sem carências.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80e5-9d31-d295258ed693" class="">✔ Para explicar redução:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-807e-a48c-f2645a8c1a49" class="">“Você entra com prazos menores do que o padrão da ANS. Exames simples e consultas você já usa quase imediatamente.”</blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-807f-b146-ceb07b004a94" class="">✔ Para explicar regras fixas:</h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80b3-9795-e9ca74a3c5ec" class="">“Parto e doenças prévias seguem regras da ANS, que valem para todas as operadoras.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bc-8991-c2e4a77f69af" class="">
+</p></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-803c-b407-c87f1d30e79c" class="">🟦 <strong>AGRAVO E COMPRA DE CARÊNCIA </strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8026-b2a0-d2c4406f859e" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b0-ac7a-f37633fc119e" class="">No universo de <strong>planos de saúde</strong>, existem mecanismos que permitem ao beneficiário <strong>reduzir ou eliminar períodos de carência</strong>, seja para doenças ou lesões preexistentes, seja para procedimentos gerais. Os dois principais são:</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8010-93bb-ea9e383c950b" class="numbered-list" start="1"><li><strong>Agravo (para Doenças ou Lesões Preexistentes – DLP)</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8051-bde6-e9f05ec22cd7" class="numbered-list" start="2"><li><strong>Compra de Carência</strong></li></ol></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ef-ba95-cd10c3fd2416" class="">Embora ambos reduzam o tempo de espera, <strong>cada um tem aplicação, regras e impactos diferentes</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-808b-a840-ec5a3f1209cc"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80c0-aa0d-cd69bdd6285b" class="">✅ <strong>1. AGRAVO (para DLP)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801c-9b2c-c759fbd708a3" class="">O <strong>agravo</strong> é um <strong>acréscimo na mensalidade do plano</strong> que permite ao beneficiário <strong>ter cobertura imediata para uma Doença ou Lesão Preexistente (DLP)</strong>, em vez de cumprir a <strong>Cobertura Parcial Temporária (CPT) de até 24 meses</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-801c-ac8b-f4ffea5bbe36"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80b4-8aff-eb6d755f12af" class=""><strong>1.1 Quando o agravo se aplica</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8067-9b9e-fe09053c7848" class="bulleted-list"><li style="list-style-type:disc">Quando o beneficiário tem uma <strong>doença ou lesão preexistente identificada na Declaração de Saúde (DS)</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8094-8abd-fd8236916357" class="bulleted-list"><li style="list-style-type:disc">Normalmente em <strong>planos individuais ou familiares</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8011-9393-f0b74aafeaa1" class="bulleted-list"><li style="list-style-type:disc">Cada DLP pode ter <strong>agravo específico</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80b1-ba32-db9bb2b55c6b" class="bulleted-list"><li style="list-style-type:disc">Opcional: o beneficiário pode escolher cumprir a CPT normalmente ou pagar o agravo</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80a0-aeab-fbc0fa22255c"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80ff-9ca0-d14f9b3e302e" class=""><strong>1.2 Como funciona o agravo</strong></h2></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8064-8761-eb5ed1a634ec" class="numbered-list" start="1"><li>Cliente tem uma DLP (ex.: hipertensão, diabetes, cirurgia prévia)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-803d-a768-c0f5751a69b9" class="numbered-list" start="2"><li>Sem agravo → CPT aplicada → cobertura limitada para procedimentos relacionados à DLP por até 24 meses</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80a1-a595-fec4772c1a6b" class="numbered-list" start="3"><li>Com agravo → acréscimo na mensalidade → cobertura total <strong>imediata</strong> para essa DLP específica</li></ol></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80d0-97b3-c810a37c55ed"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80c4-96f4-d131fe6180a6" class=""><strong>1.3 Exemplos práticos de agravo</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80be-a14b-d3067ad009b3" class=""><strong>Exemplo 1 – Diabetes</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8009-9954-d9a7f9a611d3" class="bulleted-list"><li style="list-style-type:disc">Cliente possui diabetes diagnosticada antes da contratação</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-800a-996f-e2db9b42fa56" class="bulleted-list"><li style="list-style-type:disc">CPT: 24 meses → internações relacionadas a diabetes têm cobertura limitada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a3-a741-c32fad0d4111" class="bulleted-list"><li style="list-style-type:disc">Agravo aplicado → acréscimo de R$ 150/mês → cobertura total imediata para consultas, exames e internações relacionadas à diabetes</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8078-932e-fa7fec7761f4" class=""><strong>Exemplo 2 – Cirurgia cardíaca anterior</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8029-91c8-f7608c378e3b" class="bulleted-list"><li style="list-style-type:disc">Cliente com cirurgia cardíaca prévia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80de-8016-c2cf78b2c3ac" class="bulleted-list"><li style="list-style-type:disc">Sem agravo → CPT limita cirurgias e internações cardíacas por até 24 meses</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805f-898f-dc415da7cc80" class="bulleted-list"><li style="list-style-type:disc">Com agravo → pagamento adicional → cirurgia cardíaca e internações cobertas imediatamente</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8068-a162-f807362575aa" class=""><strong>Exemplo 3 – Omissão de DLP</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8084-9cf4-f9a3bf0f6461" class="bulleted-list"><li style="list-style-type:disc">Cliente omite doença preexistente na DS</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8023-8cda-f0eabfc0667e" class="bulleted-list"><li style="list-style-type:disc">Durante internação, operadora identifica a DLP</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8000-9432-c75a02e03042" class="bulleted-list"><li style="list-style-type:disc">Agravo retroativo pode ser exigido, ou cobertura parcial limitada, ou até cancelamento de procedimentos relacionados</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8064-b30c-f6444806e0b5"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8032-bbd3-e23c3e705156" class=""><strong>1.4 Pontos importantes do agravo</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8089-8415-fac0511eb215" class="bulleted-list"><li style="list-style-type:disc">Valor definido pela operadora, proporcional ao <strong>risco da DLP</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80eb-a36e-e6738392322a" class="bulleted-list"><li style="list-style-type:disc">Opcional, mas reduz risco de <strong>limitação de cobertura</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c1-a593-efa923c51513" class="bulleted-list"><li style="list-style-type:disc">Aplica-se <strong>somente à DLP específica</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804e-8737-eee6ba2de47e" class="bulleted-list"><li style="list-style-type:disc">Não elimina CPT para outras doenças ou lesões preexistentes</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8095-b61d-de206696382f" class="bulleted-list"><li style="list-style-type:disc">Formalização necessária via contrato ou aditivo</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8071-b74f-ff5a768ee704"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-804e-b549-dec29be34702" class="">✅ <strong>2. COMPRA DE CARÊNCIA</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8067-90c7-d22ba393ccec" class="">A <strong>compra de carência</strong> é uma opção que permite ao beneficiário <strong>eliminar ou reduzir períodos de carência para procedimentos do plano</strong>, <strong>não relacionados a DLP</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8056-ac3d-cc789661d562"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8039-91ee-ecf1b9ca53bc" class=""><strong>2.1 Quando a compra de carência se aplica</strong></h2></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d3-ab73-fad9ceaf901c" class="bulleted-list"><li style="list-style-type:disc">Quando há inclusão de <strong>novos beneficiários</strong>, como filhos ou cônjuges</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ec-9139-ff25b67b64f5" class="bulleted-list"><li style="list-style-type:disc">Quando o beneficiário quer <strong>acesso imediato a serviços do plano</strong>, como internação, obstetrícia, exames ou consultas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8046-ae27-d79a95ad5619" class="bulleted-list"><li style="list-style-type:disc">Pode ser aplicada em <strong>planos individuais ou coletivos</strong>, conforme regras da operadora</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8005-89b7-f9d942559666"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80c2-af99-eaa7cb1f5315" class=""><strong>2.2 Como funciona a compra de carência</strong></h2></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80a9-8a06-d1fc19e52f48" class="numbered-list" start="1"><li>Beneficiário escolhe pagar valor adicional (quando aplicável)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80cc-acb8-d1aca43106b9" class="numbered-list" start="2"><li>Procedimentos incluídos passam a ter <strong>cobertura total imediatamente</strong></li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80d5-9bc9-ef379da42054" class="numbered-list" start="3"><li>Não elimina CPT para doenças ou lesões preexistentes</li></ol></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8018-bd7b-da9fcc949f55"/></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80ad-9719-fe247647c6ba" class=""><strong>2.3 Exemplos práticos de compra de carência</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809e-81fd-f3facad20a3b" class=""><strong>Exemplo 1 – Filho recém-nascido</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80cb-9f87-c8d29b3fb9c1" class="bulleted-list"><li style="list-style-type:disc">Plano familiar inclui filho recém-nascido</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d4-b191-f01917490061" class="bulleted-list"><li style="list-style-type:disc">Carência padrão: internação pediátrica → 300 dias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80bd-ac9f-f6d0a41d9710" class="bulleted-list"><li style="list-style-type:disc">Compra de carência → pagamento adicional → cobertura imediata para internação e exames</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80d4-97d5-c7c4374de721" class=""><strong>Exemplo 2 – Mudança de plano</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801a-b1e2-e85a7327be8c" class="bulleted-list"><li style="list-style-type:disc">Beneficiário migra para um plano com cobertura maior</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8011-8622-f88682348b61" class="bulleted-list"><li style="list-style-type:disc">Carência de alguns procedimentos do novo plano → pode ser eliminada por compra de carência</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8093-94f8-d6189accea92" class=""><strong>Exemplo 3 – Inclusão de dependente adulto</strong></h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8021-8ea8-de159bf5dcf3" class="bulleted-list"><li style="list-style-type:disc">Novo cônjuge incluído no plano</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80df-b34c-ecd05ab7a137" class="bulleted-list"><li style="list-style-type:disc">Carência para internações e exames → pode ser eliminada mediante pagamento</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8014-a3b1-e10865ac1c4a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8092-973b-eb349c0964b6" class="">✅ <strong>3. Diferenças entre Agravo e Compra de Carência</strong></h1></div><div style="display:contents" dir="ltr"><table id="2c606824-621d-8046-b674-f44496402558" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8049-ac34-c357c454a9ad"><th id="eMVg" class="simple-table-header-color simple-table-header">Característica</th><th id="o&gt;W\" class="simple-table-header-color simple-table-header">Agravo</th><th id="CEt~" class="simple-table-header-color simple-table-header">Compra de Carência</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80bc-84c4-eef7e7941132"><td id="eMVg" class="">Objetivo</td><td id="o&gt;W\" class="">Cobertura imediata de DLP específica</td><td id="CEt~" class="">Cobertura imediata de procedimentos gerais do plano</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-805f-80dd-eba55a6896b5"><td id="eMVg" class="">Aplicação</td><td id="o&gt;W\" class="">Apenas doenças ou lesões preexistentes</td><td id="CEt~" class="">Para qualquer procedimento sujeito a carência</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80b0-89b0-d2329d3a11d6"><td id="eMVg" class="">Custo</td><td id="o&gt;W\" class="">Acréscimo mensal (sobrepreço)</td><td id="CEt~" class="">Pode ter custo adicional único ou ajustado na mensalidade</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-809c-a2b6-d75670285189"><td id="eMVg" class="">Prazo</td><td id="o&gt;W\" class="">Elimina CPT de até 24 meses para a DLP</td><td id="CEt~" class="">Elimina carência contratual do procedimento</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80c7-b300-ced3f0ba1067"><td id="eMVg" class="">Impacto em outras doenças</td><td id="o&gt;W\" class="">Apenas DLP específica</td><td id="CEt~" class="">Não afeta DLP (CPT continua)</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8050-8855-cbe43e64d1f2"><td id="eMVg" class="">Documentação</td><td id="o&gt;W\" class="">Declaração de Saúde (DS) + contrato</td><td id="CEt~" class="">Pagamento formalizado + aditivo ou formulário, quando exigido</td></tr></div></tbody></table></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80cf-bf46-d2937f2c619b"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-800e-8031-e941c5c122fd" class="">✅ <strong>4. Como explicar para o cliente (linguagem simples)</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-804a-98fb-d84c859d7833" class=""><strong>Agravo</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80c5-be36-cc04c6c51fca" class="">“Se você tem uma doença ou lesão preexistente, normalmente o plano limita a cobertura por até 24 meses.<div style="display:contents" dir="auto"><p id="2c606824-621d-80b9-be2e-f4fbf411e07f" class="">Com o agravo, você paga um valor adicional na mensalidade e passa a ter cobertura total <strong>imediata</strong> para essa condição.”</p></div></blockquote></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80ec-8d7f-ce8e6a504bfe" class=""><strong>Compra de Carência</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-809e-9eca-f3c0c9957376" class="">“Se você quer acesso imediato a procedimentos do plano, como internação, obstetrícia ou exames, pode optar pela compra de carência.<div style="display:contents" dir="auto"><p id="2c606824-621d-80ab-8153-fe0345f2acaf" class="">Você paga um valor adicional e o procedimento passa a ter cobertura <strong>sem esperar a carência</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-801f-80e3-c90809d386bf" class="">Isso não afeta doenças preexistentes.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8069-8dba-f9534440eb2d"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80ea-ac84-f22a879229e6" class="">✅ <strong>5. Cenários práticos combinados</strong></h1></div><div style="display:contents" dir="ltr"><table id="2c606824-621d-8038-9ce9-f286c2f08784" class="simple-table"><thead class="simple-table-header"><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8016-bde0-c74008f93199"><th id="j\{A" class="simple-table-header-color simple-table-header">Cenário</th><th id="b;Qb" class="simple-table-header-color simple-table-header">Situação</th><th id="{Zft" class="simple-table-header-color simple-table-header">Solução</th></tr></div></thead><tbody><div style="display:contents" dir="ltr"><tr id="2c606824-621d-80fc-a63e-f3398a0ff27c"><td id="j\{A" class="">Cliente com diabetes pré-existente</td><td id="b;Qb" class="">CPT de 24 meses para diabetes</td><td id="{Zft" class="">Agravo → pagamento adicional → cobertura imediata</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8096-9a15-d27414935a00"><td id="j\{A" class="">Filho recém-nascido</td><td id="b;Qb" class="">Carência de 300 dias para internação pediátrica</td><td id="{Zft" class="">Compra de carência → pagamento adicional → cobertura imediata</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8056-a402-e6e4fc70a1cc"><td id="j\{A" class="">Cliente muda para plano maior</td><td id="b;Qb" class="">Procedimentos do novo plano em carência</td><td id="{Zft" class="">Compra de carência → acesso imediato</td></tr></div><div style="display:contents" dir="ltr"><tr id="2c606824-621d-8084-85aa-f8fbb8e73bde"><td id="j\{A" class="">Cliente com múltiplas DLPs</td><td id="b;Qb" class="">Cada DLP com CPT separada</td><td id="{Zft" class="">Agravo individual para cada DLP → cobertura imediata opcional</td></tr></div></tbody></table></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Administradora de Benefícios</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-8079-be4f-c688f769a53a" class="page sans"><header><h1 class="page-title" dir="auto">Administradora de Benefícios</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c506824-621d-80d0-b62f-f6766b13a0d4" class="">A <strong>Administradora de Benefícios</strong> é uma empresa autorizada pela ANS que atua como <strong>intermediária</strong> entre:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a3-a5d8-ee929d2f2b8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Operadora de Saúde</strong> (quem presta o serviço de saúde)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-807d-8fc2-cc809c5f6c7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Entidade de Classe / Associação</strong> (quem dá o vínculo ao cliente)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8073-bc9b-caebeb4ae447" class="bulleted-list"><li style="list-style-type:disc"><strong>Beneficiário</strong> (cliente final)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8050-a884-f9da53f76fa9" class="bulleted-list"><li style="list-style-type:disc"><strong>Corretor</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80a0-a7a9-d0e6f4f9cd48" class="">Ela <strong>não é operadora</strong>, <strong>não cobre atendimento médico</strong>, <strong>não autoriza procedimento</strong> e <strong>não é responsável por rede</strong>, mas é peça chave para o funcionamento dos <strong>planos coletivos por adesão</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8051-be64-d5d6627f5799" class="">Em outras palavras:</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-803f-8c69-d1d5645a4fb6" class="">
+</p></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-8066-827b-d92327d17c26" class="">A administradora é a gestora do contrato coletivo. A operadora é quem fornece o plano.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-800d-b914-d87992de21a3"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8025-8945-c5879669b0cf" class=""><strong>2. O que a Administradora faz (funções principais)</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80f0-9679-f27fb254ef73" class=""><strong>1) Gerencia a carteira</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8004-944a-f921fe6ba919" class="">Administra todos os beneficiários vinculados ao contrato coletivo.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8007-821f-ebd209dd701e" class=""><strong>2) Faz o reajuste anual</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8096-8de7-ebad93340f69" class="">Ela calcula e aplica o <strong>reajuste de sinistralidade</strong> do coletivo por adesão.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8038-8ada-f18c0265e062" class="">Esse é o ponto mais sensível e importante.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8027-b4bf-cf2e5aef0158" class=""><strong>3) Intermedia a contratação</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8063-8c65-fafcf9048eb9" class="">Ela organiza o processo entre cliente → entidade → operadora.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8028-b775-c0112ff50dcf" class=""><strong>4) Emite os boletos</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80a5-b71a-df0d6a36d7fe" class="">Em muitos planos, o beneficiário paga <strong>diretamente para a administradora</strong>.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8076-890f-ddfe541f81eb" class=""><strong>5) Controle de elegibilidade</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d0-96e7-d96fa489cd2e" class="">Confere se o cliente realmente possui vínculo com a entidade.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-803f-b975-c89bc96e59bb" class=""><strong>6) Inclusões e exclusões</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80ed-8416-e7b77fd6ae42" class="">É a responsável por enviar para a operadora a movimentação cadastral.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80ed-99f4-dc6bfc546cd6" class=""><strong>7) Comunicação com a ANS</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80a7-91a0-d4758fed672c" class="">Reporta dados obrigatórios, sinistralidade, informações de carteira etc.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-803e-85cf-dc4d4ec41798" class=""><strong>8) Relacionamento com o corretor</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-808e-b3fa-d3a7b823ce15" class="">É quem dá suporte ao corretor, envia campanhas, preços e materiais.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80ad-9682-fd066f1cdeb8" class=""><strong>9) Negocia com a operadora</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80a9-ac9e-cf2edecca070" class="">Negocia reajustes, produtos disponíveis, condições, redes e campanhas.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80ca-8202-deb802541eb7" class=""><strong>10) Cumpre e fiscaliza regras contratuais</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80f1-8d31-e38deffba940" class="">Exige documentação, controla prazos, garante que o contrato siga normas.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8074-9847-f84d3fe3e9eb"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8089-9bdd-eee457cef5d4" class=""><strong>3. O que a Administradora NÃO faz</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d0-bd14-f78144e68f3d" class="">(Esse é um ponto que gera muito erro!)</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-809d-a04f-d90aef9ad385" class="">A administradora:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8077-a2ab-f7661add8beb" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não autoriza exames</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ef-bf8f-d1c5b6d3a531" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não define rede credenciada</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806f-88f1-ddf73d0e5248" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não cobre atendimento médico</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809b-8f1d-c9ae4f40014a" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não é responsável por internação</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f9-86d3-d6f492d66f51" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não opera o plano</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8038-98da-cad809af7d9c" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não decide regras de portabilidade ANS</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8078-875a-c688e6527742" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não é SUS complementar</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f3-b017-e29e69d7afaf" class="bulleted-list"><li style="list-style-type:disc">❌ <strong>não fabrica o produto</strong> (isso é da operadora)</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-805e-b52d-dbfbabb3cfcd" class="">Ou seja:</p></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-80de-ab89-c4b50e0f7605" class="">A administradora é a gestora financeira e operacional do contrato — não a prestadora de saúde.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-808a-8026-e78b6e07d472"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-802f-9d97-cd9521246060" class=""><strong>4. Relação entre Administradora, Operadora, Entidade e Cliente</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-809a-8dee-fcee5a968bdf" class="">Para ficar bem claro, o fluxo funciona assim:</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-804a-a1be-c75ab22538d4" class=""><strong>Cliente</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8001-8e2e-cad3aa792498" class="">Quer contratar o plano → precisa ter vínculo com uma entidade.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80ae-ad5b-d7b26cc30ee5" class=""><strong>Entidade de Classe</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80f3-b28c-e21deac3bc68" class="">Oferece o “vínculo” profissional/associativo.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8025-a979-e6a47d1e5fa7" class=""><strong>Administradora de Benefícios</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-806a-8fbe-e371d36beed6" class="">Valida vínculo, gerencia o contrato, processa pagamentos e calcula reajuste.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80b9-a084-e4a3272b3717" class=""><strong>Operadora</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8021-bc04-eedd6dd5b49e" class="">É quem realmente presta atendimento médico.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8050-8c10-c60a4ac8689c"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8079-bf49-efc1f9b048dc" class=""><strong>5. Por que a Administradora existe?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-803e-b00f-fe3d44305b2c" class="">A ANS exige que o plano coletivo por adesão seja:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8029-876d-f18a0363ef9f" class="bulleted-list"><li style="list-style-type:disc"><strong>coletivo</strong> (grupo de pessoas)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-801f-a8fa-ee334ec8e8b6" class="bulleted-list"><li style="list-style-type:disc"><strong>organizado por entidade de classe</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8094-ac4c-fc4c2a90b577" class="bulleted-list"><li style="list-style-type:disc"><strong>intermediado por uma administradora</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80bf-ad7c-c0a4c1fb3481" class="">A administradora garante:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805d-a12c-de2d9a14ee8b" class="bulleted-list"><li style="list-style-type:disc">gestão financeira adequada</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806a-bf34-d55ae6e4f670" class="bulleted-list"><li style="list-style-type:disc">controle de sinistralidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f5-9c7c-c92f8d950d98" class="bulleted-list"><li style="list-style-type:disc">cumprimento das regras regulatórias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80bb-a512-c9dd83576667" class="bulleted-list"><li style="list-style-type:disc">transparência nos contratos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ee-8d97-dc737c5f6458" class="bulleted-list"><li style="list-style-type:disc">administração de grandes carteiras</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80af-ac6e-ea44c015adf1" class="">Sem ela, o coletivo por adesão não existiria.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8069-b37c-c4efdc9936b7"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80c5-99c0-ccfae4fb157c" class=""><strong>6. O que define a qualidade de uma Administradora</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8062-ae63-d4cb4c23a664" class="">Para o corretor, alguns pontos são essenciais ao avaliar uma administradora:</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8079-84d9-c7d7f02c5be7" class=""><strong>1) Estabilidade de reajuste</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8003-9418-c5228f76984f" class="">Se aplica reajustes muito altos todos os anos → problema.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8039-a4d5-faa202cca73f" class=""><strong>2) Qualidade do suporte ao corretor</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8012-8069-c1976c263d43" class="">Atendimento rápido, regras claras, campanha atualizada.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8051-ade5-ec9bb6b5f95f" class=""><strong>3) Rapidez de inclusão</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80dc-8c3c-ff6d5c486753" class="">Algumas incluem em 24h, outras levam 3–5 dias.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-807b-b29e-ebfa1039b82c" class=""><strong>4) Clareza das regras de carência</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8053-8f29-ebd6f3e94e3b" class="">Administradoras sérias têm campanhas bem definidas.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8046-bc4e-c2f282e09334" class=""><strong>5) Boletos e cobrança organizados</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d9-a82c-e98a142199cb" class="">Boleto claro, vencimento previsível e possibilidade de 2ª via.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-800e-b808-e542bfe39775" class=""><strong>6) Baixo índice de reclamações</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d6-83fb-f4e8c3b71c6e" class="">Indicador importantíssimo para evitar dor de cabeça no pós-venda.</p></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8053-a277-dc030e08d78f" class=""><strong>7) Variedade de produtos</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8051-bfb6-ca1f8de21af2" class="">Mais opções de operadoras → mais flexibilidade na venda.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80c3-9908-fc8a26cf7c39"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-804d-ac01-cc78d4746eb4" class=""><strong>7. Reajuste aplicado pela Administradora</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e6-80cb-d2b66effb686" class="">Esse é um dos temas centrais.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8045-88c3-eb8568566f73" class="">A administradora calcula o reajuste usando:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8000-abef-d75a07cb4559" class="bulleted-list"><li style="list-style-type:disc">sinistralidade acumulada da carteira</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f6-af5e-d81c3deb0c3d" class="bulleted-list"><li style="list-style-type:disc">número total de vidas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a9-b0b9-f48e8a891ad4" class="bulleted-list"><li style="list-style-type:disc">despesas indiretas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806c-8315-d75628461b38" class="bulleted-list"><li style="list-style-type:disc">negociações com operadora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8033-b24c-eeec8c2d83e9" class="bulleted-list"><li style="list-style-type:disc">composição etária</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80eb-9242-f21383afa710" class="bulleted-list"><li style="list-style-type:disc">uso de pronto-socorro</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80c4-aad3-d5d9f6a9929a" class="bulleted-list"><li style="list-style-type:disc">internações</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ea-9dac-cb6033791883" class="bulleted-list"><li style="list-style-type:disc">tratamentos de alto custo</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8022-91a9-d9a87fbd68cb" class="bulleted-list"><li style="list-style-type:disc">aumento de custos hospitalares</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8070-b43f-e5c83358914f" class="bulleted-list"><li style="list-style-type:disc">impacto da inflação médica</li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-801a-bdac-d11998593197" class="">⚠️ <strong>A ANS NÃO limita esse reajuste</strong>, porque se trata de um contrato coletivo.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8096-9bee-e452ec3fc1bd" class="">Por isso:</p></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-801d-a316-fc5c1d8e3498" class="">Planos coletivos por adesão podem ter reajustes maiores, menores ou iguais aos individuais — depende da carteira.</blockquote></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80e7-aa99-d03a56ed4365"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8042-b0d1-d1297ee006ec" class=""><strong>8. Documentos exigidos pela Administradora</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8028-9d14-f329cab3a719" class="">Podem variar, mas normalmente incluem:</p></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-800e-913c-c99dc5f8604a" class="bulleted-list"><li style="list-style-type:disc">RG/CPF</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805e-a3c5-df5857f6e904" class="bulleted-list"><li style="list-style-type:disc">Comprovante de endereço</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8032-b694-f43ec4cc148f" class="bulleted-list"><li style="list-style-type:disc">Comprovante de vínculo com a entidade (declaração, carteirinha, boleto)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80dc-827a-ebe7d44aef60" class="bulleted-list"><li style="list-style-type:disc">Contracheque (quando a entidade é sindicato ligado à profissão)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ec-bb69-e7d228078f4c" class="bulleted-list"><li style="list-style-type:disc">Declaração de saúde (quando houver)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8099-9b4c-c58477d25659" class="bulleted-list"><li style="list-style-type:disc">Certidão de dependência (para inclusão de dependentes)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80a7-9454-f4feef394649" class="bulleted-list"><li style="list-style-type:disc">Termo de adesão ao plano</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8047-8181-e0d312d45b7a" class="bulleted-list"><li style="list-style-type:disc">Termo de filiação à entidade (quando o cliente não é associado)</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-804d-aa3c-d36cc9319215"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8057-ba38-f4de253675d8" class=""><strong>9. Principais Administradoras do Mercado (Brasil)</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8014-b817-ec4f5be87e31" class="bulleted-list"><li style="list-style-type:disc"><strong>Qualicorp</strong> – a maior; portfólio enorme</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80dd-9b22-d149abbd7124" class="bulleted-list"><li style="list-style-type:disc"><strong>Aliança Administradora</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e8-8d50-e244e3545bde" class="bulleted-list"><li style="list-style-type:disc"><strong>Ameplan Admin</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80e9-a95b-f6fb96d00529" class="bulleted-list"><li style="list-style-type:disc"><strong>Affinity</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8059-aaab-c8abaa9e6540" class="bulleted-list"><li style="list-style-type:disc"><strong>GNDI Administradora</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805c-92f9-f87f948af455" class="bulleted-list"><li style="list-style-type:disc"><strong>Vittude/Ben Saúde</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-805b-9b20-f1c92ac822c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Vivest (antiga Fundação Cesp)</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8056-90da-c4c405403824" class="bulleted-list"><li style="list-style-type:disc"><strong>Plena Administradora</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80eb-940f-e1779f553711" class="bulleted-list"><li style="list-style-type:disc"><strong>TCM Admin</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80cf-91bd-db33588108cc" class="bulleted-list"><li style="list-style-type:disc"><strong>Abramge Admin</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8016-a588-e8dfd3003933" class=""><em>(A lista varia por estado, mas essas são as mais conhecidas.)</em></p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80be-87fa-ef5235370928"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-803a-87c0-d76d913f9a95" class=""><strong>10. Benefícios que a administradora oferece ao corretor</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8076-ade3-ea14ca272e92" class="bulleted-list"><li style="list-style-type:disc">Campanhas com isenção de carência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ad-8ebc-faf170450a8e" class="bulleted-list"><li style="list-style-type:disc">Políticas de comissão</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b0-8385-d359ef6bed75" class="bulleted-list"><li style="list-style-type:disc">Materiais de venda</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b5-b53f-f2d71f102d82" class="bulleted-list"><li style="list-style-type:disc">Ferramentas de cotação</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-806a-b8ba-d58514bf6797" class="bulleted-list"><li style="list-style-type:disc">Simuladores de rede</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8080-802a-f5b17e770b33" class="bulleted-list"><li style="list-style-type:disc">Treinamentos</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8086-b48f-ee7f60b84903" class="bulleted-list"><li style="list-style-type:disc">Acompanhamento do corretor</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8097-b6ef-f5a474a3e889" class="bulleted-list"><li style="list-style-type:disc">Suporte em movimentação cadastral</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8065-b4b2-e1b44d7e0b56" class="bulleted-list"><li style="list-style-type:disc">Acesso a múltiplas operadoras pelo mesmo canal</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80bf-8fdd-cf73576ec0c9"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-803c-bff3-df0d03836f3d" class=""><strong>11. Riscos ou pontos de atenção</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b9-8aaf-f7c5f0f44bd4" class="bulleted-list"><li style="list-style-type:disc">Reajustes altos podem gerar cancelamentos em massa</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f0-97ad-e739e3d667fd" class="bulleted-list"><li style="list-style-type:disc">Boletos confusos → inadimplência</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-807b-995e-e972cf7b8579" class="bulleted-list"><li style="list-style-type:disc">Campanhas que mudam rápido</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-8031-82e1-fd2dd8da2a6c" class="bulleted-list"><li style="list-style-type:disc">Vínculo com entidade pode gerar dúvidas no cliente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80f9-ad0e-c7c48b19f01f" class="bulleted-list"><li style="list-style-type:disc">Operadoras podem encerrar produtos via administradora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809b-8c44-db6312059c27" class="bulleted-list"><li style="list-style-type:disc">Alguns clientes não compreendem o papel da administradora e reclamam no pós-venda</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-805c-a11d-fe3a6b26e39b"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8022-9622-fad270971d82" class=""><strong>12. Como explicar a Administradora ao cliente (versão simples)</strong></h1></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-8075-827c-ee85a44e01d7" class="">“A administradora é a empresa que organiza o plano coletivo por adesão.<div style="display:contents" dir="auto"><p id="2c506824-621d-8039-aa4d-c5094c83f3ca" class="">Ela faz a gestão do contrato, envia boletos e calcula o reajuste.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-804b-ac89-fa37ea8ece47" class="">A operadora é quem cuida do atendimento, hospitais e médicos.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-801a-82c4-e1cde969ea9a" class="">Você usa o plano normalmente com a operadora, mas paga e gerencia o contrato via administradora.”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8093-8acf-f062dfc32be0"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-8021-b41c-d7ed99789bfd" class=""><strong>13. Erros comuns do corretor ao falar da Administradora</strong></h1></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-804d-9dfd-efff1b469394" class="bulleted-list"><li style="list-style-type:disc">“A administradora é a operadora.” → ❌</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-808b-a76c-deeb23bec703" class="bulleted-list"><li style="list-style-type:disc">“A administradora define a rede credenciada.” → ❌</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-809e-8e9f-f8c8c7028bbf" class="bulleted-list"><li style="list-style-type:disc">“O reajuste é igual ao da ANS.” → ❌</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80b6-8e27-c21a1cadb2ff" class="bulleted-list"><li style="list-style-type:disc">“É plano individual.” → ❌</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80d8-89ba-c7c070e40cb5" class="bulleted-list"><li style="list-style-type:disc">“Não tem reajuste por faixa etária.” → ❌</li></ul></div><div style="display:contents" dir="auto"><ul id="2c506824-621d-80ff-b467-d9f69fecc86f" class="bulleted-list"><li style="list-style-type:disc">“É só pagar a taxa da entidade e pronto, pode contratar.” → depende → ❌</li></ul></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8094-97d2-f53eea3cdf46"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-80a9-95a9-e8149b255a17" class=""><strong>14. Exemplos práticos (cenários reais)</strong></h1></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80a6-be7e-ea4a5eed0a56" class=""><strong>Cenário 1 – Cliente reclama do reajuste</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2c506824-621d-80ca-b22d-c831201f380e" class="">“Mas por que meu reajuste foi maior do que o plano individual do meu irmão?”</blockquote></div><div style="display:contents" dir="auto"><p id="2c506824-621d-809d-ab71-cfaade72da22" class="">Explicação:</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80d4-8851-e163a643650b" class="">Reajuste do coletivo é feito pela administradora com base na carteira, não na ANS.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80a9-b772-fd223fae4cd2"/></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-8081-a3d7-f68537a2542b" class=""><strong>Cenário 2 – Cliente diz que o hospital saiu da rede</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8056-9caf-d499277eacf5" class="">Correção:</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8019-8486-d390436fc9ea" class="">Quem mexe na rede é a <strong>operadora</strong>, não a administradora.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-80c5-bde9-dd51025fa4a6"/></div><div style="display:contents" dir="auto"><h3 id="2c506824-621d-80e6-9b9d-ebfc85f68318" class=""><strong>Cenário 3 – Cliente quer incluir dependente</strong></h3></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8005-8f4f-d2bccebdbec8" class="">Ele solicita à administradora → administradora envia para a operadora.</p></div><div style="display:contents" dir="auto"><hr id="2c506824-621d-8053-bc4d-d7c1ea84ec49"/></div><div style="display:contents" dir="auto"><h1 id="2c506824-621d-800a-9070-eb6e538df82b" class=""><strong>15. Perguntas frequentes</strong></h1></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8081-b802-e7af68bf700f" class=""><strong>A administradora é obrigada a ter ANS?</strong></p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80a3-910e-c163bc035289" class="">Sim, precisa estar registrada.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80e0-b22f-eec71c7ab393" class=""><strong>A administradora pode encerrar uma carteira?</strong></p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80db-937e-f1c760b6818a" class="">Sim, desde que siga normas contratuais.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-806f-a20b-cbb5119b489f" class=""><strong>Todos os planos de adesão têm administradora?</strong></p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80a0-8f83-d7d0ef4aa078" class="">Sim — é obrigatório.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8067-b804-d9606db8b1b1" class=""><strong>A administradora define carências?</strong></p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8002-bd7e-c4c7d0963d11" class="">Ela define <strong>campanhas</strong>, mas carência base é da operadora.</p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-80be-ae39-c39860bb5842" class=""><strong>Quem a pessoa paga: operadora ou administradora?</strong></p></div><div style="display:contents" dir="auto"><p id="2c506824-621d-8036-b921-e1e5d6a9e931" class="">Na maioria dos casos, <strong>administradora</strong>.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

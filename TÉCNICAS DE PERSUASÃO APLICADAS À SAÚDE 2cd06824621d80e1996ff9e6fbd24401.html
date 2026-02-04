@@ -1,0 +1,714 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>TÉCNICAS DE PERSUASÃO APLICADAS À SAÚDE</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cd06824-621d-80e1-996f-f9e6fbd24401" class="page sans"><header><h1 class="page-title" dir="auto">TÉCNICAS DE PERSUASÃO APLICADAS À SAÚDE</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-807c-adcf-f052df3539b8" class=""><strong>1. Diferença entre Persuasão e Manipulação</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80cd-a7e0-eb24d659041d" class=""><strong>O que é Persuasão</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80be-9914-efb2ddf55ee8" class="">Persuasão é ajudar o cliente a <strong>tomar uma decisão consciente</strong>, bem-informada e alinhada com:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cd-ae21-e0850b505713" class="bulleted-list"><li style="list-style-type:disc">suas necessidades reais</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a5-bd17-e643b1ed4e42" class="bulleted-list"><li style="list-style-type:disc">seu momento de vida</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c9-b12b-ff21d1f8d3bf" class="bulleted-list"><li style="list-style-type:disc">sua capacidade financeira</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ca-85b8-c70eacbb1d95" class="bulleted-list"><li style="list-style-type:disc">seus riscos</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e6-aced-ce4c84b82e65" class="">👉 O cliente entende o que está comprando e <strong>se sente seguro com a decisão</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80c4-8b23-e36c84accf67"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f0-9e7b-c270002dbdbb" class=""><strong>O que é Manipulação</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8043-80ee-f5053d22e5e8" class="">Manipulação é:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-802b-a514-d1dd3048ce27" class="bulleted-list"><li style="list-style-type:disc">omitir informação</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c5-bc98-dc7e38422719" class="bulleted-list"><li style="list-style-type:disc">exagerar riscos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809c-be8e-f3abbeb40294" class="bulleted-list"><li style="list-style-type:disc">criar medo artificial</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d1-af1a-d0477f7f1d30" class="bulleted-list"><li style="list-style-type:disc">pressionar prazo sem necessidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8091-a6f1-cca8f243d9e6" class="bulleted-list"><li style="list-style-type:disc">empurrar produto</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c5-aec2-ce2f02bda039" class="">Manipulação normalmente não é explícita. Ela aparece em frases como:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8086-96b5-d3e8a6e6c6a1" class="bulleted-list"><li style="list-style-type:disc">“Depois não diga que eu não avisei”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d2-a5b9-db6dbf04e143" class="bulleted-list"><li style="list-style-type:disc">“Todo mundo está fechando esse plano”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cb-b4ff-d0c051b9cea5" class="bulleted-list"><li style="list-style-type:disc">“Esse preço é só hoje”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8033-8874-d767a8b11ead" class="bulleted-list"><li style="list-style-type:disc">“Se você não fizer agora, pode se arrepender”</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-802d-996c-d32b698f4711" class="">👉 Pode gerar venda, mas quase sempre resulta em:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800d-b982-ee38a777ffa1" class="bulleted-list"><li style="list-style-type:disc">cancelamento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ca-98c2-e70f2c914298" class="bulleted-list"><li style="list-style-type:disc">reclamação</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8004-948e-c984d5fc638f" class="bulleted-list"><li style="list-style-type:disc">perda de confiança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e7-9f5e-dac4b4c0eb46" class="bulleted-list"><li style="list-style-type:disc">problemas futuros</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80ec-ab34-ec02c0b03763"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80ee-bd4b-c419ef14d222" class=""><strong>Frase-guia para o corretor</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-809d-a848-fe67beacbf40" class="">“Se eu estivesse no lugar desse cliente, me sentiria bem com essa decisão?”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c7-bae9-fc2dbdbacf27" class="">Se a resposta for não, é manipulação.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80df-a699-c00f5b855b9e"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e4-abc2-fa3dd1a6a175" class=""><strong>Exemplo prático</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80ab-9ae4-c6d952e4373c" class=""><strong>Diferença prática no discurso</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8086-9b39-f3495289d697" class=""><strong>Manipulação</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80c5-bef4-e6aa11b461cd" class="">“Esse plano é o melhor, fecha logo antes que suba.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804b-9ccc-f22035db858d" class=""><strong>Persuasão</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80d6-a1b7-e9a62570fc95" class="">“Esse plano resolve bem o que você me trouxe. Vamos ver se ele faz sentido para você com calma.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80a1-8a9d-db9d1c0fd673"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80dc-a14c-cecebe7a2cf5" class=""><strong>Regra ética definitiva</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8005-9023-e6e8733304e1" class="">Nunca convença alguém a comprar algo que você não compraria naquela mesma condição.</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b1-9f7f-e990d189b1ec" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c7-9605-fdf76f062661" class="">❌ “Se você não fechar hoje, pode ficar sem atendimento”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-800b-925b-c7f09561d8ba" class="">✔️ “Quero te explicar os riscos e as regras para você decidir com tranquilidade.”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8016-a6d9-c0136a87f067"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80ea-af59-d0f1d66e8caa" class=""><strong>2. Autoridade e Conexão</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8054-b8c2-d3102848e9ff" class=""><strong>Autoridade sem arrogância</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8062-bfe2-e6e4d1f90c2d" class="">Autoridade não é falar difícil.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8045-93a7-d1755b7df49b" class="">Autoridade é:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8045-874a-ceeb5e76456a" class="bulleted-list"><li style="list-style-type:disc">explicar com clareza</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-809d-8de7-f3c2a0d6d654" class="bulleted-list"><li style="list-style-type:disc">antecipar dúvidas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e5-9ee7-d79de942d631" class="bulleted-list"><li style="list-style-type:disc">conhecer regras</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803e-b96a-cc447f3bd06e" class="bulleted-list"><li style="list-style-type:disc">não prometer o que não pode cumprir</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80a3-9238-da38ed29fc5a"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80df-92ea-f704c49334f9" class=""><strong>Como construir autoridade</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cb-b4aa-f88dbf3e74ad" class="bulleted-list"><li style="list-style-type:disc">explicar limites do plano antes de o cliente perguntar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f9-9f26-cb3cabf737ca" class="bulleted-list"><li style="list-style-type:disc">conhecer regras da ANS</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-801a-8451-d65c071821cf" class="bulleted-list"><li style="list-style-type:disc">saber dizer “isso não é coberto” com naturalidade</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806d-9c7a-c21e504692fa" class="bulleted-list"><li style="list-style-type:disc">não se esquivar de temas sensíveis (carência, CPT, coparticipação)</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8035-bede-fb3143056a26" class="">👉 Quem explica limite transmite <strong>confiança</strong>, não fraqueza.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8060-b437-dda2e9bbfdfd"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8035-a3d6-ff0f136cd43f" class=""><strong>Conexão emocional</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804d-9da3-d6a75a9d077d" class="">Autoridade sem conexão vira frieza.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8008-ade9-c005ddaa3371" class="">Conexão é:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8090-ab9e-cfdb64d9a267" class="bulleted-list"><li style="list-style-type:disc">ouvir sem interromper</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804f-bcd6-ce03feb5c210" class="bulleted-list"><li style="list-style-type:disc">validar sentimentos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804f-9569-d226bf175bff" class="bulleted-list"><li style="list-style-type:disc">reconhecer medo e insegurança</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8025-a46a-f991b7311e11" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-805e-8067-deacce1f7712" class="">“É normal ter receio, principalmente quando envolve saúde e família.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-803c-8a9c-d93a01f1379e"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8080-ab8b-ecfa98e19461" class=""><strong>Exemplo de autoridade verdadeira</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8070-9b0d-f9be609b5453" class="">“Esse plano é bom, mas preciso te alertar que ele não cobre isso nos primeiros meses.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8052-92c2-e86befe55bbd" class="">Isso gera muito mais confiança do que:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-802a-a1c4-c2762ebd852e" class="">“Esse plano cobre tudo.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8071-8179-f83297967cd3"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8058-be1f-c6f26f90d502" class=""><strong>Autoridade sem conexão gera medo</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d4-84af-d3ed8b84927d" class="">Um corretor muito técnico, mas frio, faz o cliente pensar:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8064-a263-c9ea9ebfa362" class="">“Ele entende, mas não se importa comigo.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-802e-a638-db40d1987a19"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8079-b08b-fe22fee64447" class=""><strong>Conexão emocional</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80be-b6e3-ef50edfb447e" class="">Conexão acontece quando o cliente sente:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8035-b79f-e9ba951389fc" class="bulleted-list"><li style="list-style-type:disc">que foi ouvido</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804f-9c8d-e652935c5f86" class="bulleted-list"><li style="list-style-type:disc">que não está sendo julgado</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8016-b31d-cbdfa772c26c" class="bulleted-list"><li style="list-style-type:disc">que pode perguntar sem parecer leigo</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80a2-85d6-d1c897af0bf8" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8069-bd10-ee46cb19d8b6" class="">“Essa dúvida é muito comum, fica tranquilo.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80c2-8567-f3059cea5301"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8075-8c11-d0bce533fec0" class=""><strong>Autoridade + conexão</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8005-b40e-c3391e5d48e8" class="">“Vou te explicar direitinho para você decidir seguro.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-803f-8ff6-cf2a6db34dda" class="">Isso é o ponto ideal.</p></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80af-97f5-d335930dae06" class=""><strong>Equilíbrio ideal</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80dc-8026-f7c06a62723b" class="bulleted-list"><li style="list-style-type:disc">Autoridade gera respeito</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-801d-a607-fc3364347302" class="bulleted-list"><li style="list-style-type:disc">Conexão gera abertura</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8003-87af-dd27200295d5" class="">Os dois juntos geram <strong>confiança</strong>.</p></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-8030-bf38-cc00dd80808a" class=""><strong>3. Prova Social (Casos Reais, Experiências, Exemplos)</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80c0-9cf0-ce095fe0f4a5" class=""><strong>Por que prova social funciona</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f6-84f8-e1bcd5de7803" class="">O cérebro humano pensa:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-804c-a164-ddb86dcdc499" class="">“Se funcionou para alguém parecido comigo, pode funcionar para mim.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80e0-bdf5-fcb180296db3" class="">Quando o assunto é saúde, o cérebro pensa:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80ee-8f6d-c54da45c57a4" class="">“Não quero ser cobaia.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80c2-a923-d58b8c982b71" class="">O cliente busca:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8049-9911-f25cb48327a1" class="bulleted-list"><li style="list-style-type:disc">exemplos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80b8-9682-f717b5127f66" class="bulleted-list"><li style="list-style-type:disc">referências</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a4-bd1c-e9a0160fc745" class="bulleted-list"><li style="list-style-type:disc">situações parecidas</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8029-89e9-f750ab7992be"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8078-a0fd-c3e0c848165c" class=""><strong>Tipos de prova social no plano de saúde</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f0-81e0-d86952e12556" class=""><strong>Casos reais</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80ad-a7df-f3cf135ce74b" class="">“Semana passada atendi uma família parecida com a sua…”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8082-84b2-ee2c1a64f8b1"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8024-ae16-eb20a50f1e8b" class=""><strong>Padrões de comportamento</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8007-a2f1-e8ca7414c792" class="">“Normalmente, pessoas nessa fase da vida priorizam isso…”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-807d-9eeb-c651a513b07a"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80d2-9307-c26fab355d72" class=""><strong>Experiências comuns</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-803d-ae8b-fc51524b3720" class="">“Esse perfil normalmente busca mais tranquilidade do que economia.”</blockquote></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-809b-abf2-ce371831b646" class="">“Normalmente, pessoas nessa fase da vida priorizam isso…”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80f9-a675-c2a281dd3441"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-803b-a27f-ec5ce5cce162" class=""><strong>Exemplos situacionais</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80bd-972f-f564650b26a1" class="">“Em situações de emergência, esse plano costuma atender bem porque…”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80e0-a468-ef33d86867b1"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80a2-8004-c5c548e1ff2a" class=""><strong>Regras da prova social</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800b-a9dc-fcc9d92c7648" class="bulleted-list"><li style="list-style-type:disc">nunca exagerar</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80ec-8eb3-d5739b8722b2" class="bulleted-list"><li style="list-style-type:disc">nunca prometer resultado</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8071-88d7-c195e7100af8" class="">👉 Prova social é <strong>contexto</strong>, não garantia.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80fe-8a89-dcbb7924d01c"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8097-9716-d2fefc90be63" class=""><strong>O que NÃO é prova social</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800c-84b5-d44d7a0a0003" class="bulleted-list"><li style="list-style-type:disc">números inflados</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80c1-936b-d7c0955f58a9" class="bulleted-list"><li style="list-style-type:disc">promessas de atendimento perfeito</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8018-bd18-ff0b014cbc8e" class="bulleted-list"><li style="list-style-type:disc">“todo mundo usa”</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80db-862a-fee967f9681d" class="">Isso gera desconfiança.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80a7-a3b3-e7361a1883bf"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80fb-8695-c99869cec15c" class=""><strong>Boa prova social</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8071-b6cf-d2fb46304d44" class="">Sempre ligada a:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-807e-93eb-ee5a8b5424e6" class="bulleted-list"><li style="list-style-type:disc">perfil</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-800a-a138-ce7e43789bcc" class="bulleted-list"><li style="list-style-type:disc">contexto</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804f-85d7-d956ccaa1785" class="bulleted-list"><li style="list-style-type:disc">decisão consciente</li></ul></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80a4-ac20-d1e1c03898c2" class=""><strong>4. Ancoragem de Preço (Como o Cérebro Compara Valores)</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8020-bd58-eaf17b700565" class=""><strong>Como o cérebro decide preço</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8040-85f1-e94bb14fb562" class="">O cérebro não avalia preço isolado.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80f2-a05c-f0d0ed35130d" class="">Ele compara:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8002-a5d7-d6eaf4c0615e" class="bulleted-list"><li style="list-style-type:disc">com o que já conhece</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-802f-a084-dfb1862e35b0" class="bulleted-list"><li style="list-style-type:disc">com alternativas</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-808a-ae30-ce7fe90bc794" class="bulleted-list"><li style="list-style-type:disc">com riscos percebidos</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b5-86a2-cba11c03b6d6" class="">O cérebro nunca pergunta:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8053-837e-d01e5e82a753" class="">“É caro ou barato?”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-805b-bf21-cf81f539b387" class="">Ele pergunta:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8042-8047-eef2ed68af60" class="">“É caro em relação a quê?”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8000-8522-e1f762c1a4a1"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8019-aa2f-e4a694faca71" class=""><strong>Erro comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80a2-8ca4-e7ce44358cf1" class="">Falar preço sem contexto.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-806a-9b0a-d066ae065d82" class="">Falar:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80f9-8df0-dd9d1d37e935" class="">“O plano custa R$ 650.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804f-8024-dfd4ec31ccc8" class="">Sem referência, o cérebro trava.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-804f-bad6-f8feebe1b7a0"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8099-9de7-e498f56bbdf4" class=""><strong>Ancoragem correta</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8029-bd25-ff7acdabbd46" class="">Apresente primeiro:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d3-b205-c1a3440aa453" class="bulleted-list"><li style="list-style-type:disc">risco</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a1-a20a-fc995ebbfa36" class="bulleted-list"><li style="list-style-type:disc">impacto</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f1-99c3-fbb03621b4bf" class="bulleted-list"><li style="list-style-type:disc">consequência</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d0-9ce4-febe3eea0872" class="">Depois:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8033-83c3-d28197f91d35" class="bulleted-list"><li style="list-style-type:disc">valor do plano</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80d8-a97d-c488da59783a"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80f7-b836-f66d2d3f6b4d" class=""><strong>Exemplo</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-801a-a249-f4614fe78a64" class="">“Uma internação simples pode custar mais de 5 mil reais.<div style="display:contents" dir="auto"><p id="2cd06824-621d-8082-917a-c0f70f962840" class="">Esse plano custa X por mês para evitar esse tipo de risco.”</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-809d-87b3-f1ff598e6a0e" class="">Não é assustar.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80a6-8f2a-c7aea42b0f7f" class="">É <strong>dar dimensão</strong>.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80f5-ad82-ea3cffe124af"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8051-9ff9-d22c8a283b44" class=""><strong>Comparação saudável</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-804b-8bbd-c6394335113e" class="">Compare:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-803a-888e-e390d5d7cf53" class="bulleted-list"><li style="list-style-type:disc">plano vs custo médico</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80de-aa75-eb3b163783a2" class="bulleted-list"><li style="list-style-type:disc">plano vs insegurança</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8012-aae9-efd47dfdb394" class="bulleted-list"><li style="list-style-type:disc">plano vs imprevisibilidade</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8041-8a45-ce656c3bb9d4" class="">Nunca compare apenas plano A vs plano B.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8010-9271-f15473728760"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-803e-87bf-f4e10bf7e131" class=""><strong>5. Gatilhos Mentais (Uso Ético)</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-808c-ad14-dc5d3679e9c1" class=""><strong>Gatilhos mais relevantes em saúde</strong></h3></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80ff-908b-c62f4d043e4e" class=""><strong>Segurança</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8029-a437-ca4694ac3e75" class="">“Você sabe exatamente o que está coberto.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-800c-94ae-c0db1b9c3d91"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8023-869e-fadb5df25e75" class=""><strong>Previsibilidade</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-801a-94f4-d708d8be40f7" class="">“Você consegue se planejar financeiramente.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80a2-aa3d-ddecc4dbb73b"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-804e-8f00-f6b188be89c5" class=""><strong>Autoridade técnica</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-807e-bc14-c017e0380bbd" class="">“Essa regra vem da ANS.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-802d-b539-f8c13b8b43f8"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80fe-8655-d6f0ad4cd5f1" class=""><strong>Prova social</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-80de-b040-e27f507e5c12" class="">“Esse plano é muito usado por famílias com filhos pequenos.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8044-a917-fe7707866575"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8036-a551-ddc97625cf10" class=""><strong>Clareza</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8073-a9d0-e203e2164f03" class="">“Vou te explicar de forma simples para não restar dúvida.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80e0-8337-cce047346339"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8070-8153-cdc9bf14ca67" class=""><strong>Gatilhos NÃO recomendados</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-802a-a6eb-cb9f7182d5fe" class="bulleted-list"><li style="list-style-type:disc">escassez artificial</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805b-80c6-d999ccad21da" class="bulleted-list"><li style="list-style-type:disc">urgência falsa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8046-8344-ee833f87ccc2" class="bulleted-list"><li style="list-style-type:disc">pressão emocional</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8087-9678-f25ed1c9bbcc" class="">Saúde não combina com urgência forçada.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801a-9e0e-ca5549b61862"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80b0-a830-f8452945f0c0" class=""><strong>6. Aversion to Loss (Medo de Perder vs Desejo de Ganhar)</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-805f-ba34-e518c52d3b96" class=""><strong>Como o cérebro funciona</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b7-bb91-c6d0e00925bd" class="">O ser humano sente <strong>mais dor ao perder</strong> do que prazer ao ganhar.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80bd-9299-d8fad41ea0a2" class="">O cliente não compra pensando:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8038-9ec2-f4effc87c4a7" class="">“Vou ganhar algo.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-807b-bb41-ceb8526a001c" class="">Ele pensa:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8087-8e4f-f2d9ecb06822" class="">“Não quero perder.”</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80de-9614-f6b86193adba" class="">Perder:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8017-ba79-c49cc06603f7" class="bulleted-list"><li style="list-style-type:disc">atendimento</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80fc-ae3b-d3c71df36c7c" class="bulleted-list"><li style="list-style-type:disc">dinheiro</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804e-9384-cc82f419ed54" class="bulleted-list"><li style="list-style-type:disc">tempo</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-804e-a889-cae85b0a1379" class="bulleted-list"><li style="list-style-type:disc">tranquilidade</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-803a-987b-de59d29a6b58"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8082-b576-e9a8d93b1dbb" class=""><strong>Aplicação correta</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-801b-9a86-fb89511f32af" class="">Não é criar medo, é mostrar:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8069-9bdb-f11ae30fc825" class="bulleted-list"><li style="list-style-type:disc">o que pode acontecer sem proteção</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8035-b62d-ea5c78efd150" class="bulleted-list"><li style="list-style-type:disc">de forma realista</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80d3-bec7-d1d0d0e92378" class="bulleted-list"><li style="list-style-type:disc">sem exagero</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801d-947a-d59d75ad277f"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-80e9-b914-d821fa141574" class=""><strong>Exemplo saudável</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-809f-a97c-e83bb3686056" class="">“O plano não evita o problema, mas evita que você fique desassistido quando ele acontecer.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8098-8608-cf3dc87b3f0f"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8082-b962-ec86b32d91a4" class=""><strong>Erro comum</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80eb-98c8-f454d80c3035" class="">Criar pânico:</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8028-b173-ed0dc65f7c18" class="">❌ “Você pode ficar sem atendimento” ou “Sem plano você está desprotegido.”</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80b1-aff2-ff1f0507c089" class="">Uso correto:</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80a4-8247-c79125a78847" class="">✔️ “Sem plano, o acesso pode ser mais difícil e imprevisível.”</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801e-900a-f25dc58b5fca"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-802b-bc78-ea260b17eed4" class=""><strong>7. Segurança Emocional como Gatilho Principal</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-806a-b3ff-c65b0bf6e2f4" class=""><strong>O maior gatilho do plano de saúde</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-808b-9b07-dd98daba7223" class="">Não é preço.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8098-92bf-fb5991dfb8a8" class="">Não é rede.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-809a-ab37-ce7db3a100cc" class="">É <strong>segurança emocional</strong>.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8027-92da-c14f8efdaf2c" class="">Ele quer sair da conversa sentindo:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e8-958c-f97a936169e6" class="bulleted-list"><li style="list-style-type:disc">alívio</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80bd-ac81-d03ae5ea8a6e" class="bulleted-list"><li style="list-style-type:disc">clareza</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-805d-a623-eb6410818c26" class="bulleted-list"><li style="list-style-type:disc">controle</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-802a-be41-f8901989a26f" class="">Não empolgação.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80e8-9434-dd3711d915bb"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8063-b4e7-f33a9fa25ea8" class=""><strong>Como o corretor gera segurança</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80cd-9dc6-ca6cfe29ac01" class="bulleted-list"><li style="list-style-type:disc">explica regras</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8055-abb3-cbb5c9d84430" class="bulleted-list"><li style="list-style-type:disc">mostra limites</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80f1-a49e-d11ae8181040" class="bulleted-list"><li style="list-style-type:disc">não apressa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8088-b078-c59d79c282e7" class="bulleted-list"><li style="list-style-type:disc">valida sentimentos</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-805e-8726-c37d198c5793" class="">Exemplo:</p></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8020-8283-cda1d09fde20" class="">“É normal ter medo de errar nessa decisão.”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-804c-bc19-f8b228ea41b2"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8000-9f25-c903c04c43b3" class=""><strong>Frases que geram segurança</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-801c-9cd9-e28d9264afed" class="bulleted-list"><li style="list-style-type:disc">“Quero te explicar tudo antes da decisão.”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8013-83b7-d9041719e9bf" class="bulleted-list"><li style="list-style-type:disc">“Prefiro que você entenda do que feche rápido.”</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8004-afb3-e2619eb8bd51" class="bulleted-list"><li style="list-style-type:disc">“Vamos olhar com calma.”</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-801d-ac28-cd6e94bd3c2b"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8046-9089-faf3ca42015e" class=""><strong>Resultado</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8075-ab8b-ee02250e6beb" class="">Cliente tranquilo decide melhor.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8078-a422-f462efec255e" class="">Cliente seguro cancela menos.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8079-a1a2-e12e5c9d5767"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8023-82a7-fbb56f5bcda4" class=""><strong>O que destrói segurança</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8034-8419-fc95edd5d613" class="bulleted-list"><li style="list-style-type:disc">pressa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80af-b101-e31f5d7cc290" class="bulleted-list"><li style="list-style-type:disc">contradição</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8047-ad18-e1547758c4c9" class="bulleted-list"><li style="list-style-type:disc">promessas vagas</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80f7-a04b-ca24ee27d20b"/></div><div style="display:contents" dir="auto"><h2 id="2cd06824-621d-80a7-a814-caf43f1a0095" class=""><strong>8. Clareza como Técnica de Persuasão</strong></h2></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8013-9719-f17d1fd7dcf3" class=""><strong>Clareza vende</strong></h3></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8056-9c38-c8c5522dc15a" class="">Quando o cliente entende:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8016-9728-fbfacdb875f6" class="bulleted-list"><li style="list-style-type:disc">ele confia</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8081-bfae-ff4de192d54c" class="bulleted-list"><li style="list-style-type:disc">ele se acalma</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8022-9f00-c1aac01933aa" class="bulleted-list"><li style="list-style-type:disc">ele decide</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d6-8511-f964ed078454" class="">Ansiedade trava decisão.</p></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8049-8b14-e24c4da52325" class="">Clareza libera.</p></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-806d-bf79-d72a1ee98097"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8068-a206-f78dbb5b078b" class=""><strong>Como gerar clareza</strong></h3></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8047-baed-f617c66cc5d4" class="bulleted-list"><li style="list-style-type:disc">menos termos técnicos</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8028-abac-cb606f2f6b24" class="bulleted-list"><li style="list-style-type:disc">exemplos do cotidiano</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8043-a3bb-f06d04f7c7f1" class="bulleted-list"><li style="list-style-type:disc">repetir o essencial</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80e3-b601-c178c5f8212f" class="bulleted-list"><li style="list-style-type:disc">confirmar entendimento</li></ul></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-8041-ab15-ecff35b78bad"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8039-8042-cfd280fc5c62" class=""><strong>Frase-chave</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8091-83ae-e27d3d2b9de2" class="">“Ficou claro para você como funciona?”</blockquote></div><div style="display:contents" dir="auto"><hr id="2cd06824-621d-80d3-9951-e0fc5d701ea4"/></div><div style="display:contents" dir="auto"><h3 id="2cd06824-621d-8088-89fe-e99f845fc69f" class=""><strong>Regra de ouro</strong></h3></div><div style="display:contents" dir="auto"><blockquote id="2cd06824-621d-8020-ac0d-f3a09fea9652" class="">Se o cliente sai com dúvida, a venda não está pronta.</blockquote></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-8007-b557-d17799ad3243" class="">O cliente sabe:</p></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80af-b044-f0bcfea40e76" class="bulleted-list"><li style="list-style-type:disc">o que está contratando</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-8076-abd5-fd856ffeb90d" class="bulleted-list"><li style="list-style-type:disc">o que não está</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80a9-8cc7-cf9cda7f0889" class="bulleted-list"><li style="list-style-type:disc">quando começa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-806a-bc04-e6c4fb4976da" class="bulleted-list"><li style="list-style-type:disc">quanto custa</li></ul></div><div style="display:contents" dir="auto"><ul id="2cd06824-621d-80fd-a77f-c75dde52e52e" class="bulleted-list"><li style="list-style-type:disc">como usar</li></ul></div><div style="display:contents" dir="auto"><p id="2cd06824-621d-80d0-b0d0-d7fc56784063" class="">Se faltar um item, a decisão não amadureceu.</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
