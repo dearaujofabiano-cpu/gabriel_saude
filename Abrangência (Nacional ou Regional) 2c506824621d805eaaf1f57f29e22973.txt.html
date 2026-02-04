@@ -1,0 +1,713 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Abrangência (Nacional ou Regional)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2c506824-621d-805e-aaf1-f57f29e22973" class="page sans"><header><h1 class="page-title" dir="auto">Abrangência (Nacional ou Regional)</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><p id="2c606824-621d-8020-9b54-f00ff42bb379" class="">A <strong>abrangência</strong> é uma das características mais importantes de um plano de saúde e influencia diretamente o <strong>preço</strong>, o <strong>perfil ideal de cliente</strong>, a <strong>rede credenciada disponível</strong> e até a <strong>experiência do usuário</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80af-a6f7-e41c3d3af000" class="">É um dos tópicos que você mais precisa dominar para vender com segurança — e um dos que mais geram objeções e dúvidas.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80f5-a60a-eed2055d77f7"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80a9-8441-f0f0b8d62094" class=""><strong>1. O que é Abrangência?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-806f-b249-eae4c6e2b316" class="">Abrangência é a <strong>área geográfica onde o beneficiário tem direito a atendimento</strong> pela rede credenciada do plano.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8043-a419-d037cd8dd7a2" class="">Ela define <em>onde</em> o cliente pode utilizar hospitais, clínicas, laboratórios, pronto atendimento e outros serviços de cobertura.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8045-972a-f49b4ec48e6a" class="">É determinada pela <strong>ANS</strong> e tem regras claras.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80d7-a862-eb7e2f2d7f2e" class="">Os principais tipos são:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8082-a6ac-cbebd2f81d41" class="bulleted-list"><li style="list-style-type:disc"><strong>Regional</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e7-86ec-dd17a6e021c9" class="bulleted-list"><li style="list-style-type:disc"><strong>Estadual</strong> (algumas operadoras usam essa categoria intermediária)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801b-9ab7-ecf4d3d4a812" class="bulleted-list"><li style="list-style-type:disc"><strong>Nacional</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8030-a855-de6914434f6b" class="">Mas, no dia a dia comercial, os dois termos centrais são:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f9-8e08-e0b6d25a891a" class="bulleted-list"><li style="list-style-type:disc"><strong>Nacional</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8027-b03f-dac5162117c3" class="bulleted-list"><li style="list-style-type:disc"><strong>Regional</strong></li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8050-a149-d5bc693e82a8"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8045-80ff-edebb777ce45" class=""><strong>2. Plano Regional: definição completa</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c2-8271-d1a2d8376477" class="">O plano <strong>Regional</strong> cobre atendimento <strong>somente dentro de uma área específica</strong> — normalmente a cidade, a região metropolitana ou o estado onde o plano foi contratado.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8065-b174-d3ffab26c5eb" class="">Exemplos reais:</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807c-8ed3-ff5ac2abbfdc" class="bulleted-list"><li style="list-style-type:disc"><strong>São Paulo e Grande SP</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ed-8249-f9f15710969a" class="bulleted-list"><li style="list-style-type:disc"><strong>Região Sul</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e1-a797-fdc5f0c369ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Região Nordeste</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8019-a65f-e8fe66805bd6" class="bulleted-list"><li style="list-style-type:disc"><strong>Estado do Rio de Janeiro</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a9-b6e0-faabd791909a" class="bulleted-list"><li style="list-style-type:disc"><strong>Interior de Minas</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-9d15-ed0f845466ea" class="bulleted-list"><li style="list-style-type:disc"><strong>Distrito Federal e entorno</strong></li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80fa-a1b2-cd78f945d810" class="">Cada operadora define suas próprias regiões.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809e-b045-daf4d11ebacc" class="">Características do plano regional:</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80ec-97d8-c65ee2d4b39b" class="bulleted-list"><li style="list-style-type:disc"><strong>Preço mais baixo</strong> (um dos mais baratos do mercado)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f2-9e1b-c4dfb56c8db1" class="bulleted-list"><li style="list-style-type:disc">Rede credenciada <strong>limitada àquela região</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8084-bb63-f49b893d5040" class="bulleted-list"><li style="list-style-type:disc">Ideal para pessoas que <strong>não viajam com frequência</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f5-9e29-e42ac4e83b43" class="bulleted-list"><li style="list-style-type:disc">Cobertura <strong>fora da área</strong> somente em casos de <strong>urgência/emergência</strong>, conforme RN da ANS.</li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-8082-aa9d-fb9ea05fe1f3" class="">Importante: atenção ao cliente</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8033-b6a9-d6e9248d42a5" class="">O cliente precisa entender que <em>não poderá utilizar o plano em outros estados</em>, exceto emergências.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-802a-8b33-e955be9ed553" class="">Isso deve estar 100% claro.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-807e-af99-d00d5ff70469"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8099-b8c6-e285a3d1d2f9" class=""><strong>3. Plano Nacional: definição completa</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8076-aac3-cd79fead50eb" class="">O plano <strong>Nacional</strong> oferece cobertura em <strong>todo o território brasileiro</strong>.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bd-a8b5-e8729372b2f2" class="">O cliente pode usar:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804d-ae31-f9befeb27a5d" class="bulleted-list"><li style="list-style-type:disc">hospitais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8084-93ab-ee634d1d92df" class="bulleted-list"><li style="list-style-type:disc">clínicas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809b-abe4-d9a26f283881" class="bulleted-list"><li style="list-style-type:disc">laboratórios</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8050-b80f-f2fbccf7c312" class="bulleted-list"><li style="list-style-type:disc">pronto atendimentos</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80de-8142-de1f33a06c74" class="">…de todas as regiões do país que façam parte da rede credenciada da operadora.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809b-876a-cc325292c57f" class="">Características do plano nacional:</h3></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801e-b094-f8cb06a78de1" class="bulleted-list"><li style="list-style-type:disc"><strong>Maior valor mensal</strong> (pode ser até 40% mais caro, dependendo do plano)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8080-b8be-e166de272973" class="bulleted-list"><li style="list-style-type:disc"><strong>Rede muito maior</strong></li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8078-8040-e517b316b776" class="bulleted-list"><li style="list-style-type:disc">Ideal para clientes que:<div style="display:contents" dir="auto"><ul id="2c606824-621d-807c-83d3-f3013e8402ee" class="bulleted-list"><li style="list-style-type:circle">viajam</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8093-aa25-f199b5a6d008" class="bulleted-list"><li style="list-style-type:circle">moram em uma cidade, mas trabalham em outra</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8004-8e76-df911cd75431" class="bulleted-list"><li style="list-style-type:circle">têm filhos estudando fora</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8067-a7a0-d31491392f71" class="bulleted-list"><li style="list-style-type:circle">passam parte do ano em outro estado</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-805b-b61c-c07441d31a6e" class="bulleted-list"><li style="list-style-type:circle">têm familiares em várias regiões</li></ul></div></li></ul></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-806e-a212-c142e1dbc3d4" class="">Benefício adicional:</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80db-9369-fbc3831299d5" class="">Alguns planos nacionais incluem <strong>rede premium</strong>, hospitais de referência e cobertura em grandes capitais.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8038-9eca-f4f5b7cfa660"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-801b-97a3-dce0dc8401ae" class=""><strong>4. Como funciona a rede credenciada na prática</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8012-92c1-c2a1f763190b" class="">A abrangência interfere diretamente na rede credenciada:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-801b-82a8-ec5d8df16db0" class="">Plano Regional</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-802a-b21f-e73cbb030243" class="">→ A rede é <strong>composta apenas</strong> por prestadores daquela região específica.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-807f-81d1-f6743b8add84" class="">Hospitais de outro estado não atendem.</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80b3-b070-e8d94734bf92" class="">Plano Nacional</h3></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8046-9056-cf03af3c516f" class="">→ A rede é <strong>ampla</strong> e cobre:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8001-9a84-f6c42ace4bfb" class="bulleted-list"><li style="list-style-type:disc">capitais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8053-a2ad-e4c60cf1a2fa" class="bulleted-list"><li style="list-style-type:disc">regiões metropolitanas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80de-b2ca-c549061e4417" class="bulleted-list"><li style="list-style-type:disc">grandes hospitais de renome</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8004-afd9-dcbdf2cad3eb" class="bulleted-list"><li style="list-style-type:disc">clínicas especializadas espalhadas pelo país</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80cb-b754-e0896993e0f5" class="">Não significa que <em>todos</em> os hospitais do Brasil atendem — apenas os <strong>credenciados</strong> pela operadora nacionalmente.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8044-804e-ec5e2bc3d983"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8009-a62b-ed0ce30887ed" class=""><strong>5. Impacto da Abrangência no Preço</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80f5-a5f4-ce5ede1f303d" class="">A abrangência é um dos fatores que mais influenciam o valor do plano:</p></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-809a-b810-fc144ac71716" class="">Por que o plano nacional é mais caro?</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80e1-af42-fecddc3209c1" class="numbered-list" start="1"><li>A operadora precisa manter <strong>rede credenciada em todo o país</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80ea-bbd5-e5005d14876b" class="numbered-list" start="2"><li>Hospitais de grande porte têm <strong>valores mais altos</strong>.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8055-ba23-c4c474ac35e7" class="numbered-list" start="3"><li>A probabilidade de uso é maior (viagens, emergências fora do estado).</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80b6-93c6-fd27e3ba3ff3" class="numbered-list" start="4"><li>Há custos administrativos maiores.</li></ol></div><div style="display:contents" dir="auto"><h3 id="2c606824-621d-80b2-bd03-c1559e065768" class="">Por que o plano regional é mais barato?</h3></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8013-a9ac-d39c65facc32" class="numbered-list" start="1"><li>Rede menor e localizada.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-80c4-8846-d05b33ebf801" class="numbered-list" start="2"><li>Custos operacionais e hospitalares mais baixos.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c606824-621d-8090-b74d-db47c66b1791" class="numbered-list" start="3"><li>Menor risco de utilização em deslocamentos.</li></ol></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-806b-ade3-eceb6063a01a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8065-ab80-f0b5d6ae11f6" class=""><strong>6. Quando um plano Regional pode ser suficiente?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80bd-8f25-f98879dc3cd5" class="">Excelente para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809f-9215-ca5a67a2b73d" class="bulleted-list"><li style="list-style-type:disc">aposentados que vivem na mesma cidade e não viajam</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80f0-b7a7-cbaeec7e281f" class="bulleted-list"><li style="list-style-type:disc">pessoas que trabalham e moram sempre no mesmo lugar</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c4-8fc0-db30b51c8e58" class="bulleted-list"><li style="list-style-type:disc">famílias com rotina local</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8020-8c58-d53525e2780f" class="bulleted-list"><li style="list-style-type:disc">empresas pequenas que querem economizar</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8031-8e54-f085022b9df4" class="bulleted-list"><li style="list-style-type:disc">pessoas com orçamento limitado</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8063-bf11-c969a59e70e6" class="bulleted-list"><li style="list-style-type:disc">clientes que priorizam preço</li></ul></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8008-8f46-ebbc28d0e976"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-80cb-88e2-ce410f515852" class=""><strong>7. Quando o plano Nacional é indispensável?</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8025-93fe-c69df1c241b6" class="">Recomendado para:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80c8-85ed-d4f650ebe66c" class="bulleted-list"><li style="list-style-type:disc">profissionais que viajam a trabalho</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8097-8058-f8ff34896e30" class="bulleted-list"><li style="list-style-type:disc">representantes comerciais</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a2-9b2c-c54feb45b467" class="bulleted-list"><li style="list-style-type:disc">motoristas de transporte ou logística</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-804e-afc1-f3a2512de010" class="bulleted-list"><li style="list-style-type:disc">famílias com filhos estudando em outra cidade/estado</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80aa-a327-f53843df278a" class="bulleted-list"><li style="list-style-type:disc">pessoas que vivem entre duas cidades (ex: mora em SP e fica no RJ nos fins de semana)</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-801d-9682-ca96e8207aa1" class="bulleted-list"><li style="list-style-type:disc">quem busca hospitais de referência nacional</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8039-ba51-cba0117fb7f2" class="">Se o cliente <strong>usa diferentes cidades</strong>, nacional é obrigatório.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80f3-99e3-f46ef6e9a550"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-803c-8cb5-fe78eba325dc" class=""><strong>8. Atendimento fora da área de abrangência (emergência X rotina)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8073-9159-e3ad2e94e047" class="">Regra da ANS:</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-8008-9b33-e49b6ead4e80" class="">✔ <strong>Emergência e urgência</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c6-9d96-db03dce0c344" class="">Todo plano, inclusive regional, <strong>deve atender</strong> em casos de risco imediato.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-808f-9416-c01b2d92523c" class="">Exemplos:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806e-a5b2-d90686d9a0d8" class="bulleted-list"><li style="list-style-type:disc">acidente</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8083-bfd7-f37a353b387c" class="bulleted-list"><li style="list-style-type:disc">fratura</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-806c-99de-cbf90db9be0b" class="bulleted-list"><li style="list-style-type:disc">infarto</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a4-9501-d44dbab4f2a8" class="bulleted-list"><li style="list-style-type:disc">AVC</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-809f-b2a8-e632fc47ebda" class="bulleted-list"><li style="list-style-type:disc">hemorragia</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a9-a586-c63427955c1b" class="bulleted-list"><li style="list-style-type:disc">risco materno</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8086-b6b4-cbb2b0d65ee5" class="">O atendimento será feito em <strong>qualquer lugar do Brasil</strong> onde houver credenciamento para urgência/emergência.</p></div><div style="display:contents" dir="auto"><h2 id="2c606824-621d-80cd-b203-d8bfc6e21c0c" class="">❌ <strong>Rotina fora da área</strong></h2></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80c5-98b8-de293b969d71" class="">Não é permitido.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8088-993b-ec0a7fdd25c3" class="">Exemplos:</p></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-808a-aff5-f56401714c5d" class="bulleted-list"><li style="list-style-type:disc">consultas eletivas</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d6-b3e2-ed0c66c9ac52" class="bulleted-list"><li style="list-style-type:disc">check-ups</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8098-b0d9-ecb7a6f54add" class="bulleted-list"><li style="list-style-type:disc">exames de rotina</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80e5-b15a-fec1518ec3d5" class="bulleted-list"><li style="list-style-type:disc">terapias</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8081-9ca1-c75fd665f2ef" class="bulleted-list"><li style="list-style-type:disc">acompanhamento médico</li></ul></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80a9-bfb3-c1a1e6ecec65" class="">Somente planos nacionais permitem isso.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-8071-b365-e000acfe8568"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-800b-8450-cc5844dad136" class=""><strong>9. Como explicar Abrangência para o cliente (de forma simples e perfeita)</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80ef-be78-d295feb63a49" class=""><strong>Explicação curta e didática:</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80cc-a0db-e3dff4eceb17" class="">“Abrangência é a área onde você pode usar o plano.<div style="display:contents" dir="auto"><p id="2c606824-621d-801b-8aa8-c412fa5d0f5a" class="">Plano regional funciona só na sua região.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8010-831d-e30f6ad8372f" class="">Plano nacional funciona no Brasil inteiro.”</p></div></blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8020-8a7b-d83504d02c4c" class=""><strong>Quando explicar o regional:</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80ed-aaa7-c5423658b4ab" class="">“Se sua rotina é local e você não viaja, o regional te atende, é mais barato e resolve tudo.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80cf-acfc-f1a43692a121" class=""><strong>Quando explicar o nacional:</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-80b0-8218-f0a2b10c1163" class="">“Se você viaja, trabalha em outra cidade ou quer liberdade para usar o plano em qualquer estado, o nacional é o ideal.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-803f-8b74-de269801bac9" class=""><strong>Quando mostrar o risco do cliente escolher errado:</strong></p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-804b-ae39-fce640b27bda" class="">“Se um dia você estiver em outro estado e precisar de um médico para algo que não seja emergência, o regional não cobre. Aí você terá que pagar particular.”</blockquote></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80da-b7bf-feed4d72fb74" class="">Isso cria clareza e reduz objeções.</p></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80c2-8b9b-da6de3419118"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8027-8158-d6c611d70103" class=""><strong>10. Como apresentar opções ao cliente</strong></h1></div><div style="display:contents" dir="auto"><p id="2c606824-621d-80b1-b321-ed410364251a" class="">Uma frase prática para a vendedora usar:</p></div><div style="display:contents" dir="auto"><blockquote id="2c606824-621d-8049-be3b-dbbfd4011ecc" class="">“Vou te mostrar duas opções:<div style="display:contents" dir="auto"><p id="2c606824-621d-8081-ad55-e2b83faf1ae8" class="">– uma mais econômica, com atendimento apenas na sua região;</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-8011-8ecb-c803cdf513bb" class="">– outra mais completa, com atendimento no Brasil inteiro.</p></div><div style="display:contents" dir="auto"><p id="2c606824-621d-803b-add4-ecdd6162f8b3" class="">A diferença de preço é pela área de uso. Vamos ver qual combina com sua rotina?”</p></div></blockquote></div><div style="display:contents" dir="auto"><hr id="2c606824-621d-80a9-977c-e8e55efe742a"/></div><div style="display:contents" dir="auto"><h1 id="2c606824-621d-8062-8db3-d719e59d1045" class=""><strong>11. Erros comuns </strong></h1></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807b-b858-dfc9407d8468" class="bulleted-list"><li style="list-style-type:disc">Confundir “emergência fora da área” com “atendimento livre”</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80d9-96f5-e2ab77e4e158" class="bulleted-list"><li style="list-style-type:disc">Prometer que o cliente poderá usar hospitais nacionais em plano regional</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-80a7-9e46-f2cf91e1d7c0" class="bulleted-list"><li style="list-style-type:disc">Não alertar claramente sobre limitações de área</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-807f-b114-c62927c72f68" class="bulleted-list"><li style="list-style-type:disc">Pressionar o cliente a pegar nacional quando ele não precisa</li></ul></div><div style="display:contents" dir="auto"><ul id="2c606824-621d-8018-9671-de2aeb5c4808" class="bulleted-list"><li style="list-style-type:disc">Não perguntar sobre deslocamentos de rotina</li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
